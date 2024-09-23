@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>AR.js Avatar Example</title>
@@ -7,53 +7,94 @@
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <!-- AR.js -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <style>
+        /* Style for the welcome page */
+        #welcomePage {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        #welcomeMessage {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #startButton {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #startButton:hover {
+            background-color: #45a049;
+        }
+
+        /* Hide the AR scene initially */
+        #arScene {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body style="margin: 0; overflow: hidden;">
-<a-scene
-        embedded
-        arjs>
+<!-- Welcome Page -->
+<div id="welcomePage">
+    <div id="welcomeMessage">Willkommen zur Campus Tour an der Universität Stuttgart</div>
+    <button id="startButton">Kamera Öffnen</button>
+</div>
+
+<!-- AR Scene -->
+<a-scene id="arScene" embedded arjs>
     <!-- Marker using the local pattern-hiro.patt file -->
-    <a-marker type="pattern" url="assets/pattern-makeMINTcool_Logo.patt" size="0.25">
+    <a-marker type="pattern" url="https://aldammar.github.io/campusTour/assets/pattern-hiro.patt" size="0.25">
         <!-- 3D Avatar model of an Avocado -->
         <a-entity
-                gltf-model="models/Avocado.gltf"
-                position="0 0 0"
-                scale="10 10 10"
-                rotation="0 180 0">
-            >
+                gltf-model="https://aldammar.github.io/campusTour/models/Avocado.gltf"
+                scale="0.1 0.1 0.1"
+                position="0 0 0">
         </a-entity>
         <!-- Text message -->
-        <a-text id="message" value="Tap me to speak!" position="0 1.5 0" scale="3 3 3" color="red"
-                rotation="0 180 0"></a-text>
+        <a-text id="message" value="Tap me to speak!" position="0 1.5 0"></a-text>
     </a-marker>
-    <a-entity camera></a-entity>
+    <a-entity camera="fov: 100" position="0 0 5"></a-entity>
 </a-scene>
 
 <script>
     window.onload = () => {
-        const messageText = "Hello! Welcome to my AR world!";
-        const url = document.location.href;
-
-        document.querySelectorAll('a-marker').forEach(marker => {
-            const originalUrl = marker.getAttribute('url');
-            marker.setAttribute('url', `${url}${originalUrl}`);
-        });
-        document.querySelectorAll('a-entity').forEach(marker => {
-            if (marker.hasAttribute('gltf-model')) {
-                const originalUrl = marker.getAttribute('gltf-model');
-                marker.setAttribute('gltf-model', `${url}${originalUrl}`);
-            }
-        });
-
+        const messageText = "Hallo! Willkommen in meiner AR-Welt!";
 
         // Trigger speech when the model or marker is clicked
         document.querySelector('a-marker').addEventListener('click', () => {
             const speech = new SpeechSynthesisUtterance(messageText);
-            speech.lang = 'en-US';  // You can change this to the language you prefer
+            speech.lang = 'de-DE';  // Set to German language
             window.speechSynthesis.speak(speech);
 
             // Update the text in the AR scene
             document.querySelector('#message').setAttribute('value', messageText);
+        });
+
+        // Start AR experience when the button is clicked
+        const startButton = document.getElementById('startButton');
+        const welcomePage = document.getElementById('welcomePage');
+        const arScene = document.getElementById('arScene');
+
+        startButton.addEventListener('click', () => {
+            // Hide the welcome page and show the AR scene
+            welcomePage.style.display = 'none';
+            arScene.style.display = 'block';
         });
     };
 </script>
