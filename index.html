@@ -15,7 +15,12 @@
     <!-- Marker using the local pattern-hiro.patt file -->
     <a-marker type="pattern" url="https://aldammar.github.io/campusTour/assets/pattern-hiro.patt" size="0.25">
         <!-- 3D Avatar model of an Avocado -->
-        <a-box color="red" scale="1 1 1"></a-box>
+        <a-entity
+                gltf-model="https://aldammar.github.io/campusTour/models/Avocado.gltf"
+                scale="0.1 0.1 0.1"
+                position="0 0 0"
+        >
+        </a-entity>
         <!-- Text message -->
         <a-text id="message" value="Tap me to speak!" position="0 1.5 0"></a-text>
     </a-marker>
