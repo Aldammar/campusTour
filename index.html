@@ -13,11 +13,10 @@
         embedded
         arjs>
     <!-- Marker using the local pattern-hiro.patt file -->
-    <a-marker type="pattern" url="https://aldammar.github.io/campusTour/assets/pattern-hiro.patt" size="0.25">
+    <a-marker type="pattern" url="assets/pattern-hiro.patt" size="0.25">
         <!-- 3D Avatar model of an Avocado -->
         <a-entity
-                gltf-model="https://aldammar.github.io/campusTour/models/Avocado.gltf"
-                scale="0.1 0.1 0.1"
+                gltf-model="models/Avocado.gltf"
                 position="0 0 0"
         >
         </a-entity>
@@ -30,6 +29,19 @@
 <script>
     window.onload = () => {
         const messageText = "Hello! Welcome to my AR world!";
+        const url = document.location.href;
+
+        document.querySelectorAll('a-marker').forEach(marker => {
+            const originalUrl = marker.getAttribute('url');
+            marker.setAttribute('url', `${url}${originalUrl}`);
+        });
+        document.querySelectorAll('a-entity').forEach(marker => {
+            if (marker.hasAttribute('gltf-model')) {
+                const originalUrl = marker.getAttribute('gltf-model');
+                marker.setAttribute('gltf-model', `${url}${originalUrl}`);
+            }
+        });
+
 
         // Trigger speech when the model or marker is clicked
         document.querySelector('a-marker').addEventListener('click', () => {
