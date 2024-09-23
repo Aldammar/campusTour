@@ -15,14 +15,14 @@
            embedded
            arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
     <!-- Marker using the local pattern-hiro.patt file -->
-    <a-marker type="pattern" url="./assets/pattern-hiro.patt">
+    <a-marker type="pattern" url="./assets/pattern-hiro.patt" size="0.25">
       <!-- 3D Avatar model of an Avocado -->
-      <a-gltf-model src="./models/Avocado.gltf" scale="0.5 0.5 0.5" position="0 0 0"></a-gltf-model>
+      <a-gltf-model src="./models/Avocado.gltf" scale="0.1 0.1 0.1" position="0 0 0"></a-gltf-model>
 
       <!-- Text message -->
       <a-text id="message" value="Tap me to speak!" position="0 1.5 0"></a-text>
     </a-marker>
-    <a-entity camera="fov: 80" position="0 0 5"></a-entity>
+    <a-entity camera="fov: 100" position="0 0 5"></a-entity>
   </a-scene>
 
   <script>
