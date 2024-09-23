@@ -14,7 +14,10 @@
         arjs>
     <!-- Marker using the local pattern-hiro.patt file -->
     <a-marker preset="hiro"">
-        <a-box color="red" scale="1 1 1"></a-box>
+        <!-- 3D Avatar model of an Avocado -->
+        <a-gltf-model src="./models/Avocado.gltf" scale="0.1 0.1 0.1" position="0 0 0"></a-gltf-model>
+        <!-- Text message -->
+        <a-text id="message" value="Tap me to speak!" position="0 1.5 0"></a-text>
     </a-marker>
     <a-entity camera="fov: 100" position="0 0 5"></a-entity>
 </a-scene>
