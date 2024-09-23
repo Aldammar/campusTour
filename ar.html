@@ -3,57 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>AR.js Avatar Example</title>
-    <link rel="stylesheet" href="styles.css">
     <!-- A-Frame -->
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <!-- AR.js -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-    <!-- Loading screen -->
-    <div id="loading-screen">
-        <h1>Camera initializing, please wait...</h1>
-    </div>
+<a-scene
+        embedded
+        arjs>
+    <!-- Marker using the local pattern-hiro.patt file -->
+    <a-marker type="pattern" url="assets/pattern-makeMINTcool_Logo.patt" size="0.25">
+        <!-- 3D Avatar model of an Avocado -->
+        <a-entity
+                gltf-model="models/Avocado.gltf"
+                position="0 0 0"
+                scale="10 10 10"
+                rotation="0 180 0">
+            >
+        </a-entity>
+        <!-- Text message -->
+        <a-text id="message" value="Tap me to speak!" position="0 1.5 0" scale="3 3 3" color="red"
+                rotation="0 180 0"></a-text>
+    </a-marker>
+    <a-entity camera></a-entity>
+</a-scene>
 
-    <!-- AR Scene Page -->
-    <div id="ar-page" style="display:none;">
-        <a-scene embedded arjs>
-            <a-marker type="pattern" url="https://aldammar.github.io/campusTour/assets/pattern-hiro.patt" size="0.25">
-                <a-entity
-                    gltf-model="https://aldammar.github.io/campusTour/models/Avocado.gltf"
-                    scale="0.1 0.1 0.1"
-                    position="0 0 0">
-                </a-entity>
-                <a-text id="message" value="Tap me to speak!" position="0 1.5 0"></a-text>
-            </a-marker>
-            <a-entity camera="fov: 100" position="0 0 5"></a-entity>
-        </a-scene>
-    </div>
+<script>
+    window.onload = () => {
+        const messageText = "Hello! Welcome to my AR world!";
+        const url = document.location.href;
 
-    <script>
-        // Show the loading screen while the camera is initializing
-        window.onload = () => {
-            const loadingScreen = document.getElementById('loading-screen');
-            const arPage = document.getElementById('ar-page');
-            const messageText = "Hello! Welcome to my AR world!";
+        document.querySelectorAll('a-marker').forEach(marker => {
+            const originalUrl = marker.getAttribute('url');
+            marker.setAttribute('url', `${url}${originalUrl}`);
+        });
+        document.querySelectorAll('a-entity').forEach(marker => {
+            if (marker.hasAttribute('gltf-model')) {
+                const originalUrl = marker.getAttribute('gltf-model');
+                marker.setAttribute('gltf-model', `${url}${originalUrl}`);
+            }
+        });
 
-            // Delay to allow camera initialization
-            setTimeout(() => {
-                // Hide loading screen and show AR page after camera has had time to initialize
-                loadingScreen.style.display = 'none';
-                arPage.style.display = 'block';
-            }, 10); // Adjust the delay as needed
 
-            // Trigger speech when the marker or model is clicked
-            document.querySelector('a-marker').addEventListener('click', () => {
-                const speech = new SpeechSynthesisUtterance(messageText);
-                speech.lang = 'en-US';
-                window.speechSynthesis.speak(speech);
+        // Trigger speech when the model or marker is clicked
+        document.querySelector('a-marker').addEventListener('click', () => {
+            const speech = new SpeechSynthesisUtterance(messageText);
+            speech.lang = 'en-US';  // You can change this to the language you prefer
+            window.speechSynthesis.speak(speech);
 
-                // Update the text in the AR scene
-                document.querySelector('#message').setAttribute('value', messageText);
-            });
-        };
-    </script>
+            // Update the text in the AR scene
+            document.querySelector('#message').setAttribute('value', messageText);
+        });
+    };
+</script>
 </body>
 </html>
