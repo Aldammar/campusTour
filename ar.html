@@ -32,7 +32,12 @@
 <script>
     window.onload = () => {
         const messageText = "Hello! Welcome to my AR world!";
-        const url = document.location.href;
+        const url_arr = document.location.href.split("/");
+        if (url_arr[url_arr.length - 1] !== "campusTour") {
+            url_arr.pop();
+        }
+        const url = url_arr.join("/") + "/";
+
 
         document.querySelectorAll('a-marker').forEach(marker => {
             const originalUrl = marker.getAttribute('url');
@@ -49,7 +54,8 @@
         // Trigger speech when the model or marker is clicked
         document.querySelector('a-marker').addEventListener('click', () => {
             const speech = new SpeechSynthesisUtterance(messageText);
-            speech.lang = 'en-US';  // You can change this to the language you prefer
+            const voice = window.speechSynthesis.getVoices().find(value => value.lang === "en-US")|| window.speechSynthesis.getVoices()[0];
+            speech.voice = voice;
             window.speechSynthesis.speak(speech);
 
             // Update the text in the AR scene
