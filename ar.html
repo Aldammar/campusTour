@@ -42,7 +42,7 @@
                 // Hide loading screen and show AR page after camera has had time to initialize
                 loadingScreen.style.display = 'none';
                 arPage.style.display = 'block';
-            }, 3000); // Adjust the delay as needed
+            }, 10); // Adjust the delay as needed
 
             // Trigger speech when the marker or model is clicked
             document.querySelector('a-marker').addEventListener('click', () => {
