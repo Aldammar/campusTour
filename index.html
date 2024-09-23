@@ -1,67 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>AR.js Avatar Example</title>
-    <!-- A-Frame -->
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <!-- AR.js -->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <title>Campus Tour - Universität Stuttgart</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body style="margin: 0; overflow: hidden;">
-<a-scene
-        embedded
-        arjs>
-    <!-- Marker using the local pattern-hiro.patt file -->
-    <a-marker type="pattern" url="assets/pattern-makeMINTcool_Logo.patt" size="0.25">
-        <!-- 3D Avatar model of an Avocado -->
-        <a-entity
-                gltf-model="models/Avocado.gltf"
-                position="0 0 0"
-                scale="10 10 10"
-                rotation="270 0 0">
-            >
-        </a-entity>
-        <!-- Text message -->
-        <a-text id="message" value="Tap me to speak!" position="-1.5 0 .1" scale="1.5 1.5 1.5" color="red"
-                rotation="270 0 0"></a-text>
-    </a-marker>
-    <a-entity camera></a-entity>
-</a-scene>
-
-<script>
-    window.onload = () => {
-        const messageText = "Hello! Welcome to my AR world!";
-        const url_arr = document.location.href.split("/");
-        if (url_arr[url_arr.length - 1] !== "campusTour") {
-            url_arr.pop();
-        }
-        const url = url_arr.join("/") + "/";
-
-        document.querySelectorAll('a-marker').forEach(marker => {
-            const originalUrl = marker.getAttribute('url');
-            marker.setAttribute('url', `${url}${originalUrl}`);
-        });
-        document.querySelectorAll('a-entity').forEach(marker => {
-            if (marker.hasAttribute('gltf-model')) {
-                const originalUrl = marker.getAttribute('gltf-model');
-                marker.setAttribute('gltf-model', `${url}${originalUrl}`);
-            }
-        });
-
-
-        // Trigger speech when the model or marker is clicked
-        document.querySelector('a-marker').addEventListener('click', () => {
-            console.log('Clicked!');
-            const speech = new SpeechSynthesisUtterance(messageText);
-            const voice = window.speechSynthesis.getVoices().find(value => value.lang === 'en-US') || window.speechSynthesis.getVoices()[0];
-            speech.voice = voice;  // You can change this to the language you prefer
-            window.speechSynthesis.speak(speech);
-
-            // Update the text in the AR scene
-            document.querySelector('#message').setAttribute('value', messageText);
-        });
-    };
-</script>
+<body>
+    <div id="welcome-page" class="active">
+        <h1>Willkommen zum Campus Tour an der Universität Stuttgart</h1>
+        <button onclick="openCamera()">Kamera Öffnen</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
