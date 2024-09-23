@@ -41,8 +41,8 @@
             background-color: #45a049;
         }
 
-        /* Hide the AR scene initially */
-        #arScene {
+        /* Hide the AR scene container initially */
+        #arContainer {
             display: none;
             width: 100vw;
             height: 100vh;
@@ -56,45 +56,56 @@
     <button id="startButton">Kamera Öffnen</button>
 </div>
 
-<!-- AR Scene -->
-<a-scene id="arScene" embedded arjs>
-    <!-- Marker using the local pattern-hiro.patt file -->
-    <a-marker type="pattern" url="https://aldammar.github.io/campusTour/assets/pattern-hiro.patt" size="0.25">
-        <!-- 3D Avatar model of an Avocado -->
-        <a-entity
-                gltf-model="https://aldammar.github.io/campusTour/models/Avocado.gltf"
-                scale="0.1 0.1 0.1"
-                position="0 0 0">
-        </a-entity>
-        <!-- Text message -->
-        <a-text id="message" value="Tap me to speak!" position="0 1.5 0"></a-text>
-    </a-marker>
-    <a-entity camera="fov: 100" position="0 0 5"></a-entity>
-</a-scene>
+<!-- AR Scene Container (Initially Hidden) -->
+<div id="arContainer"></div>
 
 <script>
     window.onload = () => {
         const messageText = "Hallo! Willkommen in meiner AR-Welt!";
 
-        // Trigger speech when the model or marker is clicked
-        document.querySelector('a-marker').addEventListener('click', () => {
-            const speech = new SpeechSynthesisUtterance(messageText);
-            speech.lang = 'de-DE';  // Set to German language
-            window.speechSynthesis.speak(speech);
+        // Define function to load AR scene dynamically
+        const loadARScene = () => {
+            const arContainer = document.getElementById('arContainer');
 
-            // Update the text in the AR scene
-            document.querySelector('#message').setAttribute('value', messageText);
-        });
+            // Create the A-Frame scene dynamically
+            arContainer.innerHTML = `
+                <a-scene embedded arjs>
+                    <!-- Marker using the local pattern-hiro.patt file -->
+                    <a-marker type="pattern" url="https://aldammar.github.io/campusTour/assets/pattern-hiro.patt" size="0.25">
+                        <!-- 3D Avatar model of an Avocado -->
+                        <a-entity gltf-model="https://aldammar.github.io/campusTour/models/Avocado.gltf" scale="0.1 0.1 0.1" position="0 0 0"></a-entity>
+                        <!-- Text message -->
+                        <a-text id="message" value="Tap me to speak!" position="0 1.5 0"></a-text>
+                    </a-marker>
+                    <a-entity camera="fov: 100" position="0 0 5"></a-entity>
+                </a-scene>
+            `;
+
+            // Add event listener to handle marker click for speech
+            document.querySelector('a-marker').addEventListener('click', () => {
+                const speech = new SpeechSynthesisUtterance(messageText);
+                speech.lang = 'de-DE';  // Set to German language
+                window.speechSynthesis.speak(speech);
+
+                // Update the text in the AR scene
+                document.querySelector('#message').setAttribute('value', messageText);
+            });
+        };
 
         // Start AR experience when the button is clicked
         const startButton = document.getElementById('startButton');
         const welcomePage = document.getElementById('welcomePage');
-        const arScene = document.getElementById('arScene');
+        const arContainer = document.getElementById('arContainer');
 
         startButton.addEventListener('click', () => {
-            // Hide the welcome page and show the AR scene
+            // Hide the welcome page
             welcomePage.style.display = 'none';
-            arScene.style.display = 'block';
+            
+            // Show the AR container
+            arContainer.style.display = 'block';
+            
+            // Load the AR scene dynamically
+            loadARScene();
         });
     };
 </script>
