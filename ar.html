@@ -10,68 +10,24 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
-    <script>
-        window.onload = () => {
-            const url_arr = document.location.href.split("/");
-            if (url_arr[url_arr.length - 1] !== "campusTour") {
-                url_arr.pop();
-            }
-            const url = url_arr.join("/") + "/";
-
-
-            document.querySelectorAll('a-marker').forEach(marker => {
-                const originalUrl = marker.getAttribute('url');
-                marker.setAttribute('url', `${url}${originalUrl}`);
-            });
-            document.querySelectorAll('a-entity').forEach(marker => {
-                if (marker.hasAttribute('gltf-model')) {
-                    const originalUrl = marker.getAttribute('gltf-model');
-                    marker.setAttribute('gltf-model', `${url}${originalUrl}`);
-                }
-            });
-        };
-        AFRAME.registerComponent('markerhandler', {
-            init: function () {
-                console.info('Marker handler component initialized!');
-
-                const messageText = "Hello! Welcome to my AR world!";
-                const speech = new SpeechSynthesisUtterance(messageText);
-                const voice = window.speechSynthesis.getVoices().find(value => value.lang === "en-US") || window.speechSynthesis.getVoices()[0];
-
-                const marker = document.querySelector('#first_marker');
-                const aEntity = document.querySelector('#first_avatar');
-                // const message = document.querySelector('#first_message');
-
-                marker.addEventListener('click', (ev) => {
-                    console.debug('Marker clicked!');
-                    console.debug('intersection: ', ev.detail.intersection.point)
-                    // Speak the message
-                    speech.voice = voice;
-                    window.speechSynthesis.speak(speech);
-
-                    // Update the text in the AR scene
-                    // message.setAttribute('value', messageText);
-
-                });
-            }
-        });
-    </script>
+    <script src="ar-script.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
 <a-scene
         vr-mode-ui="enabled: false"
         embedded
-        arjs='sourceType: webcam; debugUIEnabled: true; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
+        arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: color_and_matrix; matrixCodeType: 3x3;'
         renderer="logarithmicDepthBuffer: true;"
 >
     <!-- Marker using the local pattern-hiro.patt file -->
     <a-marker
+            preset="custom"
             type="pattern"
-            url="assets/pattern-hiro.patt"
+            url="assets/pattern-icon.patt"
             size="0.25"
             emitevents="true"
             cursor="rayOrigin: mouse;"
-            id="first_marker"
+            id="welcome"
             geometry="primitive: circle; radius: 0.25;"
     >
         <!-- 3D Avatar model of an Avocado -->
@@ -80,7 +36,6 @@
                 position="0 0 0"
                 scale="10 10 10"
                 rotation="270 0 0"
-                id="first_avatar"
                 markerhandler
         ></a-entity><!--
         &lt;!&ndash; Text message &ndash;&gt;

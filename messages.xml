@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages>
+    <message>
+        <marker>welcome</marker>
+        <model>models/Avocado.gltf</model>
+        <pattern>assests/pattern-icon.patt</pattern>
+        <content>Herzlich Willkommen bei der virtuellen Führung über den Campus der Universität Stuttgart.</content>
+    </message>
+</messages>
