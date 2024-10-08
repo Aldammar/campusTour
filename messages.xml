@@ -6,6 +6,22 @@
     </message>
     <message>
         <marker-id>second</marker-id>
-        <content>Das ist die zweite Nachricht.</content>
+        <content>Seid gewarnt, hier verschwimmen die Grenzen zwischen Wissenschaft und Magie.</content>
+    </message>
+    <message>
+        <marker-id>third</marker-id>
+        <content>In der Dunkelheit lauern die Antworten, doch nur wer die Physik versteht, wird sie finden.</content>
+    </message>
+    <message>
+        <marker-id>fourth</marker-id>
+        <content>In der Dunkelheit lauern die Antworten, doch nur wer die Physik versteht, wird sie finden.</content>
+    </message>
+    <message>
+        <marker-id>fifth</marker-id>
+        <content>Ihr seid nun Teil des Experiments – möge die Quantenwelt euch gnädig sein.</content>
+    </message>
+    <message>
+        <marker-id>last</marker-id>
+        <content>Ist die Katze lebendig oder tot? Diese Frage wird euer nächstes Rätsel bestimmen.</content>
     </message>
 </messages>
