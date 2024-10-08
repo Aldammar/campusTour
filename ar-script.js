@@ -18,7 +18,7 @@ AFRAME.registerComponent('markerhandler', {
                 loadMarker(xmlHttp.responseXML);
             }
         }
-        xmlHttp.open("GET", "/messages.xml", true); // true for asynchronous
+        xmlHttp.open("GET", document.location.url+"messages.xml", true); // true for asynchronous
         xmlHttp.send();
 
         function loadMarker(xmlDoc) {
