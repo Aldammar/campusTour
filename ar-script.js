@@ -29,7 +29,6 @@ AFRAME.registerComponent('markerhandler', {
                 const content = message.getElementsByTagName("content")[0].textContent;
 
                 const marker = document.querySelector(`#${markerId}`);
-                const aText = marker.querySelector("a-text");
 
                 marker.addEventListener('markerFound', () => {
                     if (window.speechSynthesis.paused) {

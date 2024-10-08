@@ -30,7 +30,7 @@
     <a-marker
             preset="custom"
             type="pattern"
-            url="assets/pattern-icon.patt"
+            url="assets/pattern-psi.patt"
             size="0.25"
             emitevents="true"
             cursor="rayOrigin: mouse;"
@@ -45,17 +45,11 @@
                 scale="10 10 10"
                 rotation="270 0 0"
         ></a-entity>
-        <a-text
-                geometry="primitive: plane; height: 0.5; width: 2"
-                position="0 0 0.1"
-                rotation="270 0 0"
-                text="value: Vorlesen; align: center;"
-        ></a-text>
     </a-marker>
     <a-marker
             preset="custom"
             type="pattern"
-            url="assets/pattern-Logo_schwarz.patt"
+            url="assets/pattern-alpha.patt"
             size="0.25"
             emitevents="true"
             cursor="rayOrigin: mouse;"
@@ -69,12 +63,78 @@
                 scale="10 10 10"
                 rotation="270 0 0"
         ></a-entity>
-        <a-text
-                geometry="primitive: plane; height: 0.5; width: 2"
+    </a-marker>
+    <a-marker
+            preset="custom"
+            type="pattern"
+            url="assets/pattern-lambda.patt"
+            size="0.25"
+            emitevents="true"
+            cursor="rayOrigin: mouse;"
+            id="third"
+            geometry="primitive: circle; radius: 0.25;"
+            markerhandler
+    >
+        <a-entity
+                gltf-model="#schroedinger-talking-pose"
                 position="0 0 0.1"
+                scale="10 10 10"
                 rotation="270 0 0"
-                text="value: Vorlesen; align: center;"
-        ></a-text>
+        ></a-entity>
+    </a-marker>
+    <a-marker
+            preset="custom"
+            type="pattern"
+            url="assets/pattern-pi.patt"
+            size="0.25"
+            emitevents="true"
+            cursor="rayOrigin: mouse;"
+            id="forth"
+            geometry="primitive: circle; radius: 0.25;"
+            markerhandler
+    >
+        <a-entity
+                gltf-model="#schroedinger-talking-pose"
+                position="0 0 0.1"
+                scale="10 10 10"
+                rotation="270 0 0"
+        ></a-entity>
+    </a-marker>
+    <a-marker
+            preset="custom"
+            type="pattern"
+            url="assets/pattern-sigma.patt"
+            size="0.25"
+            emitevents="true"
+            cursor="rayOrigin: mouse;"
+            id="fifth"
+            geometry="primitive: circle; radius: 0.25;"
+            markerhandler
+    >
+        <a-entity
+                gltf-model="#schroedinger-talking-pose"
+                position="0 0 0.1"
+                scale="10 10 10"
+                rotation="270 0 0"
+        ></a-entity>
+    </a-marker>
+    <a-marker
+            preset="custom"
+            type="pattern"
+            url="assets/pattern-omega.patt"
+            size="0.25"
+            emitevents="true"
+            cursor="rayOrigin: mouse;"
+            id="last"
+            geometry="primitive: circle; radius: 0.25;"
+            markerhandler
+    >
+        <a-entity
+                gltf-model="#schroedinger-talking-pose"
+                position="0 0 0.1"
+                scale="10 10 10"
+                rotation="270 0 0"
+        ></a-entity>
     </a-marker>
     <!-- pattern with greek letters e.g. psi, ... -->
     <a-entity camera></a-entity>
