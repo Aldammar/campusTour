@@ -33,13 +33,14 @@ AFRAME.registerComponent('markerhandler', {
 
                 marker.addEventListener('markerFound', () => {
                     console.debug(`Marker ${markerId} found`);
-                    if (window.speechSynthesis.paused) {
-                        window.speechSynthesis.resume();
-                    } else {
+                    if (!window.speechSynthesis.pending) {
                         // Speak the message
                         const speech = new SpeechSynthesisUtterance(content);
                         speech.voice = voice;
                         window.speechSynthesis.speak(speech);
+                    }
+                    if (window.speechSynthesis.paused) {
+                        window.speechSynthesis.resume();
                     }
                 });
 
