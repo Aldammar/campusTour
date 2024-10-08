@@ -11,7 +11,7 @@ AFRAME.registerComponent('markerhandler', {
     init: function () {
 
         const voice = window.speechSynthesis.getVoices().find(voice => voice.lang === 'de-DE') || window.speechSynthesis.getVoices()[0];
-        console.debug(`Using voice ${voice.name} (${voice.lang})`);
+        console.debug(`Using voice language ${voice.lang}`);
 
         const xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function () {
@@ -29,7 +29,6 @@ AFRAME.registerComponent('markerhandler', {
                 const markerId = message.getElementsByTagName("marker-id")[0].textContent.trim();
                 const content = message.getElementsByTagName("content")[0].textContent;
 
-                console.debug(`Loaded message for marker ${markerId}: ${content}`);
                 const marker = document.querySelector(`#${markerId}`);
 
                 marker.addEventListener('markerFound', () => {
