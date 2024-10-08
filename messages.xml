@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <messages>
     <message>
-        <marker>welcome</marker>
-        <model>models/Avocado.gltf</model>
-        <pattern>assests/pattern-icon.patt</pattern>
+        <marker-id>welcome</marker-id>
         <content>Herzlich Willkommen bei der virtuellen Führung über den Campus der Universität Stuttgart.</content>
+    </message>
+    <message>
+        <marker-id>second</marker-id>
+        <content>Das ist die zweite Nachricht.</content>
     </message>
 </messages>

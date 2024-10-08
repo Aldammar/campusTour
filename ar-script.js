@@ -3,32 +3,18 @@ window.onload = () => {
     if (url_arr[url_arr.length - 1] !== "campusTour") {
         url_arr.pop();
     }
-    const url = url_arr.join("/") + "/";
-    document.location.url = url;
+    document.location.url = url_arr.join("/") + "/";
 
-
-    document.querySelectorAll('a-marker').forEach(marker => {
-        const originalUrl = marker.getAttribute('url');
-        marker.setAttribute('url', `${url}${originalUrl}`);
-    });
-    document.querySelectorAll('a-entity').forEach(marker => {
-        if (marker.hasAttribute('gltf-model')) {
-            const originalUrl = marker.getAttribute('gltf-model');
-            marker.setAttribute('gltf-model', `${url}${originalUrl}`);
-        }
-    });
 };
 
 AFRAME.registerComponent('markerhandler', {
     init: function () {
-        console.info('Marker handler component initialized!');
 
-        const voice = window.speechSynthesis.getVoices().find(value => value.lang === "de-DE") || window.speechSynthesis.getVoices()[0];
+        const voice = window.speechSynthesis.getVoices().find(voice => voice.lang === 'de-DE') || window.speechSynthesis.getVoices()[0];
 
         const xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function () {
             if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
-                console.debug('xmlHttp.responseText: ', xmlHttp.responseText);
                 loadMarker(xmlHttp.responseXML);
             }
         }
@@ -39,27 +25,26 @@ AFRAME.registerComponent('markerhandler', {
             const messages = xmlDoc.getElementsByTagName("message");
 
             Array.from(messages).forEach(message => {
-                const markerId = message.getElementsByTagName("marker")[0].textContent.trim();
+                const markerId = message.getElementsByTagName("marker-id")[0].textContent.trim();
                 const content = message.getElementsByTagName("content")[0].textContent;
-                const modelUrl = message.getElementsByTagName("model")[0].textContent.trim();
 
                 const marker = document.querySelector(`#${markerId}`);
-                console.debug('marker: ', marker);
-                const aEntity = marker.querySelector('a-entity');
-                console.debug('aEntity: ', aEntity);
-                console.debug("doc url: ", document.location.url);
+                const aText = marker.querySelector("a-text");
 
-                aEntity.addEventListener('click', (ev) => {
-                    console.debug('Marker clicked!');
-                    console.debug('intersection: ', ev.detail.intersection.point);
+                marker.addEventListener('markerFound', () => {
+                    if (window.speechSynthesis.paused) {
+                        window.speechSynthesis.resume();
+                    } else {
+                        // Speak the message
+                        const speech = new SpeechSynthesisUtterance(content);
+                        speech.voice = voice;
+                        window.speechSynthesis.speak(speech);
+                    }
+                });
 
-                    // Speak the message
-                    const speech = new SpeechSynthesisUtterance(content);
-                    speech.voice = voice;
-                    window.speechSynthesis.speak(speech);
-
-                    // Update the model URL in the marker
-                    aEntity.setAttribute('gltf-model', document.location.url + modelUrl);
+                marker.addEventListener('markerLost', () => {
+                    // Stop speaking
+                    window.speechSynthesis.pause();
                 });
             });
         }

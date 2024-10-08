@@ -19,6 +19,13 @@
         arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: color_and_matrix; matrixCodeType: 3x3;'
         renderer="logarithmicDepthBuffer: true;"
 >
+
+    <a-assets>
+        <!-- 3D Avatar model of an Avocado -->
+        <a-asset-item id="avocado" src="models/Avocado.gltf"></a-asset-item>
+        <a-asset-item id="schroedinger-talking-pose" src="models/schroedinger-talking-pose.glb"></a-asset-item>
+    </a-assets>
+
     <!-- Marker using the local pattern-hiro.patt file -->
     <a-marker
             preset="custom"
@@ -29,24 +36,45 @@
             cursor="rayOrigin: mouse;"
             id="welcome"
             geometry="primitive: circle; radius: 0.25;"
+            markerhandler
     >
         <!-- 3D Avatar model of an Avocado -->
         <a-entity
-                gltf-model="models/Avocado.gltf"
+                gltf-model="#avocado"
                 position="0 0 0"
                 scale="10 10 10"
                 rotation="270 0 0"
-                markerhandler
-        ></a-entity><!--
-        &lt;!&ndash; Text message &ndash;&gt;
+        ></a-entity>
         <a-text
-                id="first_message"
-                value="Tap me to speak!"
-                position="-1.5 0 0.1"
-                scale="1.5 1.5 1.5"
-                color="red"
+                geometry="primitive: plane; height: 0.5; width: 2"
+                position="0 0 0.1"
                 rotation="270 0 0"
-        ></a-text>-->
+                text="value: Vorlesen; align: center;"
+        ></a-text>
+    </a-marker>
+    <a-marker
+            preset="custom"
+            type="pattern"
+            url="assets/pattern-Logo_schwarz.patt"
+            size="0.25"
+            emitevents="true"
+            cursor="rayOrigin: mouse;"
+            id="second"
+            geometry="primitive: circle; radius: 0.25;"
+            markerhandler
+    >
+        <a-entity
+                gltf-model="#schroedinger-talking-pose"
+                position="0 0 0.1"
+                scale="10 10 10"
+                rotation="270 0 0"
+        ></a-entity>
+        <a-text
+                geometry="primitive: plane; height: 0.5; width: 2"
+                position="0 0 0.1"
+                rotation="270 0 0"
+                text="value: Vorlesen; align: center;"
+        ></a-text>
     </a-marker>
     <a-entity camera></a-entity>
 </a-scene>
