@@ -10,9 +10,6 @@ window.onload = () => {
 AFRAME.registerComponent('markerhandler', {
     init: function () {
 
-        const voice = window.speechSynthesis.getVoices().find(voice => voice.lang === 'de-DE') || window.speechSynthesis.getVoices()[0];
-        console.debug(`Using voice language ${voice.lang}`);
-
         const xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function () {
             if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
@@ -36,7 +33,7 @@ AFRAME.registerComponent('markerhandler', {
                     if (!window.speechSynthesis.pending) {
                         // Speak the message
                         const speech = new SpeechSynthesisUtterance(content);
-                        speech.voice = voice;
+                        speech.voice = window.speechSynthesis.getVoices().find(voice => voice.lang === 'de-DE') || window.speechSynthesis.getVoices()[0];
                         window.speechSynthesis.speak(speech);
                     }
                     if (window.speechSynthesis.paused) {
