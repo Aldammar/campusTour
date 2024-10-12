@@ -11,6 +11,7 @@
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
     <script src="ar-script.js"></script>
+    <link href="ar-style.css" rel="stylesheet">
 </head>
 <body style="margin: 0; overflow: hidden;">
 <a-scene
@@ -133,5 +134,10 @@
     <!-- pattern with greek letters e.g. psi, ... -->
     <a-entity camera></a-entity>
 </a-scene>
+<div id="popup">
+    <input id="endSentenceInput" placeholder="Geben Sie den Lösungssatz ein" type="text">
+    <button onclick="checkSentence()">Bestätigen</button>
+</div>
+<button id="showPopupButton" onclick="showPopup()">Lösungsphrase</button>
 </body>
 </html>
