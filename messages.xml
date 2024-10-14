@@ -2,7 +2,9 @@
 <messages>
     <message>
         <marker-id>welcome</marker-id>
-        <content>Herzlich Willkommen bei der virtuellen Führung über den Campus der Universität Stuttgart.</content>
+        <content>Ihr seid auserwählt, doch nur wer die Zeichen erkennt und meiner Stimme folgt, wird den Pfad zur ersten
+            Station finden. Eilt, die Zeit ist knapp.
+        </content>
     </message>
     <message>
         <marker-id>second</marker-id>
@@ -23,5 +25,12 @@
     <message>
         <marker-id>last</marker-id>
         <content>Ist die Katze lebendig oder tot? Diese Frage wird euer nächstes Rätsel bestimmen.</content>
+    </message>
+    <message>
+        <marker-id>final</marker-id>
+        <content>hr habt die Herausforderungen bestanden und euch als würdige Nachfolger erwiesen! Stuttgart steht nicht
+            nur für Innovation und Exzellenz, sondern auch für Gemeinschaft. Hiermit seid ihr Teil des „Bundes der
+            Wissenschaft.“ Wisst um euere besondere Gaben und Können, bleibt gemeinsam stark und verändert die Welt!
+        </content>
     </message>
 </messages>

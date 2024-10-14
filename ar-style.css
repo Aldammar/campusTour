@@ -1,32 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Nosifer&display=swap');
+
+body button, body input {
+    font-family: Nosifer, sans-serif !important;
+}
+
 #popup {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: grey;
-    border: 1px solid #ccc;
+    padding: 2em;
+    background: linear-gradient(135deg, darkred, red);
+    border: 3px solid orange;
     z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
 }
 
 #popup input {
-    margin-bottom: 10px;
+    margin-bottom: 1ex;
+    background: linear-gradient(orange, darkorange);
+    border: none;
+    border-radius: 5px;
+    padding: .5em;
+    width: max-content;
+}
+
+#popup input:focus-visible {
+    outline: darkgray solid 2px;
 }
 
 #popup button {
-    display: block;
-    margin-top: 10px;
+    display: flex;
+    margin-top: 2ex;
+    background: linear-gradient(orange, darkorange);
+    border: none;
+    border-radius: 5px;
+    padding: .5em;
 }
 
 #showPopupButton {
     position: fixed;
-    bottom: 10px;
-    right: 10px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
+    bottom: 1vh;
+    right: 1vw;
+    padding: 1ex;
+    background-color: orange;
+    color: #560000;
+    border: 1px solid darkred;
+    border-radius: 5px;
     cursor: pointer;
     z-index: 10;
+}
+
+#popup .closeButton {
+    padding: 0;
+    font-family: Arial, sans-serif !important;
+    position: absolute;
+    top: -1em;
+    right: -1em;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    border: 2px solid orange;
+    background: darkred;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+#decoration {
+    width: 100%;
+    height: auto;
+}
+
+#decoration img {
+    position: absolute;
+    width: 5%;
+    height: auto;
 }
