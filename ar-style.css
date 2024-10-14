@@ -11,8 +11,8 @@ body button, body input {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 2em;
-    background: linear-gradient(135deg, darkred, red);
-    border: 3px solid orange;
+    background: linear-gradient(135deg, #660000, red);
+    border: 3px solid darkorange;
     z-index: 1000;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@ body button, body input {
 
 #popup input {
     margin-bottom: 1ex;
-    background: linear-gradient(orange, darkorange);
+    background: linear-gradient(orange, #bf3922);
     border: none;
     border-radius: 5px;
     padding: .5em;
@@ -30,16 +30,23 @@ body button, body input {
 }
 
 #popup input:focus-visible {
-    outline: darkgray solid 2px;
+    outline: #660000 solid 2px;
 }
 
-#popup button {
+#popup .confirmButton {
     display: flex;
     margin-top: 2ex;
-    background: linear-gradient(orange, darkorange);
+    background: linear-gradient(orange, #BF3922);
     border: none;
     border-radius: 5px;
     padding: .5em;
+    box-shadow: orange 0 4px 1em;
+}
+
+#popup .confirmButton:active {
+    background-color: darkred;
+    box-shadow: orange 0 1px 1em;
+    transform: translateY(3px);
 }
 
 #showPopupButton {
@@ -48,11 +55,18 @@ body button, body input {
     right: 1vw;
     padding: 1ex;
     background-color: orange;
-    color: #560000;
-    border: 1px solid darkred;
-    border-radius: 5px;
+    color: #660000;
+    border: 2px solid #660000;
+    border-radius: 10px;
     cursor: pointer;
     z-index: 10;
+
+    &:active {
+        background-color: #660000;
+        color: orange;
+        transform: translate(2px, 3px);
+        border: 2px solid orange;
+    }
 }
 
 #popup .closeButton {
@@ -64,7 +78,7 @@ body button, body input {
     width: 2em;
     height: 2em;
     border-radius: 50%;
-    border: 2px solid orange;
+    border: 2px solid darkorange;
     background: darkred;
     color: white;
     font-size: 1em;
@@ -72,6 +86,13 @@ body button, body input {
     align-items: center;
     justify-content: center;
     margin: 0;
+
+    &:active {
+        background: orange;
+        transform: translate(-2px, 3px);
+        border: 2px solid darkred;
+        color: #660000;
+    }
 }
 
 #decoration {
@@ -83,4 +104,5 @@ body button, body input {
     position: absolute;
     width: 5%;
     height: auto;
+    filter: drop-shadow(0 0 .5em #660000);
 }

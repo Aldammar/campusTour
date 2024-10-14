@@ -81,7 +81,7 @@ function checkSentence() {
         const audio = new Audio("audios/final_message.wav");
         audio.addEventListener("canplaythrough", () => audio.play());
     } else {
-        alert(`Der Satz "${input}" ist falsch. Bitte versuchen Sie es erneut.`);
+        setTimeout(() => alert(`Der Satz "${input}" ist falsch. Bitte versuchen Sie es erneut.`), 500);
     }
     inputField.value = "";
 }
