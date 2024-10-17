@@ -20,13 +20,18 @@ window.onload = () => {
         return px / document.documentElement.clientWidth * 100;
     }
 
+    function valueOfUnitString(unitString) {
+        const unitStringRegex = /([0-9.]+)([a-z%]+)/i;
+        return parseFloat(unitStringRegex.exec(unitString)[1]);
+    }
+
     const images = Array.from(document.querySelectorAll('#decoration img'));
     const button = document.querySelector('#showPopupButton');
     const placedImages = [{
-        top: pxToVh(document.documentElement.clientHeight - button.style.bottom),
-        left: pxToVw(document.documentElement.clientWidth - button.style.right),
-        width: pxToVw(button.width),
-        height: pxToVh(button.height)
+        top: pxToVh(valueOfUnitString(window.getComputedStyle(button).top)),
+        left: pxToVw(valueOfUnitString(window.getComputedStyle(button).left)),
+        width: pxToVw(valueOfUnitString(window.getComputedStyle(button).width)),
+        height: pxToVh(valueOfUnitString(window.getComputedStyle(button).height))
     }];
 
     function isColliding(image) {
@@ -67,7 +72,7 @@ window.onload = () => {
         } while (isColliding(newImage) && iterations < 100);
         if (iterations === 100) {
             image.style.display = 'none';
-            console.log(`Image ${image.src.split("/").pop()} could not be placed`);
+            console.info(`Image ${image.src.split("/").pop()} could not be placed`);
         } else {
 
             edgeCount[edge]--;
@@ -75,14 +80,23 @@ window.onload = () => {
 
             image.style.top = newImage.top + "vh";
             image.style.left = newImage.left + "vw";
-
-            console.debug(`Image ${image.src.split("/").pop()} positioned at top: ${image.style.top}, left: ${image.style.left}`);
         }
     });
 };
 
+function closePopupOnClickOutside(event) {
+    const popup = document.getElementById('popup');
+    const button = document.getElementById('showPopupButton');
+
+    if (!popup.contains(event.target) && !button.contains(event.target)) {
+        closePopup();
+    }
+}
+
 function showPopup() {
     document.getElementById('popup').style.display = 'flex';
+    document.getElementById('showPopupButton').style.display = 'none';
+    document.addEventListener('click', closePopupOnClickOutside);
 }
 
 function checkSentence() {
@@ -91,7 +105,7 @@ function checkSentence() {
     const correctSentence = /^Die Wahrheit liegt im Licht\.?$/i; // Ersetze dies durch den korrekten Satz
 
     if (correctSentence.test(input)) {
-        document.getElementById('popup').style.display = 'none';
+        closePopup();
         const model = document.querySelector('a-entity#final');
         const text = "Ihr habt die Herausforderungen bestanden und euch als würdige Nachfolger erwiesen! Stuttgart steht nicht nur für Innovation und Exzellenz, sondern auch für Gemeinschaft. Hiermit seid ihr Teil des „Bundes der Wissenschaft.“ Wisst um euere besondere Gaben und Können, bleibt gemeinsam stark und verändert die Welt!";
         model.setAttribute('visible', true);
@@ -111,6 +125,8 @@ function checkSentence() {
 
 function closePopup() {
     document.getElementById('popup').style.display = 'none';
+    document.getElementById('showPopupButton').style.display = 'block';
+    document.removeEventListener('click', closePopupOnClickOutside);
 }
 
 AFRAME.registerComponent('markerhandler', {

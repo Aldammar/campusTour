@@ -25,7 +25,8 @@
 >
 
     <a-assets>
-        <!-- 3D Avatar model of an Avocado -->
+        <!-- Model einer Katze für 2. bis letzten -->
+        <!-- Text mit Shadow und 2D Text darstellen -->
         <a-asset-item id="schroedinger-talking-pose" src="models/Schroedinger-talking-pose.glb"></a-asset-item>
     </a-assets>
 
@@ -37,7 +38,6 @@
             emitevents="true"
             url="assets/patterns/pattern-alpha.patt"
     >
-        <!-- 3D Avatar model of an Avocado -->
         <a-entity
                 gltf-model="#schroedinger-talking-pose"
                 position="-1 0 0.1"
@@ -120,7 +120,7 @@
                 rotation="270 0 0"
         ></a-entity>
     </a-marker>
-    <!-- pattern with greek letters e.g. psi, ... -->
+    <!-- better patterns -->
     <a-entity
             gltf-model="#schroedinger-talking-pose"
             id="final"
@@ -146,7 +146,8 @@
     <img alt="" src="images/halloween_bat.png"/>
 </div>
 <div id="popup">
-    <input id="endSentenceInput" placeholder="Geben Sie den Lösungssatz ein" type="text">
+    <label for="endSentenceInput">Gib hier den Lösungssatz ein:</label>
+    <input id="endSentenceInput" placeholder="Lösungssatz" type="text">
     <button class="confirmButton" onclick="checkSentence()">Bestätigen</button>
     <button class="closeButton" onclick="closePopup()">x</button>
 </div>

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Nosifer&display=swap');
 
-body button, body input {
+body button, body input, body label {
     font-family: Nosifer, sans-serif !important;
 }
 
@@ -15,37 +15,46 @@ html {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 2em;
-    background: linear-gradient(135deg, #660000, red);
+    background: linear-gradient(160deg, red, #660000);
     border: 3px solid darkorange;
     z-index: 1000;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     border-radius: 15px;
+    box-shadow: 0 0 1em orange;
+    width: 75%;
 }
 
 #popup input {
-    font-size: 20px;
-    margin-bottom: 1ex;
+    font-size: min(20px, 3vw, 3vh);
+    margin: 1ex 0;
     background: linear-gradient(orange, #bf3922);
     border: none;
     border-radius: 5px;
     padding: 1em;
-    width: max-content;
 }
 
 #popup input:focus-visible {
     outline: #660000 solid 2px;
 }
 
+#popup label {
+    font-size: min(20px, 3vw, 3vh);
+    margin: 1ex 0;
+    color: darkorange;
+    filter: drop-shadow(0 0 .5em #660000);
+    padding: .5em;
+}
+
 #popup .confirmButton {
-    font-size: 20px;
+    font-size: min(20px, 3vw, 3vh);
     display: flex;
-    margin-top: 2ex;
+    margin: 1ex 0;
     background: linear-gradient(orange, #BF3922);
     border: none;
     border-radius: 5px;
-    padding: .5em;
+    padding: 1em;
     box-shadow: orange 0 4px 1em;
 }
 
@@ -67,12 +76,14 @@ html {
     cursor: pointer;
     z-index: 10;
     font-size: 20px;
+    box-shadow: orange 0 0 1em;
 
     &:active {
         background-color: #660000;
         color: orange;
-        transform: translate(2px, 3px);
+        transform: translate(4px, 6px);
         border: 2px solid orange;
+        box-shadow: #660000 0 0 1em;
     }
 }
 
@@ -110,6 +121,8 @@ html {
 #decoration img {
     position: absolute;
     width: 10%;
+    max-width: 150px;
     height: auto;
+    max-height: 150px;
     filter: drop-shadow(0 0 .5em #660000);
 }
