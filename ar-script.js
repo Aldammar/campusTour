@@ -5,6 +5,13 @@ window.onload = () => {
     }
     document.location.url = url_arr.join("/") + "/";
 
+    const inputField = document.getElementById('endSentenceInput');
+    inputField.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            checkSentence();
+        }
+    });
+
     function pxToVh(px) {
         return px / document.documentElement.clientHeight * 100;
     }
@@ -15,25 +22,26 @@ window.onload = () => {
 
     const images = Array.from(document.querySelectorAll('#decoration img'));
     const button = document.querySelector('#showPopupButton');
-    const placedImages = [
-        {
-            top: pxToVh(document.documentElement.clientHeight - button.style.bottom),
-            left: pxToVw(document.documentElement.clientWidth - button.style.right),
-            width: pxToVw(button.width),
-            height: pxToVh(button.height)
-        }
-    ];
+    const placedImages = [{
+        top: pxToVh(document.documentElement.clientHeight - button.style.bottom),
+        left: pxToVw(document.documentElement.clientWidth - button.style.right),
+        width: pxToVw(button.width),
+        height: pxToVh(button.height)
+    }];
 
     function isColliding(image) {
-        return placedImages.some(img => Math.abs(img.top - image.top) < img.height + image.height
-            && Math.abs(img.left - image.left) < img.width + image.width
-        )
+        return placedImages.some(img => Math.abs(img.top - image.top) < img.height + image.height && Math.abs(img.left - image.left) < img.width + image.width)
     }
+
+    const edgeCount = [Math.ceil(images.length / 4), Math.floor(images.length / 4), Math.floor(images.length / 4), Math.round(images.length / 4)]
 
     images.forEach(image => {
         let edge, position, newImage;
+        let iterations = 0;
         do {
-            edge = Math.floor(Math.random() * 4);
+            do {
+                edge = Math.floor(Math.random() * 4);
+            } while (edgeCount[edge] === 0);
             position = 1 + Math.random() * 98;
             newImage = {top: 0, left: 0, width: pxToVw(image.width), height: pxToVh(image.height)};
 
@@ -55,14 +63,21 @@ window.onload = () => {
                     newImage.left = 1;
                     break;
             }
-        } while (isColliding(newImage));
+            iterations++;
+        } while (isColliding(newImage) && iterations < 100);
+        if (iterations === 100) {
+            image.style.display = 'none';
+            console.log(`Image ${image.src.split("/").pop()} could not be placed`);
+        } else {
 
-        placedImages.push(newImage);
+            edgeCount[edge]--;
+            placedImages.push(newImage);
 
-        image.style.top = newImage.top + "vh";
-        image.style.left = newImage.left + "vw";
+            image.style.top = newImage.top + "vh";
+            image.style.left = newImage.left + "vw";
 
-        console.debug(`Image ${image.src.split("/").pop()} positioned at top: ${image.style.top}, left: ${image.style.left}`);
+            console.debug(`Image ${image.src.split("/").pop()} positioned at top: ${image.style.top}, left: ${image.style.left}`);
+        }
     });
 };
 
@@ -77,9 +92,17 @@ function checkSentence() {
 
     if (correctSentence.test(input)) {
         document.getElementById('popup').style.display = 'none';
+        const model = document.querySelector('a-entity#final');
+        const text = "Ihr habt die Herausforderungen bestanden und euch als würdige Nachfolger erwiesen! Stuttgart steht nicht nur für Innovation und Exzellenz, sondern auch für Gemeinschaft. Hiermit seid ihr Teil des „Bundes der Wissenschaft.“ Wisst um euere besondere Gaben und Können, bleibt gemeinsam stark und verändert die Welt!";
+        model.setAttribute('visible', true);
+        model.setAttribute("text", `value: ${text}; align: center; width: 1.5; wrapCount: 20; x-offset: 1.5; color: orange;`);
 
-        const audio = new Audio("audios/final_message.wav");
-        audio.addEventListener("canplaythrough", () => audio.play());
+        const audio = new Audio('audios/final_message.wav');
+
+        audio.play();
+        audio.onended = () => {
+            model.setAttribute('visible', false);
+        }
     } else {
         setTimeout(() => alert(`Der Satz "${input}" ist falsch. Bitte versuchen Sie es erneut.`), 500);
     }
@@ -90,56 +113,29 @@ function closePopup() {
     document.getElementById('popup').style.display = 'none';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const marker = document.querySelector('#last');
-    marker.setAttribute('visible', 'false');
-});
-
 AFRAME.registerComponent('markerhandler', {
-    init: function () {
+    init: () => {
+        const audios = {};
+        const xmlRequest = new XMLHttpRequest();
+        xmlRequest.open("GET", "messages.xml", false);
+        xmlRequest.send();
+        const xml = xmlRequest.responseXML;
 
-        const xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function () {
-            if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
-                loadMarker(xmlHttp.responseXML);
-            }
-        }
-        xmlHttp.open("GET", document.location.url + "messages.xml", true); // true for asynchronous
-        xmlHttp.send();
-
-        function loadMarker(xmlDoc) {
-            const messages = xmlDoc.getElementsByTagName("message");
-
-            Array.from(messages).forEach(message => {
-                const markerId = message.getElementsByTagName("marker-id")[0].textContent.trim();
-                const content = message.getElementsByTagName("content")[0].textContent;
-
-                const marker = document.querySelector(`#${markerId}`);
-
-                if (!marker) {
-                    console.error(`Marker ${markerId} not found`);
-                    return;
-                }
-
-                marker.addEventListener('markerFound', () => {
-                    console.debug(`Marker ${markerId} found`);
-                    if (!window.speechSynthesis.pending) {
-                        // Speak the message
-                        const speech = new SpeechSynthesisUtterance(content);
-                        speech.voice = window.speechSynthesis.getVoices().find(voice => voice.lang === 'de-DE') || window.speechSynthesis.getVoices()[0];
-                        window.speechSynthesis.speak(speech);
-                    }
-                    if (window.speechSynthesis.paused) {
-                        window.speechSynthesis.resume();
-                    }
-                });
-
-                marker.addEventListener('markerLost', () => {
-                    console.debug(`Marker ${markerId} lost`);
-                    // Stop speaking
-                    window.speechSynthesis.pause();
-                });
+        let markers = document.querySelectorAll("a-marker");
+        markers.forEach(marker => {
+            const id = marker.getAttribute('id');
+            audios[id] = new Audio(`audios/${id}_message.wav`);
+            marker.addEventListener('markerFound', () => {
+                audios[id].play();
             });
-        }
+            marker.addEventListener('markerLost', () => {
+                audios[id].pause();
+            });
+            const markerEntity = marker.querySelector('a-entity');
+            const message = Array.from(xml.querySelectorAll(`message`))
+                .find(message => message.querySelector("marker-id").childNodes[0].nodeValue === id);
+            const content = message.querySelector("content").childNodes[0].nodeValue;
+            markerEntity.setAttribute('text', `value: ${content};align: center; width: 1.5;wrapCount: 20; x-offset: 1.5; color: red;`);
+        });
     }
-});
+})

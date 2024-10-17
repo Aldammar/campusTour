@@ -21,16 +21,17 @@ body, html {
 }
 
 em {
-    background: linear-gradient(orange, darkorange);
+    background: linear-gradient(red, orangered);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
     font-style: normal;
+    filter: drop-shadow(0 0 .15em lightyellow);
 }
 
 h1 {
-    background: linear-gradient(red, orangered);
+    background: linear-gradient(orange, darkorange);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -40,7 +41,7 @@ h1 {
     text-align: center;
     text-wrap: balance;
     margin: 3rem;
-    filter: drop-shadow(0 0 .15em white);
+    filter: drop-shadow(0 0 .15em #660000);
 }
 
 button {

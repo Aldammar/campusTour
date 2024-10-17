@@ -1,34 +1,50 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <messages>
     <message>
-        <marker-id>welcome</marker-id>
+        <marker-id>first</marker-id>
         <content>Ihr seid auserwählt, doch nur wer die Zeichen erkennt und meiner Stimme folgt, wird den Pfad zur ersten
             Station finden. Eilt, die Zeit ist knapp.
         </content>
     </message>
     <message>
         <marker-id>second</marker-id>
-        <content>Seid gewarnt, hier verschwimmen die Grenzen zwischen Wissenschaft und Magie.</content>
+        <content>Hier stehen wir vor den Labors, wo unzählige Experimente durchgeführt wurden – und vielleicht noch
+            immer werden. Man sagt, dass einige Versuchstiere nie wirklich verschwunden sind. Aber ob sie tot oder
+            lebendig sind, wer weiß das schon? Schaut lieber nicht zu tief in die Fenster, besonders nicht an Halloween.
+        </content>
     </message>
     <message>
         <marker-id>third</marker-id>
-        <content>In der Dunkelheit lauern die Antworten, doch nur wer die Physik versteht, wird sie finden.</content>
+        <content>Dies ist die Bibliothek, ein Ort voller Wissen – und vielleicht auch voller Geister. Die Bücher
+            bewahren nicht nur Texte, sondern auch Erinnerungen. Und wer weiß, ob die Geschichten darin abgeschlossen
+            sind. Vielleicht beobachten sie uns ... oder auch nicht.
+        </content>
     </message>
     <message>
         <marker-id>fourth</marker-id>
-        <content>In der Dunkelheit lauern die Antworten, doch nur wer die Physik versteht, wird sie finden.</content>
+        <content>Hier, im alten Physikgebäude, hat man viele Versuche zur Quantenphysik gemacht. Schrödingers Katze
+            könnte sich genau hier versteckt haben. Oder auch nicht. An Halloween sind solche Grenzen zwischen Sein und
+            Nicht-Sein besonders... verschwommen.
+        </content>
     </message>
     <message>
         <marker-id>fifth</marker-id>
-        <content>Ihr seid nun Teil des Experiments – möge die Quantenwelt euch gnädig sein.</content>
+        <content>Das Wohnheim dahinten? Ein Ort voller Geschichten. Einige Studenten sollen nie wirklich ausgezogen sein
+            – ob sie jedoch noch da sind oder nicht, bleibt ein Rätsel. Besonders in dieser Nacht scheint die Luft dort
+            schwerer, fast wie ein ungelöstes Experiment.
+        </content>
     </message>
     <message>
         <marker-id>last</marker-id>
-        <content>Ist die Katze lebendig oder tot? Diese Frage wird euer nächstes Rätsel bestimmen.</content>
+        <content>Das war unsere Tour, und nun steht ihr vor der Wahl: Geht ihr jetzt beruhigt nach Hause, oder bleibt
+            ihr und erkundet, was sonst noch im Schatten lauern könnte? Aber denkt daran – manchmal gibt es mehr als nur
+            eine Wahrheit.
+        </content>
     </message>
     <message>
         <marker-id>final</marker-id>
-        <content>hr habt die Herausforderungen bestanden und euch als würdige Nachfolger erwiesen! Stuttgart steht nicht
+        <content>Ihr habt die Herausforderungen bestanden und euch als würdige Nachfolger erwiesen! Stuttgart steht
+            nicht
             nur für Innovation und Exzellenz, sondern auch für Gemeinschaft. Hiermit seid ihr Teil des „Bundes der
             Wissenschaft.“ Wisst um euere besondere Gaben und Können, bleibt gemeinsam stark und verändert die Welt!
         </content>

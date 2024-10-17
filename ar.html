@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <!--suppress JSUnresolvedLibraryURL, HtmlFormInputWithoutLabel -->
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>Campus Tour - Universität Stuttgart</title>
+    <title>CampusTour - Universität Stuttgart</title>
+    <link href="images/favicon.ico" rel="icon" sizes="32x32" type="image/png">
     <!-- A-Frame -->
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <!-- AR.js -->
@@ -18,48 +19,43 @@
 <a-scene
         vr-mode-ui="enabled: false"
         embedded
-        arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
+        arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;trackingMethod: best;'
         renderer="logarithmicDepthBuffer: true;"
         markerhandler
 >
 
     <a-assets>
         <!-- 3D Avatar model of an Avocado -->
-        <a-asset-item id="avocado" src="models/Avocado.gltf"></a-asset-item>
         <a-asset-item id="schroedinger-talking-pose" src="models/Schroedinger-talking-pose.glb"></a-asset-item>
     </a-assets>
 
     <a-marker
             preset="custom"
             type="pattern"
-            url="assets/pattern-psi.patt"
+            id="first"
             size="0.25"
             emitevents="true"
-            cursor="rayOrigin: mouse;"
-            id="welcome"
-            geometry="primitive: circle; radius: 0.25;"
+            url="assets/patterns/pattern-alpha.patt"
     >
         <!-- 3D Avatar model of an Avocado -->
         <a-entity
-                gltf-model="#avocado"
-                position="0 0 0"
-                scale="10 10 10"
+                gltf-model="#schroedinger-talking-pose"
+                position="-1 0 0.1"
+                scale="1 1 1"
                 rotation="270 0 0"
         ></a-entity>
     </a-marker>
     <a-marker
             preset="custom"
             type="pattern"
-            url="assets/pattern-alpha.patt"
+            url="assets/patterns/pattern-psi.patt"
             size="0.25"
             emitevents="true"
-            cursor="rayOrigin: mouse;"
             id="second"
-            geometry="primitive: circle; radius: 0.25;"
     >
         <a-entity
                 gltf-model="#schroedinger-talking-pose"
-                position="0 0 0.1"
+                position="-1 0 0.1"
                 scale="1 1 1"
                 rotation="270 0 0"
         ></a-entity>
@@ -67,16 +63,14 @@
     <a-marker
             preset="custom"
             type="pattern"
-            url="assets/pattern-lambda.patt"
+            url="assets/patterns/pattern-lambda.patt"
             size="0.25"
             emitevents="true"
-            cursor="rayOrigin: mouse;"
             id="third"
-            geometry="primitive: circle; radius: 0.25;"
     >
         <a-entity
                 gltf-model="#schroedinger-talking-pose"
-                position="0 0 0.1"
+                position="-1 0 0.1"
                 scale="1 1 1"
                 rotation="270 0 0"
         ></a-entity>
@@ -84,16 +78,14 @@
     <a-marker
             preset="custom"
             type="pattern"
-            url="assets/pattern-pi.patt"
+            url="assets/patterns/pattern-pi.patt"
             size="0.25"
             emitevents="true"
-            cursor="rayOrigin: mouse;"
             id="fourth"
-            geometry="primitive: circle; radius: 0.25;"
     >
         <a-entity
                 gltf-model="#schroedinger-talking-pose"
-                position="0 0 0.1"
+                position="-1 0 0.1"
                 scale="1 1 1"
                 rotation="270 0 0"
         ></a-entity>
@@ -101,16 +93,14 @@
     <a-marker
             preset="custom"
             type="pattern"
-            url="assets/pattern-sigma.patt"
+            url="assets/patterns/pattern-sigma.patt"
             size="0.25"
             emitevents="true"
-            cursor="rayOrigin: mouse;"
             id="fifth"
-            geometry="primitive: circle; radius: 0.25;"
     >
         <a-entity
                 gltf-model="#schroedinger-talking-pose"
-                position="0 0 0.1"
+                position="-1 0 0.1"
                 scale="1 1 1"
                 rotation="270 0 0"
         ></a-entity>
@@ -118,21 +108,27 @@
     <a-marker
             preset="custom"
             type="pattern"
-            url="assets/pattern-omega.patt"
+            url="assets/patterns/pattern-omega.patt"
             size="0.25"
             emitevents="true"
-            cursor="rayOrigin: mouse;"
             id="last"
-            geometry="primitive: circle; radius: 0.25;"
     >
         <a-entity
                 gltf-model="#schroedinger-talking-pose"
-                position="0 0 0.1"
+                position="-1 0 0.1"
                 scale="1 1 1"
                 rotation="270 0 0"
         ></a-entity>
     </a-marker>
     <!-- pattern with greek letters e.g. psi, ... -->
+    <a-entity
+            gltf-model="#schroedinger-talking-pose"
+            id="final"
+            position="-1 0 -8"
+            rotation="0 0 0"
+            scale="0.7 0.7 0.7"
+            visible="false"
+    ></a-entity>
     <a-entity camera></a-entity>
 </a-scene>
 <div id="decoration">
