@@ -167,7 +167,7 @@ async function addTextTrack(audio, cueFileName) {
             cues.forEach(cue => {
                 const [time, text] = cue.split("\r\n");
                 const [start, end] = time.split(" --> ")
-                    .map(time => timeToSeconds(time));
+                    .map(time => timeToSeconds(time.trim()));
                 const vttCue = new VTTCue(parseFloat(start), parseFloat(end), text);
                 track.addCue(vttCue);
             });
@@ -194,15 +194,14 @@ async function addTextTrack(audio, cueFileName) {
 }
 
 function timeToSeconds(time) {
-    const timeRegex = /^([0-9]{2}:)?([0-9]{2}):([0-9]{2})(\.[0-9]{1,3})?$/i;
+    const timeRegex = /^([0-9]{2}:)?([0-9]{2}):([0-9]{2}(\.[0-9]{1,3})?)$/i;
     let result = timeRegex.exec(time);
     if (result === null || result.length === 1) {
         throw `Invalid time format: ${time}`;
     }
-    result = result.slice(1).map(value => value === undefined ? 0.0 : parseFloat(value.replace(/[ :.]/i, "")));
+    result = result.slice(1).map(value => value === undefined ? 0.0 : parseFloat(value.replace(/[ :]/i, "")));
     let hours = result[0];
     let minutes = result[1];
     let seconds = result[2];
-    let milliseconds = result[3];
-    return hours * 3600.0 + minutes * 60.0 + seconds + milliseconds / 1000;
+    return hours * 3600.0 + minutes * 60.0 + seconds;
 }

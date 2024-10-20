@@ -131,11 +131,12 @@ html {
     position: fixed;
     top: 2dvh;
     left: 50%;
+    min-width: 75%;
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.7); /* Dark grey with transparency */
     color: orange;
     padding: 10px;
-    font-size: min(16px, 2dvw, 2dvh);
+    font-size: 16px;
     text-align: center;
     z-index: 500;
 }
