@@ -155,7 +155,7 @@ async function addTextTrack(audio, cueFileName) {
     const trackDisplay = document.querySelector('div#trackDisplay');
     return fetch(`audios/${cueFileName}.vtt`)
         .then(response => response.text())
-        .then(text => text.split("\r\n\r\n"))
+        .then(text => text.split(/\r?\n\r?\n/))
         .then(cues => {
             if (cues.length <= 1 || cues[0].split(" ")[0] !== "WEBVTT") {
                 throw `${cueFileName} not a WebVTT file`
@@ -165,7 +165,7 @@ async function addTextTrack(audio, cueFileName) {
         })
         .then(cues => {
             cues.forEach(cue => {
-                const [time, text] = cue.split("\r\n");
+                const [time, text] = cue.split(/\r?\n/);
                 const [start, end] = time.split(" --> ")
                     .map(time => timeToSeconds(time.trim()));
                 const vttCue = new VTTCue(parseFloat(start), parseFloat(end), text);
