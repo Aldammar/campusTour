@@ -27,7 +27,7 @@ html {
 }
 
 #popup input {
-    font-size: min(20px, 3vw, 3vh);
+    font-size: min(20px, 3dvw, 3dvh);
     margin: 1ex 0;
     background: linear-gradient(orange, #bf3922);
     border: none;
@@ -40,7 +40,7 @@ html {
 }
 
 #popup label {
-    font-size: min(20px, 3vw, 3vh);
+    font-size: min(20px, 3dvw, 3dvh);
     margin: 1ex 0;
     color: darkorange;
     filter: drop-shadow(0 0 .5em #660000);
@@ -48,7 +48,7 @@ html {
 }
 
 #popup .confirmButton {
-    font-size: min(20px, 3vw, 3vh);
+    font-size: min(20px, 3dvw, 3dvh);
     display: flex;
     margin: 1ex 0;
     background: linear-gradient(orange, #BF3922);
@@ -66,8 +66,8 @@ html {
 
 #showPopupButton {
     position: fixed;
-    bottom: 1vh;
-    right: 1vw;
+    bottom: 1dvh;
+    right: 1dvw;
     padding: 1em;
     background-color: orange;
     color: #660000;
@@ -125,4 +125,17 @@ html {
     height: auto;
     max-height: 150px;
     filter: drop-shadow(0 0 .5em #660000);
+}
+
+#trackDisplay {
+    position: fixed;
+    top: 2dvh;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Dark grey with transparency */
+    color: orange;
+    padding: 10px;
+    font-size: min(16px, 2dvw, 2dvh);
+    text-align: center;
+    z-index: 500;
 }

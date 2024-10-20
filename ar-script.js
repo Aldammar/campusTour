@@ -6,9 +6,9 @@ window.onload = () => {
     document.location.url = url_arr.join("/") + "/";
 
     const inputField = document.getElementById('endSentenceInput');
-    inputField.addEventListener('keydown', (event) => {
+    inputField.addEventListener('keydown', async (event) => {
         if (event.key === 'Enter') {
-            checkSentence();
+            await checkSentence();
         }
     });
 
@@ -107,16 +107,18 @@ function checkSentence() {
     if (correctSentence.test(input)) {
         closePopup();
         const model = document.querySelector('a-entity#final');
-        const text = "Ihr habt die Herausforderungen bestanden und euch als würdige Nachfolger erwiesen! Stuttgart steht nicht nur für Innovation und Exzellenz, sondern auch für Gemeinschaft. Hiermit seid ihr Teil des „Bundes der Wissenschaft.“ Wisst um euere besondere Gaben und Können, bleibt gemeinsam stark und verändert die Welt!";
-        model.setAttribute('visible', true);
-        model.setAttribute("text", `value: ${text}; align: center; width: 1.5; wrapCount: 20; x-offset: 1.5; color: orange;`);
 
         const audio = new Audio('audios/final_message.wav');
+        addTextTrack(audio, 'final_message')
+            .then(track => {
+                model.setAttribute('visible', true);
 
-        audio.play();
-        audio.onended = () => {
-            model.setAttribute('visible', false);
-        }
+                audio.play();
+                audio.onended = () => {
+                    model.setAttribute('visible', false);
+                    track.mode = "hidden";
+                }
+            });
     } else {
         setTimeout(() => alert(`Der Satz "${input}" ist falsch. Bitte versuchen Sie es erneut.`), 500);
     }
@@ -130,28 +132,77 @@ function closePopup() {
 }
 
 AFRAME.registerComponent('markerhandler', {
-    init: () => {
+    init: async () => {
         const audios = {};
-        const xmlRequest = new XMLHttpRequest();
-        xmlRequest.open("GET", "messages.xml", false);
-        xmlRequest.send();
-        const xml = xmlRequest.responseXML;
-
         let markers = document.querySelectorAll("a-marker");
-        markers.forEach(marker => {
+        for (const marker of markers) {
             const id = marker.getAttribute('id');
             audios[id] = new Audio(`audios/${id}_message.wav`);
+            const track = await addTextTrack(audios[id], id + "_message");
             marker.addEventListener('markerFound', () => {
                 audios[id].play();
             });
             marker.addEventListener('markerLost', () => {
                 audios[id].pause();
             });
-            const markerEntity = marker.querySelector('a-entity');
-            const message = Array.from(xml.querySelectorAll(`message`))
-                .find(message => message.querySelector("marker-id").childNodes[0].nodeValue === id);
-            const content = message.querySelector("content").childNodes[0].nodeValue;
-            markerEntity.setAttribute('text', `value: ${content};align: center; width: 1.5;wrapCount: 20; x-offset: 1.5; color: red;`);
-        });
+        }
     }
 })
+
+async function addTextTrack(audio, cueFileName) {
+    const track = audio.addTextTrack('subtitles', 'German', 'de');
+    track.mode = "showing";
+    const trackDisplay = document.querySelector('div#trackDisplay');
+    return fetch(`audios/${cueFileName}.vtt`)
+        .then(response => response.text())
+        .then(text => text.split("\r\n\r\n"))
+        .then(cues => {
+            if (cues.length <= 1 || cues[0].split(" ")[0] !== "WEBVTT") {
+                throw `${cueFileName} not a WebVTT file`
+            } else {
+                return cues.slice(1)
+            }
+        })
+        .then(cues => {
+            cues.forEach(cue => {
+                const [time, text] = cue.split("\r\n");
+                const [start, end] = time.split(" --> ")
+                    .map(time => timeToSeconds(time));
+                const vttCue = new VTTCue(parseFloat(start), parseFloat(end), text);
+                track.addCue(vttCue);
+            });
+            audio.addEventListener("ended", () => {
+                trackDisplay.style.display = 'none';
+                trackDisplay.textContent = "";
+            });
+            audio.addEventListener("pause", () => {
+                trackDisplay.style.display = 'none';
+            });
+            audio.addEventListener("play", () => {
+                trackDisplay.style.display = 'block';
+            });
+            track.addEventListener("cuechange", () => {
+                if (track.activeCues.length > 0) {
+                    trackDisplay.textContent = track.activeCues[0].text;
+                } else {
+                    trackDisplay.textContent = "";
+                }
+            });
+            return track;
+        })
+        .catch(error => console.error(error));
+}
+
+function timeToSeconds(time) {
+    const timeRegex = /^([0-9]{2}:)?([0-9]{2}):([0-9]{2})(\.[0-9]{1,3})?$/i;
+    let result = timeRegex.exec(time);
+    if (result === null || result.length === 1) {
+        throw `Invalid time format: ${time}`;
+    }
+    result = result.slice(1).map(value => value === undefined ? 0.0 : parseFloat(value.replace(/[ :.]/i, "")));
+    let hours = result[0];
+    let minutes = result[1];
+    let seconds = result[2];
+    let milliseconds = result[3];
+    return hours * 3600.0 + minutes * 60.0 + seconds + milliseconds / 1000;
+}
