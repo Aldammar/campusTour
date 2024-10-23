@@ -136,7 +136,7 @@ html {
     background-color: rgba(0, 0, 0, 0.7); /* Dark grey with transparency */
     color: orange;
     padding: 10px;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
     z-index: 500;
 }

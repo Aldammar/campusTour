@@ -26,8 +26,11 @@
 
     <a-assets>
         <!-- Model einer Katze für 2. bis letzten -->
-        <a-asset-item id="schroedinger-talking-pose" src="models/Schroedinger-talking-pose.glb"></a-asset-item>
-        <a-asset-item id="cat" src="models/siberian_cat.glb"></a-asset-item>
+        <a-asset-item id="schroedinger_talking_pose" src="models/Schroedinger-talking-pose.glb"></a-asset-item>
+        <a-asset-item id="sitting_schroedinger" src="models/Erwin_Schroedinger_sitting.glb"></a-asset-item>
+        <a-asset-item id="black_cute_cat" src="models/sitting_cute_black_cat.glb"></a-asset-item>
+        <a-asset-item id="pumpkin_cute_cat" src="models/cute_cat_with_pumpkin_outfit.glb"></a-asset-item>
+        <a-asset-item id="orange_pumpkin_cat" src="models/orange_cat_with_pumpkin_outfit.glb"></a-asset-item>
     </a-assets>
 
     <a-marker
@@ -39,7 +42,7 @@
             url="assets/patterns/pattern-alpha.patt"
     >
         <a-entity
-                gltf-model="#schroedinger-talking-pose"
+                gltf-model="#sitting_schroedinger"
                 position="0 0 0.1"
                 scale="1 1 1"
                 rotation="270 0 0"
@@ -53,12 +56,22 @@
             emitevents="true"
             id="second"
     >
-        <a-entity
-                gltf-model="#cat"
-                position="0 -8 0.1"
-                rotation="0 -90 90"
-                scale=".3 .3 .3"
-        ></a-entity>
+        <a-light
+                angle="130"
+                color="yellow"
+                decay="0"
+                distance="1"
+                intensity="6"
+                position="0 2 0"
+                type="spot"
+        >
+            <a-entity
+                    gltf-model="#black_cute_cat"
+                    position="0 -2 0.1"
+                    rotation="-90 0 0"
+                    scale="1 1 1"
+            ></a-entity>
+        </a-light>
     </a-marker>
     <a-marker
             preset="custom"
@@ -69,10 +82,10 @@
             id="third"
     >
         <a-entity
-                gltf-model="#cat"
-                position="0 -8 0.1"
-                rotation="0 -90 90"
-                scale=".3 .3 .3"
+                gltf-model="#pumpkin_cute_cat"
+                position="0 0 0.1"
+                rotation="-90 0 0"
+                scale="1 1 1"
         ></a-entity>
     </a-marker>
     <a-marker
@@ -84,10 +97,10 @@
             id="fourth"
     >
         <a-entity
-                gltf-model="#cat"
-                position="0 -8 0.1"
-                rotation="0 -90 90"
-                scale=".3 .3 .3"
+                gltf-model="#orange_pumpkin_cat"
+                position="0 0 0.1"
+                rotation="-90 0 0"
+                scale="1 1 1"
         ></a-entity>
     </a-marker>
     <a-marker
@@ -98,12 +111,22 @@
             emitevents="true"
             id="fifth"
     >
-        <a-entity
-                gltf-model="#cat"
-                position="0 -8 0.1"
-                rotation="0 -90 90"
-                scale=".3 .3 .3"
-        ></a-entity>
+        <a-light
+                angle="130"
+                color="yellow"
+                decay="0"
+                distance="1"
+                intensity="6"
+                position="0 2 0"
+                type="spot"
+        >
+            <a-entity
+                    gltf-model="#black_cute_cat"
+                    position="0 -2 0.1"
+                    rotation="-90 0 0"
+                    scale="1 1 1"
+            ></a-entity>
+        </a-light>
     </a-marker>
     <a-marker
             preset="custom"
@@ -114,19 +137,19 @@
             id="last"
     >
         <a-entity
-                gltf-model="#cat"
-                position="0 -8 0.1"
-                rotation="0 -90 90"
-                scale=".3 .3 .3"
+                gltf-model="#pumpkin_cute_cat"
+                position="0 0 0.1"
+                rotation="-90 0 0"
+                scale="1 1 1"
         ></a-entity>
     </a-marker>
     <!-- better patterns -->
     <a-entity
-            gltf-model="#schroedinger-talking-pose"
+            gltf-model="#schroedinger_talking_pose"
             id="final"
             position="0 0 -8"
             rotation="0 0 0"
-            scale="0.7 0.7 0.7"
+            scale="1 1 1"
             visible="false"
     ></a-entity>
     <a-entity camera></a-entity>
