@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Nosifer&display=swap');
 
-body button, body input, body label {
+body {
     font-family: Nosifer, sans-serif !important;
+}
+
+button, input {
+    font-family: inherit;
 }
 
 html {
@@ -33,6 +37,28 @@ html {
     border: none;
     border-radius: 5px;
     padding: 1em;
+    width: 75%;
+    text-align: center;
+}
+
+::placeholder {
+    color: #444;
+    opacity: 1;
+}
+
+::-webkit-input-placeholder {
+    color: #444;
+    opacity: 1;
+}
+
+:-moz-placeholder {
+    color: #444;
+    opacity: 1;
+}
+
+::-ms-input-placeholder {
+    color: #444;
+    opacity: 1;
 }
 
 #popup input:focus-visible {
@@ -43,8 +69,9 @@ html {
     font-size: min(20px, 3dvw, 3dvh);
     margin: 1ex 0;
     color: darkorange;
-    filter: drop-shadow(0 0 .5em #660000);
+    filter: drop-shadow(0 0 .5em orange);
     padding: .5em;
+    text-shadow: -1px -1px 0 #660000, 1px -1px 0 #660000, -1px 1px 0 #660000, 1px 1px 0 #660000;
 }
 
 #popup .confirmButton {
