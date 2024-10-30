@@ -1,0 +1,79 @@
+name: Bug report
+description: Create a report to help us improve
+title: "[BUG]: "
+labels: [ "bug" ]
+assignees:
+  - StrableD
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: To Reproduce
+      description: Steps to reproduce the behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem.
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      description: Please select the browser you are using.
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Opera
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: OS
+      description: Please select the OS you are using.
+      options:
+        - Windows
+        - Linux
+        - Android
+        - MacOS
+        - iOS
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Please enter the version of the software you are using.
+      placeholder: e.g. 11 or 11 Pro 23H2
+    validations:
+      required: true
+  - type: input
+    id: additional
+    attributes:
+      label: Additional information to the environment
+      description: Add any other information about the environment you are using or the browser and os if you selected other.
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here.

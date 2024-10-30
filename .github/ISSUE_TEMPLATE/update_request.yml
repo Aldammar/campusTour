@@ -1,0 +1,30 @@
+name: Update request
+description: A requested change to an existing feature
+title: "[UPDATE]: "
+labels: [ "update" ]
+assignees: StrableD
+body:
+  - type: textarea
+    id: feature_to_update
+    attributes:
+      label: Feature to Update
+      description: A clear and concise description of the feature that needs the update. Ex. The button needs a new look [...]
+      placeholder: Describe the feature to update...
+    validations:
+      required: true
+
+  - type: textarea
+    id: update_description
+    attributes:
+      label: Update Description
+      description: A clear and concise description of how you want the update to look like or what the update should be.
+      placeholder: Describe the update...
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any other context or screenshots about the update request here.
+      placeholder: Add additional context...
