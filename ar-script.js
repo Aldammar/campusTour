@@ -108,7 +108,7 @@ function checkSentence() {
         closePopup();
         const model = document.querySelector('a-entity#final');
 
-        const audio = new Audio('audios/final_message.wav');
+        const audio = new Audio('audios/final_message.mp3');
         addTextTrack(audio, 'final_message')
             .then(track => {
                 model.setAttribute('visible', true);
@@ -137,13 +137,15 @@ AFRAME.registerComponent('markerhandler', {
         let markers = document.querySelectorAll("a-marker");
         for (const marker of markers) {
             const id = marker.getAttribute('id');
-            audios[id] = new Audio(`audios/${id}_message.wav`);
+            audios[id] = new Audio(`audios/${id}_message.mp3`);
             const track = await addTextTrack(audios[id], id + "_message");
             marker.addEventListener('markerFound', () => {
+                track.mode = "showing";
                 audios[id].play();
             });
             marker.addEventListener('markerLost', () => {
                 audios[id].pause();
+                track.mode = "hidden";
             });
         }
     }
