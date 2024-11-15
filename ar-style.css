@@ -1,7 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Nosifer&display=swap');
 
+/* Define CSS variables for repeated values */
+:root {
+    --main-font: 'Nosifer', sans-serif;
+    --main-color: orange;
+    --secondary-color: #bf3922;
+    --light-color: red;
+    --middle-color: darkred;
+    --dark-color: #660000;
+    --border-color: darkorange;
+    --shadow-color: orange;
+    --font-size: min(20px, 3vw, 3vh);
+}
+
 body {
-    font-family: Nosifer, sans-serif !important;
+    font-family: var(--main-font);
 }
 
 button, input {
@@ -19,21 +32,21 @@ html {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 2em;
-    background: linear-gradient(160deg, red, #660000);
-    border: 3px solid darkorange;
+    background: linear-gradient(160deg, var(--light-color), var(--dark-color));
+    border: 3px solid var(--border-color);
     z-index: 1000;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     border-radius: 15px;
-    box-shadow: 0 0 1em orange;
+    box-shadow: 0 0 1em var(--shadow-color);
     width: 75%;
 }
 
 #popup input {
-    font-size: min(20px, 3dvw, 3dvh);
+    font-size: var(--font-size);
     margin: 1ex 0;
-    background: linear-gradient(orange, #bf3922);
+    background: linear-gradient(var(--main-color), var(--secondary-color));
     border: none;
     border-radius: 5px;
     padding: 1em;
@@ -41,53 +54,41 @@ html {
     text-align: center;
 }
 
-::placeholder {
-    color: #444;
-    opacity: 1;
-}
-
-::-webkit-input-placeholder {
-    color: #444;
-    opacity: 1;
-}
-
-:-moz-placeholder {
-    color: #444;
-    opacity: 1;
-}
-
+::placeholder,
+::-webkit-input-placeholder,
+:-moz-placeholder,
 ::-ms-input-placeholder {
     color: #444;
     opacity: 1;
 }
 
 #popup input:focus-visible {
-    outline: #660000 solid 2px;
+    outline: var(--dark-color) solid 2px;
 }
 
 #popup label {
-    font-size: min(20px, 3dvw, 3dvh);
+    font-size: var(--font-size);
     margin: 1ex 0;
-    color: darkorange;
-    filter: drop-shadow(0 0 .5em orange);
+    color: var(--border-color);
+    filter: drop-shadow(0 0 .5em var(--shadow-color));
     padding: .5em;
-    text-shadow: -1px -1px 0 #660000, 1px -1px 0 #660000, -1px 1px 0 #660000, 1px 1px 0 #660000;
+    text-shadow: -1px -1px 0 var(--dark-color), 1px -1px 0 var(--dark-color), -1px 1px 0 var(--dark-color), 1px 1px 0 var(--dark-color);
 }
 
 #popup .confirmButton {
-    font-size: min(20px, 3dvw, 3dvh);
+    font-size: var(--font-size);
     display: flex;
     margin: 1ex 0;
-    background: linear-gradient(orange, #BF3922);
+    background: linear-gradient(var(--main-color), var(--secondary-color));
     border: none;
     border-radius: 5px;
     padding: 1em;
-    box-shadow: orange 0 4px 1em;
+    box-shadow: var(--shadow-color) 0 4px 1em;
 }
 
 #popup .confirmButton:active {
-    background-color: darkred;
-    box-shadow: orange 0 1px 1em;
+    background-color: var(--middle-color);
+    box-shadow: var(--shadow-color) 0 1px 1em;
     transform: translateY(3px);
 }
 
@@ -96,22 +97,22 @@ html {
     bottom: 1dvh;
     right: 1dvw;
     padding: 1em;
-    background-color: orange;
-    color: #660000;
-    border: 2px solid #660000;
+    background-color: var(--main-color);
+    color: var(--dark-color);
+    border: 2px solid var(--dark-color);
     border-radius: 10px;
     cursor: pointer;
     z-index: 10;
     font-size: 20px;
-    box-shadow: orange 0 0 1em;
+    box-shadow: var(--shadow-color) 0 0 1em;
+}
 
-    &:active {
-        background-color: #660000;
-        color: orange;
-        transform: translate(4px, 6px);
-        border: 2px solid orange;
-        box-shadow: #660000 0 0 1em;
-    }
+#showPopupButton:active {
+    background-color: var(--dark-color);
+    color: var(--main-color);
+    transform: translate(4px, 6px);
+    border: 2px solid var(--main-color);
+    box-shadow: var(--dark-color) 0 0 1em;
 }
 
 #popup .closeButton {
@@ -123,8 +124,8 @@ html {
     width: 2em;
     height: 2em;
     border-radius: 50%;
-    border: 2px solid darkorange;
-    background: darkred;
+    border: 2px solid var(--border-color);
+    background: var(--middle-color);
     color: white;
     font-size: 1em;
     cursor: pointer;
@@ -132,12 +133,13 @@ html {
     justify-content: center;
     margin: 0;
 
-    &:active {
-        background: orange;
-        transform: translate(-2px, 3px);
-        border: 2px solid darkred;
-        color: #660000;
-    }
+}
+
+#popup .closeButton:active {
+    background: var(--main-color);
+    transform: translate(-2px, 3px);
+    border: 2px solid var(--middle-color);
+    color: var(--dark-color);
 }
 
 #decoration {
@@ -151,7 +153,7 @@ html {
     max-width: 150px;
     height: auto;
     max-height: 150px;
-    filter: drop-shadow(0 0 .5em #660000);
+    filter: drop-shadow(0 0 .5em var(--dark-color));
 }
 
 #trackDisplay {
@@ -161,7 +163,7 @@ html {
     min-width: 75%;
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.7); /* Dark grey with transparency */
-    color: orange;
+    color: var(--main-color);
     padding: 10px;
     font-size: 18px;
     text-align: center;

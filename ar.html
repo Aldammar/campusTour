@@ -6,26 +6,27 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>CampusTour - Universität Stuttgart</title>
     <link href="images/favicon.ico" rel="icon" sizes="32x32" type="image/png">
-    <!-- A-Frame -->
+    <!-- A-Frame library for building 3D/AR/VR experiences -->
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <!-- AR.js -->
+    <!-- AR.js library for augmented reality on the web -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <!-- A-Frame extras for additional features and loaders -->
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-
+    <!-- Custom scripts for the AR application -->
     <script src="ar-script.js"></script>
     <link href="ar-style.css" rel="stylesheet">
 </head>
 <body style="margin: 0; overflow: hidden;">
+
 <a-scene
         vr-mode-ui="enabled: false"
         embedded
         arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;trackingMethod: best;'
         renderer="logarithmicDepthBuffer: true;"
-        markerhandler
 >
 
+    <!-- Assets for 3D models used in the AR scene -->
     <a-assets>
-        <!-- Model einer Katze für 2. bis letzten -->
         <a-asset-item id="schroedinger_talking_pose" src="models/Schroedinger-talking-pose.glb"></a-asset-item>
         <a-asset-item id="sitting_schroedinger" src="models/Erwin_Schroedinger_sitting.glb"></a-asset-item>
         <a-asset-item id="pumpkin_sitting_cat" src="models/cute_sitting_cat_with_pumpkin_outfit.glb"></a-asset-item>
@@ -40,6 +41,7 @@
             size="0.25"
             emitevents="true"
             url="assets/patterns/pattern-alpha.patt"
+            audiomarker
     >
         <a-entity
                 gltf-model="#sitting_schroedinger"
@@ -47,6 +49,10 @@
                 scale="1 1 1"
                 rotation="270 0 0"
         ></a-entity>
+        <audio>
+            <source src="audios/first_message.mp3" type="audio/mpeg"/>
+            <track default kind="captions" label="Deutsch" src="audios/first_message.vtt" srclang="de"/>
+        </audio>
     </a-marker>
     <a-marker
             preset="custom"
@@ -55,6 +61,7 @@
             size="0.25"
             emitevents="true"
             id="second"
+            audiomarker
     >
         <a-entity
                 gltf-model="#pumpkin_sitting_cat"
@@ -62,6 +69,10 @@
                 rotation="-90 0 0"
                 scale="1 1 1"
         ></a-entity>
+        <audio>
+            <source src="audios/second_message.mp3" type="audio/mpeg"/>
+            <track default kind="captions" label="Deutsch" src="audios/second_message.vtt" srclang="de"/>
+        </audio>
     </a-marker>
     <a-marker
             preset="custom"
@@ -70,6 +81,7 @@
             size="0.25"
             emitevents="true"
             id="third"
+            audiomarker
     >
         <a-entity
                 gltf-model="#pumpkin_cute_cat"
@@ -77,6 +89,10 @@
                 rotation="-90 0 0"
                 scale="1 1 1"
         ></a-entity>
+        <audio>
+            <source src="audios/third_message.mp3" type="audio/mpeg"/>
+            <track default kind="captions" label="Deutsch" src="audios/third_message.vtt" srclang="de"/>
+        </audio>
     </a-marker>
     <a-marker
             preset="custom"
@@ -85,6 +101,7 @@
             size="0.25"
             emitevents="true"
             id="fourth"
+            audiomarker
     >
         <a-entity
                 gltf-model="#orange_pumpkin_cat"
@@ -92,6 +109,10 @@
                 rotation="-90 0 0"
                 scale="1 1 1"
         ></a-entity>
+        <audio>
+            <source src="audios/fourth_message.mp3" type="audio/mpeg"/>
+            <track default kind="captions" label="Deutsch" src="audios/fourth_message.vtt" srclang="de"/>
+        </audio>
     </a-marker>
     <a-marker
             preset="custom"
@@ -100,6 +121,7 @@
             size="0.25"
             emitevents="true"
             id="fifth"
+            audiomarker
     >
         <a-entity
                 gltf-model="#pumpkin_sitting_cat"
@@ -107,6 +129,30 @@
                 rotation="-90 0 0"
                 scale="1 1 1"
         ></a-entity>
+        <audio>
+            <source src="audios/fifth_message.mp3" type="audio/mpeg"/>
+            <track default kind="captions" label="Deutsch" src="audios/fifth_message.vtt" srclang="de"/>
+        </audio>
+    </a-marker>
+    <a-marker
+            audiomarker
+            emitevents="true"
+            id="sixth"
+            preset="custom"
+            size="0.25"
+            type="pattern"
+            url="assets/patterns/pattern-pi.patt"
+    >
+        <a-entity
+                gltf-model="#orange_pumpkin_cat"
+                position="0 0 0.1"
+                rotation="-90 0 0"
+                scale="1 1 1"
+        ></a-entity>
+        <audio>
+            <source src="audios/sixth_message.mp3" type="audio/mpeg"/>
+            <track default kind="captions" label="Deutsch" src="audios/sixth_message.vtt" srclang="de"/>
+        </audio>
     </a-marker>
     <a-marker
             preset="custom"
@@ -115,6 +161,7 @@
             size="0.25"
             emitevents="true"
             id="last"
+            audiomarker
     >
         <a-entity
                 gltf-model="#pumpkin_cute_cat"
@@ -122,6 +169,10 @@
                 rotation="-90 0 0"
                 scale="1 1 1"
         ></a-entity>
+        <audio>
+            <source src="audios/last_message.mp3" type="audio/mpeg"/>
+            <track default kind="captions" label="Deutsch" src="audios/last_message.vtt" srclang="de"/>
+        </audio>
     </a-marker>
     <!-- better patterns -->
     <a-entity
@@ -131,9 +182,17 @@
             rotation="0 0 0"
             scale="1 1 1"
             visible="false"
-    ></a-entity>
+    >
+        <audio>
+            <source src="audios/final_message.mp3" type="audio/mpeg"/>
+            <track default kind="captions" label="Deutsch" src="audios/final_message.vtt" srclang="de"/>
+        </audio>
+    </a-entity>
+    <!-- Camera entity for the AR scene -->
     <a-entity camera></a-entity>
 </a-scene>
+
+<!-- Decoration images for the borders of the AR scene -->
 <div id="decoration">
     <img alt="" src="images/halloween_pumpkin.png"/>
     <img alt="" src="images/ghost_cute.png"/>
@@ -148,7 +207,11 @@
     <img alt="" src="images/witch_riding.png"/>
     <img alt="" src="images/halloween_bat.png"/>
 </div>
+
+<!-- The display for the current track when an audio is played -->
 <div id="trackDisplay" style="display: none;"></div>
+
+<!-- Popup for entering the solution sentence -->
 <div id="popup">
     <label for="endSentenceInput">Gib hier den Lösungssatz ein:</label>
     <input id="endSentenceInput" placeholder="Lösungssatz" type="text">
@@ -156,5 +219,6 @@
     <button class="closeButton" onclick="closePopup()">x</button>
 </div>
 <button id="showPopupButton" onclick="showPopup()">Lösungsphrase</button>
+
 </body>
 </html>
