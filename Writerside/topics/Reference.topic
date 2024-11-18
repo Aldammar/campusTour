@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic id="Reference"
+       title="Referenz"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd">
+
+    <title>
+        Referenz
+    </title>
+    <!-- Muss noch überarbeitet werden -->
+    <show-structure depth="2"/>
+    <chapter id="html" title="HTML">
+        <chapter id="a-scene-a-frame-scene">
+            <title>
+                <code>&lt;a-scene&gt;</code> (A-Frame Scene)
+            </title>
+            <p>
+                <code>&lt;a-scene&gt;</code> ist das Wurzelelement, das alle A-Frame-Elemente enthält. Es ist das
+                Hauptelement, das die gesamte Szene
+                definiert. Es ist ähnlich wie <code>&lt;body&gt;</code> in HTML, aber für AR.
+            </p>
+            <note>
+                In diesem Projekt wird <code>&lt;a-scene&gt;</code> verwendet, um die AR-Szene zu definieren. In diesem
+                Element sind alle
+                AR-Elemente enthalten, wie z.B. <code>&lt;a-entity&gt;</code> und <code>&lt;a-marker&gt;</code>.
+            </note>
+            <code-block lang="html">
+                <![CDATA[
+                    <a-scene>
+                        <a-box position="0 0.5 -5" rotation="0 45 0" color="#4CC3D9"></a-box>
+                    </a-scene>
+                ]]>
+            </code-block>
+            <deflist>
+                <def id="siehe-auch-a-scene" title="Siehe auch"><a href="https://aframe.io/docs/0.9.0/introduction/">A-Frame</a>
+                </def>
+            </deflist>
+            <chapter id="a-scene-parameters" title="Parameter">
+                <list>
+                    <li><code>embedded</code>: Definiert, ob die Szene in einem iframe eingebettet ist.</li>
+                    <li><code>vr-mode-ui</code>: Definiert, ob die VR-Modus-Schaltfläche angezeigt wird.</li>
+                    <li><code>arjs</code>: Definiert die AR.js Einstellungen.</li>
+                    <li><code>renderer</code>: Definiert die Renderer-Einstellungen.</li>
+                </list>
+            </chapter>
+        </chapter>
+        <chapter id="a-entity-a-frame-entity">
+            <title>
+                <code>&lt;a-entity&gt;</code> (A-Frame Entity)
+            </title>
+            <p>
+                <code>&lt;a-entity&gt;</code> ist ein generisches Element, das ein Objekt in der Szene darstellt. Es
+                kann verwendet werden, um
+                3D-Objekte, Lichter, Kameras, Sound, Partikel und mehr hinzuzufügen.
+            </p>
+
+            <note>
+                In diesem Projekt wird <code>&lt;a-entity&gt;</code> verwendet, um 3D-Objekte in der AR-Szene zu
+                platzieren.
+            </note>
+
+            <code-block lang="html">
+                <![CDATA[
+                    <a-entity geometry="primitive: box" material="color: blue" position="0 1.5 -5"></a-entity>
+                ]]>
+            </code-block>
+            <deflist>
+                <def id="siehe-auch-a-entity" title="Siehe auch"><a href="https://aframe.io/docs/0.9.0/introduction/">A-Frame</a>
+                </def>
+            </deflist>
+            <chapter id="a-entity-parameters" title="Parameter">
+                <list>
+                    <li><code>gltf-model</code>: URL oder Referenz zum 3D-Modell.</li>
+                    <li><code>position</code>: Position des Objekts in der Szene.</li>
+                    <li><code>rotation</code>: Rotation des Objekts in der Szene.</li>
+                    <li><code>scale</code>: Skalierung des Objekts in der Szene.</li>
+                    <li><code>camera</code>: Definiert die Kamera in der Scene.</li>
+                </list>
+            </chapter>
+        </chapter>
+
+        <chapter id="a-marker-ar-js-marker">
+            <title>
+                <code>&lt;a-marker&gt;</code> (AR.js Marker)
+            </title>
+            <p>
+                <code>&lt;a-marker&gt;</code> ist ein Element, das verwendet wird, um AR.js-Marker in der Szene zu
+                definieren. Es wird in
+                Kombination mit <code>&lt;a-entity&gt;</code> verwendet, um 3D-Objekte anzuzeigen, wenn der Marker
+                erkannt wird.
+            </p>
+            <note>
+                In diesem Projekt wird <code>&lt;a-marker&gt;</code> verwendet, um AR.js-Marker zu definieren und
+                3D-Objekte anzuzeigen, wenn der Marker erkannt wird.
+            </note>
+            <code-block lang="html">
+                <![CDATA[
+                    <a-marker preset="hiro">
+                        <a-box position="0 0.5 0" rotation="0 45 0" color="#4CC3D9"></a-box>
+                    </a-marker>
+                ]]>
+            </code-block>
+            <deflist>
+                <def id="siehe-auch-a-marker" title="Siehe auch"><a
+                        href="https://ar-js-org.github.io/AR.js-Docs">AR.js</a></def>
+            </deflist>
+            <chapter id="a-marker-parameters" title="Parameter">
+                <list>
+                    <li><code>preset</code>: Voreingestellter Marker (hiro, kanji, barcode, custom).</li>
+                    <li><code>type</code>: Typ des Markers (pattern, barcode, unknown).</li>
+                    <li><code>url</code>: URL des benutzerdefinierten Markers.</li>
+                    <li><code>size</code>: Größe des Markers.</li>
+                    <li><code>emitevents</code>: Definiert, ob Ereignisse emittiert werden sollen.</li>
+                    <li><code>audiomarker</code>: Definiert, dass der Marker Audio enthält, was beim Erkennen abgespielt
+                        werden soll.
+                    </li>
+                </list>
+            </chapter>
+        </chapter>
+        <chapter id="audio">
+            <title>
+                <code>&lt;audio&gt;</code>
+            </title>
+            <p>
+                <code>&lt;audio&gt;</code> ist ein HTML-Element, das verwendet wird, um Audio in eine Webseite
+                einzubinden. Hier wird es verwendet, um das Audio für die Modelle zu definieren.
+            </p>
+            <note>
+                In diesem Projekt wird <code>&lt;audio&gt;</code> verwendet, um Audiodateien für die Modelle zu
+                definieren.
+            </note>
+            <code-block lang="html">
+                <![CDATA[
+                    <audio>
+                        <source src="audios/first_message.mp3" type="audio/mpeg">
+                        <track src="audios/first_message.vtt" label="Deutsch" srclang="de" kind="captions">
+                    </audio>
+                ]]>
+            </code-block>
+            <deflist>
+                <def id="siehe-auch-audio" title="Siehe auch">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio"><code>audio</code> HTML
+                        Docs MDN</a> |
+                    <a href="https://www.w3schools.com/tags/tag_audio.asp">HTML <code>audio</code> W3Schools</a>
+                </def>
+            </deflist>
+            <chapter id="audio-parameters" title="Parameter">
+                <list>
+                    <li><code>src</code>: URL der Audiodatei.</li>
+                    <li><code>type</code>: Typ der Audiodatei (audio/mpeg, audio/ogg, audio/wav).</li>
+                    <li><code>preload</code>: Definiert, ob die Audiodatei beim Laden der Seite geladen werden soll.
+                    </li>
+                    <li><code>autoplay</code>: Definiert, ob die Audiodatei automatisch abgespielt werden soll.</li>
+                    <li><code>loop</code>: Definiert, ob die Audiodatei in einer Schleife wiedergegeben werden soll.
+                    </li>
+                    <li><code>controls</code>: Definiert, ob die Audiodatei-Steuerung angezeigt werden soll.</li>
+                </list>
+            </chapter>
+        </chapter>
+        <chapter id="track">
+            <title>
+                <code>&lt;track&gt;</code>
+            </title>
+            <p>
+                <code>&lt;track&gt;</code> ist ein HTML-Element, das verwendet wird, um Untertitel oder Untertitelspuren
+                für Audio- oder
+                Video-Elemente zu definieren.
+            </p>
+            <note>
+                In diesem Projekt wird <code>&lt;track&gt;</code> verwendet, um Untertitel für die Audiodateien zu
+                definieren.
+            </note>
+            <code-block lang="html">
+                <![CDATA[
+                    <track src="audios/first_message.vtt" label="Deutsch" srclang="de" kind="captions">
+                ]]>
+            </code-block>
+            <deflist>
+                <def id="siehe-auch-track" title="Siehe auch">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track"><code>track</code> HTML
+                        Docs MDN</a> |
+                    <a href="https://www.w3schools.com/tags/tag_track.asp">HTML <code>track</code> W3Schools</a>
+                </def>
+            </deflist>
+            <chapter id="track-parameters" title="Parameter">
+                <list>
+                    <li><code>src</code>: URL der Untertitelspur.</li>
+                    <li><code>label</code>: Label der Untertitelspur.</li>
+                    <li><code>srclang</code>: Sprache der Untertitelspur.</li>
+                    <li><code>kind</code>: Art der Untertitelspur (subtitles, captions, descriptions, chapters,
+                        metadata).
+                    </li>
+                </list>
+            </chapter>
+        </chapter>
+        <chapter id="div">
+            <title>
+                <code>&lt;div&gt;</code>
+            </title>
+            <p>
+                <code>&lt;div&gt;</code> ist ein generisches Container-Element, das verwendet wird, um andere
+                HTML-Elemente zu gruppieren.
+            </p>
+            <note>
+                In diesem Projekt wird <code>&lt;div&gt;</code> verwendet, um Schaltflächen und Eingabefelder zu
+                gruppieren.
+            </note>
+            <code-block lang="html">
+                <![CDATA[
+                    <div style="position: absolute; top: 0; left: 0; right: 0; z-index: 1;">
+                        <button onclick="toggleFullscreen()">Fullscreen</button>
+                    </div>
+                ]]>
+            </code-block>
+            <deflist>
+                <def id="siehe-auch-div" title="Siehe auch">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>div</code> HTML Docs
+                        MDN</a> |
+                    <a href="https://www.w3schools.com/tags/tag_div.asp">HTML <code>div</code> W3Schools</a>
+                </def>
+            </deflist>
+            <chapter id="div-parameters" title="Parameter">
+                <list>
+                    <li><code>id</code>: Eindeutige ID des Elements.</li>
+                    <li><code>style</code>: CSS-Stile für das Element.</li>
+                </list>
+            </chapter>
+        </chapter>
+        <chapter id="button">
+            <title>
+                <code>&lt;button&gt;</code>
+            </title>
+            <p>
+                <code>&lt;button&gt;</code> ist ein HTML-Element, das verwendet wird, um eine Schaltfläche in eine
+                Webseite einzubinden.
+            </p>
+            <note>
+                In diesem Projekt wird <code>&lt;button&gt;</code> verwendet, um das Popup für das Ende anzuzeigen und
+                zu bestätigen sowie für die
+                erste Navigation zur AR-Szene.
+            </note>
+            <code-block lang="html">
+                <![CDATA[
+                    <button onclick="toggleFullscreen()">Fullscreen</button>
+                ]]>
+            </code-block>
+            <deflist>
+                <def id="siehe-auch-button" title="Siehe auch">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button"><code>button</code> HTML
+                        Docs MDN</a> |
+                    <a href="https://www.w3schools.com/tags/tag_button.asp">HTML <code>button</code> W3Schools</a>
+                </def>
+            </deflist>
+            <chapter id="button-parameters" title="Parameter">
+                <list>
+                    <li><code>class</code>: CSS-Klasse des Elements.</li>
+                    <li><code>onclick</code>: JavaScript-Funktion, die aufgerufen wird, wenn die Schaltfläche geklickt
+                        wird.
+                    </li>
+                </list>
+            </chapter>
+        </chapter>
+        <chapter id="label">
+            <title>
+                <code>&lt;label&gt;</code>
+            </title>
+            <p>
+                <code>&lt;label&gt;</code> ist ein HTML-Element, das verwendet wird, um ein Label für ein anderes
+                Element zu definieren.
+            </p>
+            <note>
+                In diesem Projekt wird <code>&lt;label&gt;</code> verwendet, um ein Label für ein Eingabefeld zu
+                definieren.
+            </note>
+            <code-block lang="html">
+                <![CDATA[
+                    <label for="name">Name:</label>
+                    <input type="text" id="name">
+                ]]>
+            </code-block>
+            <deflist>
+                <def id="siehe-auch-label" title="Siehe auch">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label"><code>label</code> HTML
+                        Docs MDN</a> |
+                    <a href="https://www.w3schools.com/tags/tag_label.asp">HTML <code>label</code> W3Schools</a>
+                </def>
+            </deflist>
+            <chapter id="label-parameters" title="Parameter">
+                <list>
+                    <li><code>for</code>: ID des zugehörigen <a anchor="input">Input</a>-Elements.</li>
+                </list>
+            </chapter>
+        </chapter>
+        <chapter id="input">
+            <title>
+                <code>&lt;input&gt;</code>
+            </title>
+            <p>
+                <code>&lt;input&gt;</code> ist ein HTML-Element, das verwendet wird, um Benutzereingaben zu erfassen.
+            </p>
+            <note>
+                In diesem Projekt wird <code>&lt;input&gt;</code> verwendet, um das Eingabefeld für den finalen Satz zu
+                definieren.
+            </note>
+            <code-block lang="html">
+                <![CDATA[
+                    <input type="text" id="name">
+                ]]>
+            </code-block>
+            <deflist>
+                <def id="siehe-auch-input" title="Siehe auch">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>input</code> HTML
+                        Docs MDN</a> |
+                    <a href="https://www.w3schools.com/tags/tag_input.asp">HTML <code>input</code> W3Schools</a>
+                </def>
+            </deflist>
+            <chapter id="input-parameters" title="Parameter">
+                <list>
+                    <li><code>type</code>: Typ des Eingabefelds (text, number, email, password, date, file).</li>
+                    <li><code>id</code>: Eindeutige ID des Elements.</li>
+                    <li><code>value</code>: Standardwert des Eingabefelds.</li>
+                    <li><code>placeholder</code>: Platzhaltertext im Eingabefeld.</li>
+                    <li><code>required</code>: Definiert, ob das Eingabefeld erforderlich ist.</li>
+                </list>
+            </chapter>
+        </chapter>
+    </chapter>
+    <chapter id="css" title="CSS">
+        <p>
+            CSS (Cascading Style Sheets) wird verwendet, um das Aussehen und Layout von HTML-Elementen zu definieren. Es
+            ermöglicht die Trennung
+            von Inhalt und Design und bietet eine Vielzahl von Stileigenschaften, um Webseiten zu gestalten. Hierbei
+            wird der Syntax von CSS
+            verwendet.
+        </p>
+        <code-block lang="css">
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+            }
+        </code-block>
+        <p>
+            Der Syntax besteht aus einem
+            <format color="#cc7832" style="italic">Selektor</format>
+            und einer oder mehreren Deklarationen, die durch
+            geschweifte Klammern <code>{}</code> eingeschlossen sind. Jede Deklaration besteht aus einem
+            <format color="#9876aa" style="italic">Eigenschaftsnamen</format>
+            und einem
+            <format color="#a9b7c6" style="italic">Wert</format>
+            , die
+            durch einen Doppelpunkt <code>:</code>.
+        </p>
+        <chapter id="selektoren" title="Selektoren">
+            <p>Es gibt verschiedene Arten von Selektoren in CSS, die verwendet werden können, um HTML-Elemente zu
+                stylen.
+                Mit diesen wählt man die HTML-Elemente aus, denen man neue Stileigenschaften zuweisen möchte.
+            </p>
+            <p>
+                <control>Beispiele von Selektoren sind:</control>
+            </p>
+
+            <code-block lang="css">
+                p {
+                    color: red;
+                }
+
+                #header {
+                    font-size: 24px;
+                }
+
+                .button {
+                    background-color: blue;
+                }
+
+                img[src] {
+                    border: 1px solid black;
+                }
+
+                a:hover {
+                    color: green;
+                }
+            </code-block>
+            <deflist>
+                <def id="siehe-auch-css" title="Siehe auch">
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors">CSS
+                        Selektoren MDN</a> |
+                    <a href="https://www.w3schools.com/css/css_selectors.asp">CSS Selektoren W3Schools</a>
+                </def>
+            </deflist>
+        </chapter>
+    </chapter>
+    <chapter id="javascript" title="JavaScript">
+        <p>
+            JavaScript ist eine Programmiersprache, die verwendet wird, um Webseiten interaktiv zu gestalten. Es
+            ermöglicht das Hinzufügen von
+            Funktionen, Ereignissen und Animationen zu HTML-Elementen. Hierbei wird der Syntax von JavaScript verwendet.
+        </p>
+
+        <deflist>
+            <def id="siehe-auch-js" title="Siehe auch">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript MDN</a> |
+                <a href="https://www.w3schools.com/js/default.asp">JavaScript W3Schools</a>
+            </def>
+        </deflist>
+
+        <chapter id="pixel-convert">
+            <title><code>pxToXx</code></title>
+            <p>
+                Die Funktionen <code>pxToVh(px)</code> und <code>pxToVw(px)</code> sind kleine Hilfsfunktionen, die
+                verwendet werden, um Pixel in
+                viewport height und width Werte umzurechnen. Damit können dann einfacher Responsive Designs erstellt
+                werden.
+            </p>
+            <code-block lang="javascript">
+                function pxToVh(px) {
+                    return px / document.documentElement.clientHeight * 100;
+                }
+
+                function pxToVw(px) {
+                    return px / document.documentElement.clientWidth * 100;
+                }
+            </code-block>
+        </chapter>
+
+        <chapter id="unit-convert">
+            <title><code>valueOfUnitString</code></title>
+            <p>
+                Diese Funktion extrahiert aus einer Zeichenkette mit einer Einheit (z.B. "10px", "50%") den numerischen
+                Wert.
+            </p>
+            <code-block lang="javascript">
+                function valueOfUnitString(unitString) {
+                    const unitStringRegex = /([0-9.]+)([a-z%]+)/i;
+                    return parseFloat(unitStringRegex.exec(unitString)[1]);
+                }
+            </code-block>
+        </chapter>
+
+        <chapter id="check-collision">
+            <title><code>isColliding</code></title>
+            <p>
+                Diese Funktion überprüft, ob ein Bild sich mit einem schon platziertem Bild überschneiden würde, wenn es
+                an platziert werden würde.
+            </p>
+            <code-block lang="javascript">
+                /**
+                 * @param placedImages - Ein Array von Bildern, die schon platziert wurden
+                 * @param image - Das Bild, das platziert werden soll
+                 * @returns {boolean} - Gibt zurück, ob das Bild sich mit einem schon platzierten Bild überschneiden würde
+                 */
+                function isColliding(placedImages, image) {
+                    return placedImages.some(img => Math.abs(img.top - image.top) &lt; img.height + image.height &amp;&amp; Math.abs(img.left - image.left) &lt; img.width + image.width);
+                }
+            </code-block>
+        </chapter>
+
+        <chapter id="popup-functions">
+            <title>Popup Funktionen</title>
+            <p>
+                Diese Funktionen sind für das Anzeigen, das Schließen und das Validieren des Popups zuständig.
+            </p>
+            <chapter id="show-popup">
+                <title><code>showPopup</code></title>
+                <p>
+                    Diese Funktion zeigt das Popup an.
+                </p>
+                <code-block lang="javascript">
+                    function showPopup() {
+                        document.getElementById('popup').style.display = 'flex';
+                        document.getElementById('showPopupButton').style.display = 'none';
+                        document.addEventListener('click', closePopupOnClickOutside);
+                    }
+                </code-block>
+            </chapter>
+            <chapter id="close-popup">
+                <title><code>closePopup</code></title>
+                <p>
+                    Diese Funktion schließt das Popup.
+                </p>
+                <code-block lang="javascript">
+                    function closePopup() {
+                        document.getElementById('popup').style.display = 'none';
+                        document.getElementById('showPopupButton').style.display = 'block';
+                        document.removeEventListener('click', closePopupOnClickOutside);
+                    }
+                </code-block>
+            </chapter>
+            <chapter id="close-popup-on-click-outside">
+                <title><code>closePopupOnClickOutside</code></title>
+                <p>
+                    Diese Funktion schließt das Popup, wenn der Benutzer außerhalb des Popups klickt.
+                </p>
+                <code-block lang="javascript">
+                    /**
+                     * @param {Event} event - Das click Event.
+                     */
+                    function closePopupOnClickOutside(event) {
+                        const popup = document.getElementById('popup');
+                        const button = document.getElementById('showPopupButton');
+
+                        if (!popup.contains(event.target) &amp;&amp; !button.contains(event.target)) {
+                            closePopup();
+                        }
+                    }
+                </code-block>
+            </chapter>
+            <chapter id="check-sentence">
+                <title><code>checkSentence</code></title>
+                <p>
+                    Die Funktion überprüft, ob der eingeben Satz korrekt ist und, wenn der Satz korrekt ist, zeigt das
+                    Model an und lässt das Audio
+                    dazu abspielen.
+                </p>
+                <code-block lang="JavaScript">
+                    function checkSentence() {
+                        const inputField = document.getElementById('endSentenceInput');
+                        const input = inputField.value;
+                        const correctSentence = /^Die Wahrheit liegt im Licht\.?$/i; // Ersetze dies durch den korrekten Satz
+
+                        if (correctSentence.test(input)) {
+                            closePopup();
+
+                            const model = document.querySelector('a-entity#final');
+                            const audio = model.querySelector("audio");
+
+                            model.setAttribute('visible', true);
+
+                            audio.play().then(() => console.info(`Playing ${audio.currentSrc}`)).catch(e => console.error(e));
+                            audio.onended = () => {
+                                model.setAttribute('visible', false);
+                            }
+                        } else {
+                            setTimeout(() => alert(`Der Satz "${input}" ist falsch. Bitte versuchen Sie es erneut.`), 500);
+                        }
+                        inputField.value = "";
+                    }
+                </code-block>
+            </chapter>
+        </chapter>
+        <chapter id="window-load">
+            <title>Lade Funktion der Seite</title>
+            <p>
+                Um Code auszuführen, wenn die Seite geladen wird, muss man den <code>window.onload</code> Event Listener
+                verwenden.
+            </p>
+            <code-block lang="javascript">
+                window.onload = function () {
+                    getCleanUrl();
+                    setupInputFieldListener();
+                    setupAudioTracks();
+                    placeDecorationImages();
+                };
+            </code-block>
+        </chapter>
+    </chapter>
+    <seealso>
+        <category ref="external">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" id="HTML"/>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" id="CSS"/>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" id="JavaScript"/>
+            <a href="https://aframe.io/docs/0.9.0/introduction/" id="AFRAME"/>
+            <a href="https://ar-js-org.github.io/AR.js-Docs/" id="AR.js"/>
+        </category>
+    </seealso>
+
+</topic>

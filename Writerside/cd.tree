@@ -4,9 +4,9 @@
 
 <instance-profile id="cd"
                  name="CamusTour Documentation"
-                 start-page="starter-topic.md">
+                  start-page="starter-topic.topic">
 
-    <toc-element topic="starter-topic.md"/>
-    <toc-element topic="Reference.md"/>
+    <toc-element topic="starter-topic.topic"/>
     <toc-element topic="How-to-simple-change.md"/>
+    <toc-element topic="Reference.topic"/>
 </instance-profile>

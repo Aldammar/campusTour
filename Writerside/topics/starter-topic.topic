@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic id="starter-topic"
+       title="CamusTour Documentation"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd">
+
+    <title>
+        CamusTour Documentation
+    </title>
+    <chapter id="installation" title="Installation">
+        <p>
+            Zurzeit wird die CampusTour über GitHub Pages gehostet. Erreichbar ist diese unter folgendem Link: <a
+                href="https://aldammar.github.io/campusTour/">CampusTour</a>
+        </p>
+        <p>
+            Wenn man die CampusTour verändert will oder sie unter einem eigenen Link hosten will, dann gibt es
+            verschiedene Möglichkeiten:
+        </p>
+        <chapter id="github-pages" title="GitHub Pages">
+            <p>
+                Hier kann man sowohl einen eigenen Link verwenden (oder den bestehenden) als auch die CampusTour
+                verwenden.
+            </p>
+            <procedure id="github-pages-einrichten" title="GitHub Pages einrichten">
+                <step>
+                    <control>Repository forken:</control>
+                    Entweder direkt auf <a href="https://github.com/Aldammar/campusTour/fork">GitHub</a>, über die
+                    GitHub Desktop App oder über die
+                    GitHub CLI. Weitere Informationen dazu gibt es <a
+                        href="https://docs.github.com/de/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo">hier</a>.
+                </step>
+                <step>
+                    <control>Repository klonen:</control>
+                    Das geforkte Repository kann nun geklont werden. Dies muss nicht gemacht werden, wenn die GitHub
+                    Desktop App oder die GitHub CLI
+                    mit <code>--clone=true</code> verwendet wurde. Zum Klonen kann man entweder die <a
+                        href="https://docs.github.com/de/repositories/creating-and-managing-repositories/cloning-a-repository?tool=desktop">GitHub
+                    Desktop App</a>, die <a
+                        href="https://docs.github.com/de/repositories/creating-and-managing-repositories/cloning-a-repository?tool=cli">GitHub
+                    CLI</a>
+                    oder mit der Git Bash machen. Für die Git Bash wird der folgende Befehl benötigt:
+                    <code-block lang="bash">
+                      git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+                    </code-block>
+                </step>
+                <step>
+                    <control>Änderungen vornehmen:</control>
+                    Nun können Änderungen an der CampusTour vorgenommen werden. Hierfür kann man die im <a
+                        href="How-to-simple-change.md">How-To</a>
+                    beschriebenen Schritte verwenden. Wenn man mehr als die im <a
+                        href="How-to-simple-change.md">How-To</a> beschriebenen Sachen
+                    ändern will, dann kann man sich an die <a href="Reference.topic"></a> wenden.
+                </step>
+                <step>
+                    <control>Änderungen hochladen:</control>
+                    Nachdem die Änderungen vorgenommen wurden, muss man diese committen und pushen, damit sie auch von
+                    GitHub erkannt werden.
+                </step>
+                <step>
+                    <control>GitHub Pages aktivieren:</control>
+                    In den Repository-Einstellungen unter dem Tab
+                    <ui-path>Pages</ui-path>
+                    kann die GitHub Pages aktiviert werden. Hierbei muss man
+                    noch auswählen, von welchem Branch die GitHub Pages erstellt werden sollen. Standardmäßig ist dies
+                    der
+                    <path>main</path>
+                    -Branch
+                    im obersten Ordner. Mehr hierzu gibt es auf der <a href="https://pages.github.com/">GitHub Pages
+                    Seite</a>.
+                </step>
+                <step>
+                    <control>Fertig:</control>
+                    Nun sollte die CampusTour unter
+                    <path>https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/</path>
+                    erreichbar sein.
+                </step>
+            </procedure>
+        </chapter>
+        <chapter id="eigene-domain" title="Eigene Domain">
+            <p>
+                Hier kann man alles so machen, wie bei den GitHub Pages, es ist aber etwas komplizierter, wenn man die
+                Seite einfach nur hosten will.
+            </p>
+            <note>
+                Man benötigt für diese Methode einen HTTPS-Server. Dieser kann entweder selbst aufgesetzt werden oder
+                gemietet werden.
+            </note>
+            <procedure id="selber-hosten" title="Selber hosten">
+                <step>
+                    <control>Server überprüfen:</control>
+                    Der Server muss HTTPS und JavaScript unterstützen. Die meisten Server kommen mit einer
+                    JavaScript-Unterstützung, jedoch nicht
+                    unbedingt mit einer HTTPS-Unterstützung. Sollte SSL nicht eingerichtet sein, finden sich im Internet
+                    viele Anleitungen dazu.
+                </step>
+                <step>
+                    <control>Repository auf den Server laden:</control>
+                    Entweder lädt man den aktuellen Zweig direkt als zip herunter (<a
+                        href="https://github.com/Aldammar/campusTour/archive/refs/heads/master.zip">GitHub</a>) und
+                    entpackt dieses auf dem Server
+                    oder man erstellt wie unter <a anchor="github-pages">GitHub Pages</a> beschrieben ein Repository und
+                    cloned dieses auf den Server.
+                </step>
+                <step>
+                    <control>Server konfigurieren:</control>
+                    Hierbei muss man darauf achten, dass der Pfad zum Ordner des Repositories auf dem
+                    <path>root</path>
+                    -Pfad des Servers liegt. Man
+                    kann dann über
+                    <path>https://YOUR-DOMAIN/PATH-TO-REPOSITORY-FROM-ROOT</path>
+                    auf die CampusTour zugreifen. Wenn man mit
+                    <path>
+                        https://YOUR-DOMAIN/
+                    </path>
+                    auf die CampusTour zugreifen will, dann muss man den Pfad zum Repository als
+                    <path>root</path>
+                    -Pfad
+                    des Servers setzen. Die genaue Konfiguration kommt auf den Server an.
+                </step>
+            </procedure>
+        </chapter>
+    </chapter>
+    <chapter id="verwendung" title="Verwendung">
+        <p>
+            Um die Webseite zu verwenden, benötigt man Zugriff auf die Kamera und beim ersten Laden Internet. Dann kann
+            man die Webseite so, wie sie
+            ist, verwenden.
+        </p>
+    </chapter>
+
+</topic>
