@@ -37,6 +37,14 @@ AFRAME.registerComponent('audiomarker', {
     }
 })
 
+function loadMedia() {
+    for (const audio in document.querySelectorAll("audio")) {
+        audio.muted = true;
+        audio.play();
+        audio.muted = false;
+    }
+}
+
 /**
  * Function to clean and redirect the URL.
  */
@@ -202,7 +210,7 @@ function valueOfUnitString(unitString) {
  * @returns {boolean} - True if the new image position collides with any placed images, false otherwise.
  */
 function isColliding(placedImages, image) {
-    return placedImages.some(img => Math.abs(img.top - image.top) < img.height + image.height && Math.abs(img.left - image.left) < img.width + image.width)
+    return placedImages.some(img => Math.abs(img.top - image.top) < img.height + image.height && Math.abs(img.left - image.left) < img.width + image.width);
 }
 
 /**
