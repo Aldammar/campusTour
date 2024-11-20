@@ -7,7 +7,28 @@ window.onload = () => {
 
     setupInputFieldListener();
 
-    setupAudioTracks();
+    if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+        const audio_load_popup = document.createElement("div");
+        audio_load_popup.id = "popup";
+        const heading = document.createElement("h1");
+        heading.textContent = "Audios laden";
+        const paragraph = document.createElement("p");
+        paragraph.textContent = "Bitte bestätige, dass du alle Audios laden willst. Ansonsten wird die Seite nicht korrekt funktionieren.";
+        const button = document.createElement("button");
+        button.textContent = "Audios laden";
+        button.onclick = () => {
+            loadMedia();
+            audio_load_popup.style.display = "none"
+        };
+        button.className = "confirmButton";
+        audio_load_popup.appendChild(heading);
+        audio_load_popup.appendChild(paragraph);
+        audio_load_popup.appendChild(button);
+        document.body.appendChild(audio_load_popup);
+        audio_load_popup.style.display = "flex";
+    } else {
+        setupAudioTracks();
+    }
 
     placeDecorationImages();
 };
@@ -43,6 +64,7 @@ function loadMedia() {
         audio.play();
         audio.muted = false;
     }
+    setupAudioTracks();
 }
 
 /**
