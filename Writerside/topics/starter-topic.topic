@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic id="starter-topic"
-       title="CamusTour Documentation"
+       title="CamusTour Dokumentation"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd">
 
@@ -50,7 +50,7 @@
                         href="How-to-simple-change.md">How-To</a>
                     beschriebenen Schritte verwenden. Wenn man mehr als die im <a
                         href="How-to-simple-change.md">How-To</a> beschriebenen Sachen
-                    ändern will, dann kann man sich an die <a href="Reference.topic"></a> wenden.
+                    ändern will, dann kann man sich an die <a href="Reference.topic"/> wenden.
                 </step>
                 <step>
                     <control>Änderungen hochladen:</control>
