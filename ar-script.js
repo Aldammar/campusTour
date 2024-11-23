@@ -17,8 +17,8 @@ window.onload = () => {
         const button = document.createElement("button");
         button.textContent = "Audios laden";
         button.onclick = () => {
+            audio_load_popup.style.display = "none";
             loadMedia();
-            audio_load_popup.style.display = "none"
         };
         button.className = "confirmButton";
         audio_load_popup.appendChild(heading);
