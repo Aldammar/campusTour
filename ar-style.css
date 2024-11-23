@@ -25,7 +25,7 @@ html {
     filter: sepia(50%);
 }
 
-#popup {
+.popup {
     display: none;
     position: fixed;
     top: 50%;
@@ -43,7 +43,7 @@ html {
     width: 75%;
 }
 
-#popup input {
+.popup input {
     font-size: var(--font-size);
     margin: 1ex 0;
     background: linear-gradient(var(--main-color), var(--secondary-color));
@@ -62,11 +62,11 @@ html {
     opacity: 1;
 }
 
-#popup input:focus-visible {
+.popup input:focus-visible {
     outline: var(--dark-color) solid 2px;
 }
 
-#popup label {
+.popup label, .popup h1 {
     font-size: var(--font-size);
     margin: 1ex 0;
     color: var(--border-color);
@@ -75,7 +75,7 @@ html {
     text-shadow: -1px -1px 0 var(--dark-color), 1px -1px 0 var(--dark-color), -1px 1px 0 var(--dark-color), 1px 1px 0 var(--dark-color);
 }
 
-#popup .confirmButton {
+.popup .confirmButton {
     font-size: var(--font-size);
     display: flex;
     margin: 1ex 0;
@@ -86,7 +86,7 @@ html {
     box-shadow: var(--shadow-color) 0 4px 1em;
 }
 
-#popup .confirmButton:active {
+.popup .confirmButton:active {
     background-color: var(--middle-color);
     box-shadow: var(--shadow-color) 0 1px 1em;
     transform: translateY(3px);
@@ -115,7 +115,7 @@ html {
     box-shadow: var(--dark-color) 0 0 1em;
 }
 
-#popup .closeButton {
+.popup .closeButton {
     padding: 0;
     font-family: Arial, sans-serif !important;
     position: absolute;
@@ -135,7 +135,7 @@ html {
 
 }
 
-#popup .closeButton:active {
+.popup .closeButton:active {
     background: var(--main-color);
     transform: translate(-2px, 3px);
     border: 2px solid var(--middle-color);

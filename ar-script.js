@@ -9,7 +9,8 @@ window.onload = () => {
 
     if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
         const audio_load_popup = document.createElement("div");
-        audio_load_popup.id = "popup";
+        audio_load_popup.className = "popup";
+        audio_load_popup.id = "audioLoadPopup";
         const heading = document.createElement("h1");
         heading.textContent = "Audios laden";
         const paragraph = document.createElement("p");
@@ -17,7 +18,7 @@ window.onload = () => {
         const button = document.createElement("button");
         button.textContent = "Audios laden";
         button.onclick = () => {
-            audio_load_popup.style.display = "none";
+            document.getElementById("audioLoadPopup").style.display = "none";
             loadMedia();
         };
         button.className = "confirmButton";
