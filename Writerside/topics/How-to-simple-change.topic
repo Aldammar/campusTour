@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic id="How-to-simple-change"
+       title="How-Tos: Einfache Änderungen"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd">
+
+    <title>
+        How-Tos: Einfache Änderungen
+    </title>
+    <!-- Muss noch überarbeitet werden -->
+    Hier gibt es mehrere Beschreibungen für einfache Änderungen.
+    <chapter id="how-to-change_model" title="How To: Modelle ändern">
+        <chapter id="voraussetzungen-1" title="Voraussetzungen">
+            <p>
+                Stelle sicher, dass du dein Modell im
+                <emphasis>gLTF</emphasis>
+                Format hast! Folgende Dateien sind notwendig:
+            </p>
+            <list>
+                <li>
+                    <path>model.gltf</path>
+                </li>
+                <li>
+                    <path>model.bin</path>
+                </li>
+                <li>
+                    <path>model_normal.png</path>
+                </li>
+                <li>
+                    <path>model_roughnessMetallic.png</path>
+                </li>
+                <li>
+                    <path>model_baseColor.png</path>
+                </li>
+            </list>
+            <tip>Du kannst die ganzen Dateien auch gebündelt in einer
+                <path>model.glb</path>
+                Datei einbinden!
+            </tip>
+        </chapter>
+        <chapter id="schritte-1" title="Schritte">
+            <tabs>
+                <tab id="change_file_and_id" title="Datei und Kennzeichnung ändern">
+                    <procedure id="change_model" title="Ändere Modell">
+                        <p>Lade das Model von der Webseite herunter oder exportiere es aus dem Programm.</p>
+                        <step>Kopiere oder verschiebe das Model mit allen Dateien in den Ordner
+                            <path>campusTour/models/</path>
+                            .
+                        </step>
+                        <step>Suche in der Datei
+                            <path>ar.html</path>
+                            nach dem Tag <code>&lt;a-assets></code></step>
+                        <step>Ändere den Pfad des Modells und die Kennzeichnung (<code>&lt;a-asset-item src="models/MODELL_NAME.[glb/gltf]"
+                            id="EINDEUTIGE_KENNZEICHNUNG_DES_MODELLS"</code>).
+                        </step>
+                        <step>Suche nach der alten Kennzeichnung des Modells in der Datei und ersetze diese.</step>
+                        <tip>
+                            Du kannst für das Ändern der Kennzeichnung
+                            <control>refactoring</control>
+                            verwenden, wenn das dein Editor anbietet. Dann fällt der letzte Schritt weg
+                        </tip>
+                        <warning>Wenn du nicht alle alten Kennzeichnungen änderst, dann könnte es sein, dass das Modell nicht an der richtigen Stelle angezeigt wird.</warning>
+                        <step>Verändere noch die Skalierung, Position und Drehung des Modells in den entsprechenden Markern, bei denen das Modell geändert wurde.
+                            <code-block lang="html">
+                                <![CDATA[
+                                    <a-marker>
+                                        <a-entity
+                                                gltf-model="#MODELL_NAME"
+                                                scale="0 0 0.1"
+                                                position="0 0 0"
+                                                rotation="0 0 0"
+                                        ></a-entity>
+                                    </a-marker>
+                                ]]>
+                            </code-block>
+                        </step>
+                    </procedure>
+                </tab>
+                <tab id="only_change_file" title="Nur die Datei ändern">
+                    <procedure id="change_model_file" title="Ändere Modell Datei">
+                        <p>Lade das Model von der Webseite herunter oder exportiere es aus dem Programm.</p>
+                        <step>Kopiere oder verschiebe das Model in den Ordner
+                            <path>campusTour/models/</path>
+                            .
+                        </step>
+                        <step>Suche in der Datei
+                            <path>ar.html</path>
+                            nach dem Tag <code>&lt;a-assets></code></step>
+                        <step>Ändere den Pfad des Modells (<code>&lt;a-asset-item src="models/MODELL_NAME.[glb/gltf]"</code>)
+                        </step>
+                        <step>Verändere noch die Skalierung, Position und Drehung des Modells in den entsprechenden Markern, bei denen das Modell geändert wurde.
+                            <code-block lang="html">
+                                <![CDATA[
+                                    <a-marker>
+                                        <a-entity
+                                                gltf-model="#MODELL_NAME"
+                                                scale="0 0 0.1"
+                                                position="0 0 0"
+                                                rotation="0 0 0"
+                                        ></a-entity>
+                                    </a-marker>
+                                ]]>
+                            </code-block>
+                        </step>
+                    </procedure>
+                </tab>
+            </tabs>
+        </chapter>
+    </chapter>
+
+    <chapter id="how-to-change_marker" title="How To: Marker ändern">
+        <chapter id="voraussetzungen-2" title="Voraussetzungen">
+            <p>
+                Generiere dir auf der Seite <a href="https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html">AR.js Marker Training</a>
+                einen
+                Marker mithilfe eines Bildes. Auf folgendes solltest du achten:
+            </p>
+            <list>
+                <li>Der Marker sollte nicht rotationssymmetrisch sein</li>
+                <li>Der Marker sollte nicht zu komplex sein</li>
+            </list>
+        </chapter>
+        <chapter id="schritte-2" title="Schritte">
+            <procedure id="change_marker" title="Marker ändern">
+                <p>Lade von dem Marker Generator sowohl den Marker als auch das Bild herunter.</p>
+                <step>Kopiere oder verschiebe den Marker in den Ordner
+                    <path>campusTour/assets/patterns</path>
+                    und das Bild in den Ordner
+                    <path>campusTour/assets/images/</path>
+                    .
+                </step>
+                <step>
+                    Suche den Marker, den du ändern willst und setze dort den Pfad auf deinen neuen Marker
+                    <code>&lt;a-marker url="assets/pattern/NAME_DEINES_PATTERNS.patt">&lt;/a-marker></code>
+                </step>
+            </procedure>
+        </chapter>
+    </chapter>
+
+    <chapter id="how-to-change_audio" title="How To: Audio ändern">
+        <chapter id="voraussetzungen-3" title="Voraussetzungen">
+            <p>Erstelle eine Audiodatei, welche die Alte ersetzen soll. Erstelle dazu eine <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format">WebVTT</a>-Datei, welche die Untertitel dazu beinhaltet.</p>
+            <note>Als Audioformat ist
+                <control>MP3</control>
+                zu empfehlen, da es von einer Mehrzahl an Browsern unterstützt wird.
+            </note>
+        </chapter>
+        <chapter id="schritte-3" title="Schritte">
+            <procedure id="change_audio" title="Audio ändern">
+                <step>Kopiere oder verschiebe die Audio- und Untertiteldatei in den Ordner
+                    <path>campusTour/audios</path>
+                    .
+                </step>
+                <tip>
+                    Wenn du nur ein bestimmtes Audio ändern willst, dann ist es sinnvoll die Namen deiner neuen Dateien zu dem der alten, zu ändernden Dateien anzupassen und die
+                    alten Dateien somit einfach zu ersetzen. Damit werden die folgenden Schritte überflüssig.
+                </tip>
+                <step>Suche in der
+                    <path>ar.html</path>
+                    -Datei nach dem Marker, bei dem du das Audio ersetzen willst.
+                </step>
+                <step>Ändere im <code>&lt;source/></code>- und im <code>&lt;track></code>-Tag die Pfade zu den Dateien entsprechend ab und passe, wenn nötig den Typ der <code>&lt;source/></code>
+                    an:
+                    <code-block lang="HTML">
+                        <![CDATA[
+                            <audio>
+                                <source src="audios/NAME_DER_AUDIODATEI.mp3" type="audio/mpeg"/>
+                                <track src="audios/NAME_DER_UNTERTITELDATEI.vtt" default kind="captions" label="Deutsch" srclang="de">
+                            </audio>
+                        ]]>
+                    </code-block>
+                </step>
+                <note>
+                    Wenn du ein weiteres Format zum Abspielen bereitstellen willst, dann kannst du auch einfach ein weiteren <code>&lt;source/></code>-Tag unter oder über den
+                    vorhandenen <code>&lt;source/></code>-Tag machen.
+                </note>
+            </procedure>
+        </chapter>
+    </chapter>
+
+    <chapter id="how-to-add_marker_model" title="How To: Modell und Marker hinzufügen">
+        <chapter id="voraussetzungen-4" title="Voraussetzungen">
+            <p>
+                Wichtig sind die Voraussetzungen der vorherigen How-Tos (<a href="#voraussetzungen-1">Modell</a>, <a href="#voraussetzungen-2">Marker</a>, <a
+                    href="#voraussetzungen-3">Audio</a>).
+            </p>
+        </chapter>
+        <chapter id="schritte-4" title="Schritte">
+            <procedure id="add_marker_model" title="Modell und Marker hinzufügen">
+                <p>Lade das Model von der Webseite herunter oder exportiere es aus dem Programm.</p>
+                <p>Lade von dem Marker Generator sowohl den Marker als auch das Bild herunter.</p>
+                <p>Erstelle eine Audio-Datei sowie eine Untertiteldatei (WebVTT-Format).</p>
+                <step>Kopiere oder verschiebe den Marker in den Ordner
+                    <path>campusTour/assets/patterns</path>
+                    und das Bild in den Ordner
+                    <path>campusTour/assets/images/</path>
+                    ,
+                    das Modell mit allen Dateien in den Ordner
+                    <path>campusTour/models/</path>
+                    und die Audio- und Untertiteldatei in den Ordner
+                    <path>campusTour/audios</path>
+                    .
+                </step>
+                <step>
+                    Erstelle in der <code>&lt;a-scene></code> ein neuen <code>&lt;a-marker></code>:
+                    <code-block lang="html">
+                        <![CDATA[
+                            <a-scene>
+                                <a-maker
+                                        preset="custom"
+                                        type="pattern"
+                                        size="0.25"
+                                        emitevents="true"
+                                        audiomarker <!-- Ist wichtig, damit der Marker auch Audio abspielen kann, wenn er gefunden wird -->
+                                id="KENNZEICHNUNG_DES_MARKERS" <!-- Nicht mehr unbedingt notwendig -->
+                                url="assets/patterns/NAME_DEINES_PATTERNS.patt"
+                                >
+                                <a-entity
+                                        gltf-model="#MODELL_NAME"
+                                        scale="0 0 0.1"
+                                        position="0 0 0"
+                                        rotation="0 0 0"
+                                ></a-entity>
+                                <audio>
+                                    <source src="audios/NAME_DER_AUDIODATEI.mp3" type="audio/mpeg"/>
+                                    <track src="audios/NAME_DER_UNTERTITELDATEI.vtt" default kind="captions" label="Deutsch" srclang="de">
+                                </audio>
+                                </a-maker>
+                            </a-scene>
+                        ]]>
+                    </code-block>
+                </step>
+                <step>Ersetze alle Platzhalter (in CAPSLOCK geschrieben) im Code oben mit den entsprechenden Werten.</step>
+            </procedure>
+        </chapter>
+    </chapter>
+
+</topic>

@@ -6,10 +6,13 @@
     <variables>
         <link-color>strawberry</link-color>
         <primary-color>emerald</primary-color>
+        <header-logo>logo-de.svg</header-logo>
+        <custom-favicons>favicon.ico</custom-favicons>
     </variables>
     <build-profile instance="cd">
         <variables>
             <noindex-content>true</noindex-content>
+            <offline-docs>true</offline-docs>
         </variables>
     </build-profile>
 

@@ -1,0 +1,617 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html data-link-color="#E8488B" data-preset="contrast" data-primary-color="#1B9F8E" lang="en-US">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta charset="UTF-8">
+    <meta content="noindex" name="robots">
+    <meta content="2024-11-25T20:34:35.5637437" name="built-on">
+    <title>Referenz | CamusTour Documentation</title>
+    <script id="virtual-toc-data" type="application/json">[
+        {
+            "id": "html",
+            "level": 0,
+            "title": "HTML",
+            "anchor": "#html"
+        },
+        {
+            "id": "a-scene-a-frame-scene",
+            "level": 1,
+            "title": "\u003ca-scene\u003e (A-Frame Scene)",
+            "anchor": "#a-scene-a-frame-scene"
+        },
+        {
+            "id": "a-entity-a-frame-entity",
+            "level": 1,
+            "title": "\u003ca-entity\u003e (A-Frame Entity)",
+            "anchor": "#a-entity-a-frame-entity"
+        },
+        {
+            "id": "a-marker-ar-js-marker",
+            "level": 1,
+            "title": "\u003ca-marker\u003e (AR.js Marker)",
+            "anchor": "#a-marker-ar-js-marker"
+        },
+        {
+            "id": "audio",
+            "level": 1,
+            "title": "\u003caudio\u003e",
+            "anchor": "#audio"
+        },
+        {
+            "id": "track",
+            "level": 1,
+            "title": "\u003ctrack\u003e",
+            "anchor": "#track"
+        },
+        {
+            "id": "div",
+            "level": 1,
+            "title": "\u003cdiv\u003e",
+            "anchor": "#div"
+        },
+        {
+            "id": "button",
+            "level": 1,
+            "title": "\u003cbutton\u003e",
+            "anchor": "#button"
+        },
+        {
+            "id": "label",
+            "level": 1,
+            "title": "\u003clabel\u003e",
+            "anchor": "#label"
+        },
+        {
+            "id": "input",
+            "level": 1,
+            "title": "\u003cinput\u003e",
+            "anchor": "#input"
+        },
+        {
+            "id": "css",
+            "level": 0,
+            "title": "CSS",
+            "anchor": "#css"
+        },
+        {
+            "id": "selektoren",
+            "level": 1,
+            "title": "Selektoren",
+            "anchor": "#selektoren"
+        },
+        {
+            "id": "javascript",
+            "level": 0,
+            "title": "JavaScript",
+            "anchor": "#javascript"
+        },
+        {
+            "id": "pixel-convert",
+            "level": 1,
+            "title": "pxToXx",
+            "anchor": "#pixel-convert"
+        },
+        {
+            "id": "unit-convert",
+            "level": 1,
+            "title": "valueOfUnitString",
+            "anchor": "#unit-convert"
+        },
+        {
+            "id": "check-collision",
+            "level": 1,
+            "title": "isColliding",
+            "anchor": "#check-collision"
+        },
+        {
+            "id": "popup-functions",
+            "level": 1,
+            "title": "Popup Funktionen",
+            "anchor": "#popup-functions"
+        },
+        {
+            "id": "window-load",
+            "level": 1,
+            "title": "Lade Funktion der Seite",
+            "anchor": "#window-load"
+        }
+    ]</script>
+    <script id="topic-shortcuts" type="application/json"></script>
+    <link href="frontend/app.css" rel="stylesheet">
+    <meta content="#000000" name="msapplication-TileColor">
+    <link href="writerside_32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="writerside_64.png" rel="icon" sizes="64x64" type="image/png">
+    <meta content="" name="image"><!-- Open Graph -->
+    <meta content="Referenz | CamusTour Documentation" property="og:title">
+    <meta content="" property="og:description">
+    <meta content="" property="og:image">
+    <meta content="CamusTour Documentation Help" property="og:site_name">
+    <meta content="website" property="og:type">
+    <meta content="en_US" property="og:locale">
+    <meta content="writerside-documentation/reference.html" property="og:url"><!-- End Open Graph --><!-- Twitter Card -->
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="" name="twitter:site">
+    <meta content="Referenz | CamusTour Documentation" name="twitter:title">
+    <meta content="" name="twitter:description">
+    <meta content="" name="twitter:creator">
+    <meta content="" name="twitter:image:src"><!-- End Twitter Card --><!-- Schema.org WebPage -->
+    <script type="application/ld+json">{
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "@id": "writerside-documentation/reference.html#webpage",
+        "url": "writerside-documentation/reference.html",
+        "name": "Referenz | CamusTour Documentation",
+        "description": "",
+        "image": "",
+        "inLanguage": "en-US"
+    }</script><!-- End Schema.org --><!-- Schema.org WebSite -->
+    <script type="application/ld+json">{
+        "@type": "WebSite",
+        "@id": "writerside-documentation/#website",
+        "url": "writerside-documentation/",
+        "name": "CamusTour Documentation Help"
+    }</script><!-- End Schema.org --></head>
+<body data-article-props="{&quot;seeAlso&quot;:[{&quot;title&quot;:&quot;External documentation&quot;,&quot;links&quot;:[{&quot;url&quot;:&quot;https://developer.mozilla.org/en-US/docs/Web/HTML&quot;,&quot;text&quot;:&quot;https://developer.mozilla.org/en-US/docs/Web/HTML&quot;},{&quot;url&quot;:&quot;https://developer.mozilla.org/en-US/docs/Web/CSS&quot;,&quot;text&quot;:&quot;https://developer.mozilla.org/en-US/docs/Web/CSS&quot;},{&quot;url&quot;:&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript&quot;,&quot;text&quot;:&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript&quot;},{&quot;url&quot;:&quot;https://aframe.io/docs/0.9.0/introduction/&quot;,&quot;text&quot;:&quot;https://aframe.io/docs/0.9.0/introduction/&quot;},{&quot;url&quot;:&quot;https://ar-js-org.github.io/AR.js-Docs/&quot;,&quot;text&quot;:&quot;https://ar-js-org.github.io/AR.js-Docs/&quot;}]}],&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-breadcrumbs=""
+      data-id="Reference"
+      data-main-title="Referenz" data-template="article">
+<div class="wrapper">
+    <main class="panel _main">
+        <header class="panel__header">
+            <div class="container"><h3>CamusTour Documentation Help</h3>
+                <div class="panel-trigger"></div>
+            </div>
+        </header>
+        <section class="panel__content">
+            <div class="container">
+                <article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Reference" id="Reference.topic">Referenz</h1>
+                    <section class="chapter"><h2 data-toc="html" id="html">HTML</h2>
+                        <section class="chapter"><h3 data-toc="a-scene-a-frame-scene" id="a-scene-a-frame-scene"><code class="code" id="fzycta_23">&lt;a-scene&gt;</code> (A-Frame
+                            Scene)</h3>
+                            <p id="fzycta_18"><code class="code" id="fzycta_24">&lt;a-scene&gt;</code> ist das Wurzelelement, das alle A-Frame-Elemente enth&auml;lt. Es ist das
+                                Hauptelement, das die gesamte Szene definiert. Es ist &auml;hnlich wie <code class="code" id="fzycta_25">&lt;body&gt;</code> in HTML, aber f&uuml;r
+                                AR.</p>
+                            <aside class="prompt" data-title="" data-type="note" id="fzycta_19"><p>In diesem Projekt wird <code class="code" id="fzycta_26">&lt;a-scene&gt;</code>
+                                verwendet, um die AR-Szene zu definieren. In diesem Element sind alle AR-Elemente enthalten, wie z.B. <code class="code" id="fzycta_27">&lt;a-entity&gt;</code>
+                                und <code class="code" id="fzycta_28">&lt;a-marker&gt;</code>.</p></aside>
+                            <div class="code-block" data-lang="markup">
+
+                                &lt;a-scene&gt;
+                                &lt;a-box position=&quot;0 0.5 -5&quot; rotation=&quot;0 45 0&quot; color=&quot;#4CC3D9&quot;&gt;&lt;/a-box&gt;
+                                &lt;/a-scene&gt;
+
+                            </div>
+                            <dl data-style="title-top" id="fzycta_21">
+                                <dt data-expandable="false" id="siehe-auch-a-scene">Siehe auch</dt>
+                                <dd><p><a data-external="true" href="https://aframe.io/docs/0.9.0/introduction/" id="fzycta_30" rel="noopener noreferrer">A-Frame</a></p></dd>
+                            </dl>
+                            <section class="chapter"><h4 data-toc="a-scene-parameters" id="a-scene-parameters">Parameter</h4>
+                                <ul class="list _bullet" id="fzycta_31">
+                                    <li class="list__item" id="fzycta_32"><p><code class="code" id="fzycta_36">embedded</code>: Definiert, ob die Szene in einem iframe eingebettet
+                                        ist.</p></li>
+                                    <li class="list__item" id="fzycta_33"><p><code class="code" id="fzycta_37">vr-mode-ui</code>: Definiert, ob die VR-Modus-Schaltfl&auml;che
+                                        angezeigt wird.</p></li>
+                                    <li class="list__item" id="fzycta_34"><p><code class="code" id="fzycta_38">arjs</code>: Definiert die AR.js Einstellungen.</p></li>
+                                    <li class="list__item" id="fzycta_35"><p><code class="code" id="fzycta_39">renderer</code>: Definiert die Renderer-Einstellungen.</p></li>
+                                </ul>
+                            </section>
+                        </section>
+                        <section class="chapter"><h3 data-toc="a-entity-a-frame-entity" id="a-entity-a-frame-entity"><code class="code" id="fzycta_46">&lt;a-entity&gt;</code>
+                            (A-Frame Entity)</h3>
+                            <p id="fzycta_41"><code class="code" id="fzycta_47">&lt;a-entity&gt;</code> ist ein generisches Element, das ein Objekt in der Szene darstellt. Es kann
+                                verwendet werden, um 3D-Objekte, Lichter, Kameras, Sound, Partikel und mehr hinzuzuf&uuml;gen.</p>
+                            <aside class="prompt" data-title="" data-type="note" id="fzycta_42"><p>In diesem Projekt wird <code class="code" id="fzycta_48">&lt;a-entity&gt;</code>
+                                verwendet, um 3D-Objekte in der AR-Szene zu platzieren.</p></aside>
+                            <div class="code-block" data-lang="markup">
+
+                                &lt;a-entity geometry=&quot;primitive: box&quot; material=&quot;color: blue&quot; position=&quot;0 1.5 -5&quot;&gt;&lt;/a-entity&gt;
+
+                            </div>
+                            <dl data-style="title-top" id="fzycta_44">
+                                <dt data-expandable="false" id="siehe-auch-a-entity">Siehe auch</dt>
+                                <dd><p><a data-external="true" href="https://aframe.io/docs/0.9.0/introduction/" id="fzycta_50" rel="noopener noreferrer">A-Frame</a></p></dd>
+                            </dl>
+                            <section class="chapter"><h4 data-toc="a-entity-parameters" id="a-entity-parameters">Parameter</h4>
+                                <ul class="list _bullet" id="fzycta_51">
+                                    <li class="list__item" id="fzycta_52"><p><code class="code" id="fzycta_57">gltf-model</code>: URL oder Referenz zum 3D-Modell.</p></li>
+                                    <li class="list__item" id="fzycta_53"><p><code class="code" id="fzycta_58">position</code>: Position des Objekts in der Szene.</p></li>
+                                    <li class="list__item" id="fzycta_54"><p><code class="code" id="fzycta_59">rotation</code>: Rotation des Objekts in der Szene.</p></li>
+                                    <li class="list__item" id="fzycta_55"><p><code class="code" id="fzycta_60">scale</code>: Skalierung des Objekts in der Szene.</p></li>
+                                    <li class="list__item" id="fzycta_56"><p><code class="code" id="fzycta_61">camera</code>: Definiert die Kamera in der Scene.</p></li>
+                                </ul>
+                            </section>
+                        </section>
+                        <section class="chapter"><h3 data-toc="a-marker-ar-js-marker" id="a-marker-ar-js-marker"><code class="code" id="fzycta_68">&lt;a-marker&gt;</code> (AR.js
+                            Marker)</h3>
+                            <p id="fzycta_63"><code class="code" id="fzycta_69">&lt;a-marker&gt;</code> ist ein Element, das verwendet wird, um AR.js-Marker in der Szene zu
+                                definieren. Es wird in Kombination mit <code class="code" id="fzycta_70">&lt;a-entity&gt;</code> verwendet, um 3D-Objekte anzuzeigen, wenn der
+                                Marker erkannt wird.</p>
+                            <aside class="prompt" data-title="" data-type="note" id="fzycta_64"><p>In diesem Projekt wird <code class="code" id="fzycta_71">&lt;a-marker&gt;</code>
+                                verwendet, um AR.js-Marker zu definieren und 3D-Objekte anzuzeigen, wenn der Marker erkannt wird.</p></aside>
+                            <div class="code-block" data-lang="markup">
+
+                                &lt;a-marker preset=&quot;hiro&quot;&gt;
+                                &lt;a-box position=&quot;0 0.5 0&quot; rotation=&quot;0 45 0&quot; color=&quot;#4CC3D9&quot;&gt;&lt;/a-box&gt;
+                                &lt;/a-marker&gt;
+
+                            </div>
+                            <dl data-style="title-top" id="fzycta_66">
+                                <dt data-expandable="false" id="siehe-auch-a-marker">Siehe auch</dt>
+                                <dd><p><a data-external="true" href="https://ar-js-org.github.io/AR.js-Docs" id="fzycta_73" rel="noopener noreferrer">AR.js</a></p></dd>
+                            </dl>
+                            <section class="chapter"><h4 data-toc="a-marker-parameters" id="a-marker-parameters">Parameter</h4>
+                                <ul class="list _bullet" id="fzycta_74">
+                                    <li class="list__item" id="fzycta_75"><p><code class="code" id="fzycta_81">preset</code>: Voreingestellter Marker (hiro, kanji, barcode,
+                                        custom).</p></li>
+                                    <li class="list__item" id="fzycta_76"><p><code class="code" id="fzycta_82">type</code>: Typ des Markers (pattern, barcode, unknown).</p></li>
+                                    <li class="list__item" id="fzycta_77"><p><code class="code" id="fzycta_83">url</code>: URL des benutzerdefinierten Markers.</p></li>
+                                    <li class="list__item" id="fzycta_78"><p><code class="code" id="fzycta_84">size</code>: Gr&ouml;&szlig;e des Markers.</p></li>
+                                    <li class="list__item" id="fzycta_79"><p><code class="code" id="fzycta_85">emitevents</code>: Definiert, ob Ereignisse emittiert werden sollen.
+                                    </p></li>
+                                    <li class="list__item" id="fzycta_80"><p><code class="code" id="fzycta_86">audiomarker</code>: Definiert, dass der Marker Audio enth&auml;lt,
+                                        was beim Erkennen abgespielt werden soll.</p></li>
+                                </ul>
+                            </section>
+                        </section>
+                        <section class="chapter"><h3 data-toc="audio" id="audio"><code class="code" id="fzycta_93">&lt;audio&gt;</code></h3>
+                            <p id="fzycta_88"><code class="code" id="fzycta_94">&lt;audio&gt;</code> ist ein HTML-Element, das verwendet wird, um Audio in eine Webseite
+                                einzubinden. Hier wird es verwendet, um das Audio f&uuml;r die Modelle zu definieren.</p>
+                            <aside class="prompt" data-title="" data-type="note" id="fzycta_89"><p>In diesem Projekt wird <code class="code" id="fzycta_95">&lt;audio&gt;</code>
+                                verwendet, um Audiodateien f&uuml;r die Modelle zu definieren.</p></aside>
+                            <div class="code-block" data-lang="markup">
+
+                                &lt;audio&gt;
+                                &lt;source src=&quot;audios/first_message.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+                                &lt;track src=&quot;audios/first_message.vtt&quot; label=&quot;Deutsch&quot; srclang=&quot;de&quot; kind=&quot;captions&quot;&gt;
+                                &lt;/audio&gt;
+
+                            </div>
+                            <dl data-style="title-top" id="fzycta_91">
+                                <dt data-expandable="false" id="siehe-auch-audio">Siehe auch</dt>
+                                <dd><p><a data-external="true" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio" id="fzycta_97" rel="noopener noreferrer"><code
+                                        class="code" id="fzycta_99">audio</code> HTML Docs MDN</a> | <a data-external="true" href="https://www.w3schools.com/tags/tag_audio.asp"
+                                                                                                        id="fzycta_98" rel="noopener noreferrer">HTML <code class="code"
+                                                                                                                                                                  id="fzycta_100">audio</code>
+                                    W3Schools</a></p></dd>
+                            </dl>
+                            <section class="chapter"><h4 data-toc="audio-parameters" id="audio-parameters">Parameter</h4>
+                                <ul class="list _bullet" id="fzycta_101">
+                                    <li class="list__item" id="fzycta_102"><p><code class="code" id="fzycta_108">src</code>: URL der Audiodatei.</p></li>
+                                    <li class="list__item" id="fzycta_103"><p><code class="code" id="fzycta_109">type</code>: Typ der Audiodatei (audio/mpeg, audio/ogg, audio/wav).
+                                    </p></li>
+                                    <li class="list__item" id="fzycta_104"><p><code class="code" id="fzycta_110">preload</code>: Definiert, ob die Audiodatei beim Laden der Seite
+                                        geladen werden soll.</p></li>
+                                    <li class="list__item" id="fzycta_105"><p><code class="code" id="fzycta_111">autoplay</code>: Definiert, ob die Audiodatei automatisch
+                                        abgespielt werden soll.</p></li>
+                                    <li class="list__item" id="fzycta_106"><p><code class="code" id="fzycta_112">loop</code>: Definiert, ob die Audiodatei in einer Schleife
+                                        wiedergegeben werden soll.</p></li>
+                                    <li class="list__item" id="fzycta_107"><p><code class="code" id="fzycta_113">controls</code>: Definiert, ob die Audiodatei-Steuerung angezeigt
+                                        werden soll.</p></li>
+                                </ul>
+                            </section>
+                        </section>
+                        <section class="chapter"><h3 data-toc="track" id="track"><code class="code" id="fzycta_120">&lt;track&gt;</code></h3>
+                            <p id="fzycta_115"><code class="code" id="fzycta_121">&lt;track&gt;</code> ist ein HTML-Element, das verwendet wird, um Untertitel oder Untertitelspuren
+                                f&uuml;r Audio- oder Video-Elemente zu definieren.</p>
+                            <aside class="prompt" data-title="" data-type="note" id="fzycta_116"><p>In diesem Projekt wird <code class="code" id="fzycta_122">&lt;track&gt;</code>
+                                verwendet, um Untertitel f&uuml;r die Audiodateien zu definieren.</p></aside>
+                            <div class="code-block" data-lang="markup">
+
+                                &lt;track src=&quot;audios/first_message.vtt&quot; label=&quot;Deutsch&quot; srclang=&quot;de&quot; kind=&quot;captions&quot;&gt;
+
+                            </div>
+                            <dl data-style="title-top" id="fzycta_118">
+                                <dt data-expandable="false" id="siehe-auch-track">Siehe auch</dt>
+                                <dd><p><a data-external="true" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track" id="fzycta_124"
+                                          rel="noopener noreferrer"><code class="code" id="fzycta_126">track</code> HTML Docs MDN</a> | <a
+                                        data-external="true" href="https://www.w3schools.com/tags/tag_track.asp" id="fzycta_125" rel="noopener noreferrer">HTML <code class="code"
+                                                                                                                                                                      id="fzycta_127">track</code>
+                                    W3Schools</a></p></dd>
+                            </dl>
+                            <section class="chapter"><h4 data-toc="track-parameters" id="track-parameters">Parameter</h4>
+                                <ul class="list _bullet" id="fzycta_128">
+                                    <li class="list__item" id="fzycta_129"><p><code class="code" id="fzycta_133">src</code>: URL der Untertitelspur.</p></li>
+                                    <li class="list__item" id="fzycta_130"><p><code class="code" id="fzycta_134">label</code>: Label der Untertitelspur.</p></li>
+                                    <li class="list__item" id="fzycta_131"><p><code class="code" id="fzycta_135">srclang</code>: Sprache der Untertitelspur.</p></li>
+                                    <li class="list__item" id="fzycta_132"><p><code class="code" id="fzycta_136">kind</code>: Art der Untertitelspur (subtitles, captions,
+                                        descriptions, chapters, metadata).</p></li>
+                                </ul>
+                            </section>
+                        </section>
+                        <section class="chapter"><h3 data-toc="div" id="div"><code class="code" id="fzycta_143">&lt;div&gt;</code></h3>
+                            <p id="fzycta_138"><code class="code" id="fzycta_144">&lt;div&gt;</code> ist ein generisches Container-Element, das verwendet wird, um andere
+                                HTML-Elemente zu gruppieren.</p>
+                            <aside class="prompt" data-title="" data-type="note" id="fzycta_139"><p>In diesem Projekt wird <code class="code" id="fzycta_145">&lt;div&gt;</code>
+                                verwendet, um Schaltfl&auml;chen und Eingabefelder zu gruppieren.</p></aside>
+                            <div class="code-block" data-lang="markup">
+
+                                &lt;div style=&quot;position: absolute; top: 0; left: 0; right: 0; z-index: 1;&quot;&gt;
+                                &lt;button onclick=&quot;toggleFullscreen()&quot;&gt;Fullscreen&lt;/button&gt;
+                                &lt;/div&gt;
+
+                            </div>
+                            <dl data-style="title-top" id="fzycta_141">
+                                <dt data-expandable="false" id="siehe-auch-div">Siehe auch</dt>
+                                <dd><p><a data-external="true" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div" id="fzycta_147" rel="noopener noreferrer"><code
+                                        class="code" id="fzycta_149">div</code> HTML Docs MDN</a> | <a data-external="true" href="https://www.w3schools.com/tags/tag_div.asp"
+                                                                                                       id="fzycta_148" rel="noopener noreferrer">HTML <code class="code"
+                                                                                                                                                                 id="fzycta_150">div</code>
+                                    W3Schools</a></p></dd>
+                            </dl>
+                            <section class="chapter"><h4 data-toc="div-parameters" id="div-parameters">Parameter</h4>
+                                <ul class="list _bullet" id="fzycta_151">
+                                    <li class="list__item" id="fzycta_152"><p><code class="code" id="fzycta_154">id</code>: Eindeutige ID des Elements.</p></li>
+                                    <li class="list__item" id="fzycta_153"><p><code class="code" id="fzycta_155">style</code>: CSS-Stile f&uuml;r das Element.</p></li>
+                                </ul>
+                            </section>
+                        </section>
+                        <section class="chapter"><h3 data-toc="button" id="button"><code class="code" id="fzycta_162">&lt;button&gt;</code></h3>
+                            <p id="fzycta_157"><code class="code" id="fzycta_163">&lt;button&gt;</code> ist ein HTML-Element, das verwendet wird, um eine Schaltfl&auml;che in eine
+                                Webseite einzubinden.</p>
+                            <aside class="prompt" data-title="" data-type="note" id="fzycta_158"><p>In diesem Projekt wird <code class="code" id="fzycta_164">&lt;button&gt;</code>
+                                verwendet, um das Popup f&uuml;r das Ende anzuzeigen und zu best&auml;tigen sowie f&uuml;r die erste Navigation zur AR-Szene.</p></aside>
+                            <div class="code-block" data-lang="markup">
+
+                                &lt;button onclick=&quot;toggleFullscreen()&quot;&gt;Fullscreen&lt;/button&gt;
+
+                            </div>
+                            <dl data-style="title-top" id="fzycta_160">
+                                <dt data-expandable="false" id="siehe-auch-button">Siehe auch</dt>
+                                <dd><p><a data-external="true" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button" id="fzycta_166"
+                                          rel="noopener noreferrer"><code class="code" id="fzycta_168">button</code> HTML Docs MDN</a> | <a
+                                        data-external="true" href="https://www.w3schools.com/tags/tag_button.asp" id="fzycta_167" rel="noopener noreferrer">HTML <code class="code"
+                                                                                                                                                                       id="fzycta_169">button</code>
+                                    W3Schools</a></p></dd>
+                            </dl>
+                            <section class="chapter"><h4 data-toc="button-parameters" id="button-parameters">Parameter</h4>
+                                <ul class="list _bullet" id="fzycta_170">
+                                    <li class="list__item" id="fzycta_171"><p><code class="code" id="fzycta_173">class</code>: CSS-Klasse des Elements.</p></li>
+                                    <li class="list__item" id="fzycta_172"><p><code class="code" id="fzycta_174">onclick</code>: JavaScript-Funktion, die aufgerufen wird, wenn die
+                                        Schaltfl&auml;che geklickt wird.</p></li>
+                                </ul>
+                            </section>
+                        </section>
+                        <section class="chapter"><h3 data-toc="label" id="label"><code class="code" id="fzycta_181">&lt;label&gt;</code></h3>
+                            <p id="fzycta_176"><code class="code" id="fzycta_182">&lt;label&gt;</code> ist ein HTML-Element, das verwendet wird, um ein Label f&uuml;r ein anderes
+                                Element zu definieren.</p>
+                            <aside class="prompt" data-title="" data-type="note" id="fzycta_177"><p>In diesem Projekt wird <code class="code" id="fzycta_183">&lt;label&gt;</code>
+                                verwendet, um ein Label f&uuml;r ein Eingabefeld zu definieren.</p></aside>
+                            <div class="code-block" data-lang="markup">
+
+                                &lt;label for=&quot;name&quot;&gt;Name:&lt;/label&gt;
+                                &lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;
+
+                            </div>
+                            <dl data-style="title-top" id="fzycta_179">
+                                <dt data-expandable="false" id="siehe-auch-label">Siehe auch</dt>
+                                <dd><p><a data-external="true" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label" id="fzycta_185"
+                                          rel="noopener noreferrer"><code class="code" id="fzycta_187">label</code> HTML Docs MDN</a> | <a
+                                        data-external="true" href="https://www.w3schools.com/tags/tag_label.asp" id="fzycta_186" rel="noopener noreferrer">HTML <code class="code"
+                                                                                                                                                                      id="fzycta_188">label</code>
+                                    W3Schools</a></p></dd>
+                            </dl>
+                            <section class="chapter"><h4 data-toc="label-parameters" id="label-parameters">Parameter</h4>
+                                <ul class="list _bullet" id="fzycta_189">
+                                    <li class="list__item" id="fzycta_190"><p><code class="code" id="fzycta_191">for</code>: ID des zugeh&ouml;rigen <a data-tooltip="&lt;input&gt; ist ein HTML-Element, das verwendet wird, um Benutzereingaben zu erfassen."
+                                                                                                                                                        href="#input"
+                                                                                                                                                        id="fzycta_192">Input</a>-Elements.
+                                    </p></li>
+                                </ul>
+                            </section>
+                        </section>
+                        <section class="chapter"><h3 data-toc="input" id="input"><code class="code" id="fzycta_199">&lt;input&gt;</code></h3>
+                            <p id="fzycta_194"><code class="code" id="fzycta_200">&lt;input&gt;</code> ist ein HTML-Element, das verwendet wird, um Benutzereingaben zu erfassen.
+                            </p>
+                            <aside class="prompt" data-title="" data-type="note" id="fzycta_195"><p>In diesem Projekt wird <code class="code" id="fzycta_201">&lt;input&gt;</code>
+                                verwendet, um das Eingabefeld f&uuml;r den finalen Satz zu definieren.</p></aside>
+                            <div class="code-block" data-lang="markup">
+
+                                &lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;
+
+                            </div>
+                            <dl data-style="title-top" id="fzycta_197">
+                                <dt data-expandable="false" id="siehe-auch-input">Siehe auch</dt>
+                                <dd><p><a data-external="true" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" id="fzycta_203"
+                                          rel="noopener noreferrer"><code class="code" id="fzycta_205">input</code> HTML Docs MDN</a> | <a
+                                        data-external="true" href="https://www.w3schools.com/tags/tag_input.asp" id="fzycta_204" rel="noopener noreferrer">HTML <code class="code"
+                                                                                                                                                                      id="fzycta_206">input</code>
+                                    W3Schools</a></p></dd>
+                            </dl>
+                            <section class="chapter"><h4 data-toc="input-parameters" id="input-parameters">Parameter</h4>
+                                <ul class="list _bullet" id="fzycta_207">
+                                    <li class="list__item" id="fzycta_208"><p><code class="code" id="fzycta_213">type</code>: Typ des Eingabefelds (text, number, email, password,
+                                        date, file).</p></li>
+                                    <li class="list__item" id="fzycta_209"><p><code class="code" id="fzycta_214">id</code>: Eindeutige ID des Elements.</p></li>
+                                    <li class="list__item" id="fzycta_210"><p><code class="code" id="fzycta_215">value</code>: Standardwert des Eingabefelds.</p></li>
+                                    <li class="list__item" id="fzycta_211"><p><code class="code" id="fzycta_216">placeholder</code>: Platzhaltertext im Eingabefeld.</p></li>
+                                    <li class="list__item" id="fzycta_212"><p><code class="code" id="fzycta_217">required</code>: Definiert, ob das Eingabefeld erforderlich ist.
+                                    </p></li>
+                                </ul>
+                            </section>
+                        </section>
+                    </section>
+                    <section class="chapter"><h2 data-toc="css" id="css">CSS</h2>
+                        <p id="fzycta_218">CSS (Cascading Style Sheets) wird verwendet, um das Aussehen und Layout von HTML-Elementen zu definieren. Es erm&ouml;glicht die Trennung
+                            von Inhalt und Design und bietet eine Vielzahl von Stileigenschaften, um Webseiten zu gestalten. Hierbei wird der Syntax von CSS verwendet.</p>
+                        <div class="code-block" data-lang="css">
+                            body {
+                            font-family: Arial, sans-serif;
+                            background-color: #f0f0f0;
+                            }
+                        </div>
+                        <p id="fzycta_220">Der Syntax besteht aus einem <span id="fzycta_222"><i><font style="color:#cc7832">Selektor</font></i></span> und einer oder mehreren
+                            Deklarationen, die durch geschweifte Klammern <code class="code" id="fzycta_223">{}</code> eingeschlossen sind. Jede Deklaration besteht aus einem <span
+                                    id="fzycta_224"><i><font style="color:#9876aa">Eigenschaftsnamen</font></i></span> und einem <span id="fzycta_225"><i><font
+                                    style="color:#a9b7c6">Wert</font></i></span>, die durch einen Doppelpunkt <code class="code" id="fzycta_226">:</code>.</p>
+                        <section class="chapter"><h3 data-toc="selektoren" id="selektoren">Selektoren</h3>
+                            <p id="fzycta_227">Es gibt verschiedene Arten von Selektoren in CSS, die verwendet werden k&ouml;nnen, um HTML-Elemente zu stylen. Mit diesen w&auml;hlt
+                                man die HTML-Elemente aus, denen man neue Stileigenschaften zuweisen m&ouml;chte.</p>
+                            <p id="fzycta_228"><span class="control" id="fzycta_231">Beispiele von Selektoren sind:</span></p>
+                            <div class="code-block" data-lang="css">
+                                p {
+                                color: red;
+                                }
+
+                                #header {
+                                font-size: 24px;
+                                }
+
+                                .button {
+                                background-color: blue;
+                                }
+
+                                img[src] {
+                                border: 1px solid black;
+                                }
+
+                                a:hover {
+                                color: green;
+                                }
+                            </div>
+                            <dl data-style="title-top" id="fzycta_230">
+                                <dt data-expandable="false" id="siehe-auch-css">Siehe auch</dt>
+                                <dd><p><a data-external="true" href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors" id="fzycta_233"
+                                          rel="noopener noreferrer">CSS Selektoren MDN</a> | <a data-external="true" href="https://www.w3schools.com/css/css_selectors.asp"
+                                                                                                id="fzycta_234" rel="noopener noreferrer">CSS Selektoren W3Schools</a></p></dd>
+                            </dl>
+                        </section>
+                    </section>
+                    <section class="chapter"><h2 data-toc="javascript" id="javascript">JavaScript</h2>
+                        <p id="fzycta_235">JavaScript ist eine Programmiersprache, die verwendet wird, um Webseiten interaktiv zu gestalten. Es erm&ouml;glicht das Hinzuf&uuml;gen
+                            von Funktionen, Ereignissen und Animationen zu HTML-Elementen. Hierbei wird der Syntax von JavaScript verwendet.</p>
+                        <dl data-style="title-top" id="fzycta_236">
+                            <dt data-expandable="false" id="siehe-auch-js">Siehe auch</dt>
+                            <dd><p><a data-external="true" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" id="fzycta_243" rel="noopener noreferrer">JavaScript
+                                MDN</a> | <a data-external="true" href="https://www.w3schools.com/js/default.asp" id="fzycta_244" rel="noopener noreferrer">JavaScript W3Schools</a>
+                            </p></dd>
+                        </dl>
+                        <section class="chapter"><h3 data-toc="pixel-convert" id="pixel-convert"><code class="code" id="fzycta_248">pxToXx</code></h3>
+                            <p id="fzycta_246">Die Funktionen <code class="code" id="fzycta_249">pxToVh(px)</code> und <code class="code" id="fzycta_250">pxToVw(px)</code> sind
+                                kleine Hilfsfunktionen, die verwendet werden, um Pixel in viewport height und width Werte umzurechnen. Damit k&ouml;nnen dann einfacher Responsive
+                                Designs erstellt werden.</p>
+                            <div class="code-block" data-lang="javascript">
+                                function pxToVh(px) {
+                                return px / document.documentElement.clientHeight * 100;
+                                }
+
+                                function pxToVw(px) {
+                                return px / document.documentElement.clientWidth * 100;
+                                }
+                            </div>
+                        </section>
+                        <section class="chapter"><h3 data-toc="unit-convert" id="unit-convert"><code class="code" id="fzycta_254">valueOfUnitString</code></h3>
+                            <p id="fzycta_252">Diese Funktion extrahiert aus einer Zeichenkette mit einer Einheit (z.B. &quot;10px&quot;, &quot;50%&quot;) den numerischen Wert.</p>
+                            <div class="code-block" data-lang="javascript">
+                                function valueOfUnitString(unitString) {
+                                const unitStringRegex = /([0-9.]+)([a-z%]+)/i;
+                                return parseFloat(unitStringRegex.exec(unitString)[1]);
+                                }
+                            </div>
+                        </section>
+                        <section class="chapter"><h3 data-toc="check-collision" id="check-collision"><code class="code" id="fzycta_258">isColliding</code></h3>
+                            <p id="fzycta_256">Diese Funktion &uuml;berpr&uuml;ft, ob ein Bild sich mit einem schon platziertem Bild &uuml;berschneiden w&uuml;rde, wenn es an
+                                platziert werden w&uuml;rde.</p>
+                            <div class="code-block" data-lang="javascript">
+                                /**
+                                * @param placedImages - Ein Array von Bildern, die schon platziert wurden
+                                * @param image - Das Bild, das platziert werden soll
+                                * @returns {boolean} - Gibt zurück, ob das Bild sich mit einem schon platzierten Bild überschneiden würde
+                                */
+                                function isColliding(placedImages, image) {
+                                return placedImages.some(img =&gt; Math.abs(img.top - image.top) &lt; img.height + image.height &amp;&amp; Math.abs(img.left - image.left) &lt;
+                                img.width + image.width);
+                                }
+                            </div>
+                        </section>
+                        <section class="chapter"><h3 data-toc="popup-functions" id="popup-functions">Popup Funktionen</h3>
+                            <p id="fzycta_260">Diese Funktionen sind f&uuml;r das Anzeigen, das Schlie&szlig;en und das Validieren des Popups zust&auml;ndig.</p>
+                            <section class="chapter"><h4 data-toc="show-popup" id="show-popup"><code class="code" id="fzycta_268">showPopup</code></h4>
+                                <p id="fzycta_266">Diese Funktion zeigt das Popup an.</p>
+                                <div class="code-block" data-lang="javascript">
+                                    function showPopup() {
+                                    document.getElementById('popup').style.display = 'flex';
+                                    document.getElementById('showPopupButton').style.display = 'none';
+                                    document.addEventListener('click', closePopupOnClickOutside);
+                                    }
+                                </div>
+                            </section>
+                            <section class="chapter"><h4 data-toc="close-popup" id="close-popup"><code class="code" id="fzycta_272">closePopup</code></h4>
+                                <p id="fzycta_270">Diese Funktion schlie&szlig;t das Popup.</p>
+                                <div class="code-block" data-lang="javascript">
+                                    function closePopup() {
+                                    document.getElementById('popup').style.display = 'none';
+                                    document.getElementById('showPopupButton').style.display = 'block';
+                                    document.removeEventListener('click', closePopupOnClickOutside);
+                                    }
+                                </div>
+                            </section>
+                            <section class="chapter"><h4 data-toc="close-popup-on-click-outside" id="close-popup-on-click-outside"><code class="code" id="fzycta_276">closePopupOnClickOutside</code>
+                            </h4>
+                                <p id="fzycta_274">Diese Funktion schlie&szlig;t das Popup, wenn der Benutzer au&szlig;erhalb des Popups klickt.</p>
+                                <div class="code-block" data-lang="javascript">
+                                    /**
+                                    * @param {Event} event - Das click Event.
+                                    */
+                                    function closePopupOnClickOutside(event) {
+                                    const popup = document.getElementById('popup');
+                                    const button = document.getElementById('showPopupButton');
+
+                                    if (!popup.contains(event.target) &amp;&amp; !button.contains(event.target)) {
+                                    closePopup();
+                                    }
+                                    }
+                                </div>
+                            </section>
+                            <section class="chapter"><h4 data-toc="check-sentence" id="check-sentence"><code class="code" id="fzycta_280">checkSentence</code></h4>
+                                <p id="fzycta_278">Die Funktion &uuml;berpr&uuml;ft, ob der eingeben Satz korrekt ist und, wenn der Satz korrekt ist, zeigt das Model an und l&auml;sst
+                                    das Audio dazu abspielen.</p>
+                                <div class="code-block" data-lang="javascript">
+                                    function checkSentence() {
+                                    const inputField = document.getElementById('endSentenceInput');
+                                    const input = inputField.value;
+                                    const correctSentence = /^Die Wahrheit liegt im Licht\.?$/i; // Ersetze dies durch den korrekten Satz
+
+                                    if (correctSentence.test(input)) {
+                                    closePopup();
+
+                                    const model = document.querySelector('a-entity#final');
+                                    const audio = model.querySelector(&quot;audio&quot;);
+
+                                    model.setAttribute('visible', true);
+
+                                    audio.play().then(() =&gt; console.info(`Playing ${audio.currentSrc}`)).catch(e =&gt; console.error(e));
+                                    audio.onended = () =&gt; {
+                                    model.setAttribute('visible', false);
+                                    }
+                                    } else {
+                                    setTimeout(() =&gt; alert(`Der Satz &quot;${input}&quot; ist falsch. Bitte versuchen Sie es erneut.`), 500);
+                                    }
+                                    inputField.value = &quot;&quot;;
+                                    }
+                                </div>
+                            </section>
+                        </section>
+                        <section class="chapter"><h3 data-toc="window-load" id="window-load">Lade Funktion der Seite</h3>
+                            <p id="fzycta_282">Um Code auszuf&uuml;hren, wenn die Seite geladen wird, muss man den <code class="code" id="fzycta_284">window.onload</code> Event
+                                Listener verwenden.</p>
+                            <div class="code-block" data-lang="javascript">
+                                window.onload = function () {
+                                getCleanUrl();
+                                setupInputFieldListener();
+                                setupAudioTracks();
+                                placeDecorationImages();
+                                };
+                            </div>
+                        </section>
+                    </section>
+                    <div class="last-modified">Last modified: 25 November 2024</div>
+                    <div data-feedback-placeholder="true"></div>
+                    <div class="navigation-links _bottom"><a class="navigation-links__prev" href="how-to-simple-change.html">How-Tos: Einfache &Auml;nderungen</a></div>
+                </article>
+                <div id="disqus_thread"></div>
+            </div>
+        </section>
+    </main>
+</div>
+<script src="frontend/app.js"></script>
+</body>
+</html>

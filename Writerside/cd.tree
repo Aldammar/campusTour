@@ -7,6 +7,6 @@
                   start-page="starter-topic.topic">
 
     <toc-element topic="starter-topic.topic"/>
-    <toc-element topic="How-to-simple-change.md"/>
+    <toc-element topic="How-to-simple-change.topic"/>
     <toc-element topic="Reference.topic"/>
 </instance-profile>

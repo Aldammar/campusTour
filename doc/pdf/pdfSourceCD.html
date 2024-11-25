@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-css.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-markup.min.js"></script>
+    <style>
+        .article {
+            position: relative;
+            padding-bottom: 24px;
+        }
+
+
+        .bordered-element {
+            border: 1px solid #c4c4c4;
+            overflow: hidden;
+        }
+
+
+        .bordered-element-rounded {
+            border: 1px solid #c4c4c4;
+            border-radius: 7px;
+            overflow: hidden;
+        }
+
+
+        .category {
+            flex-wrap: wrap;
+            padding-top: 8px;
+        }
+
+
+        .category-item {
+            margin-bottom: 4px;
+            margin-block-end: 0;
+        }
+
+
+        .category-link {
+            margin-left: 0;
+            padding-inline-start: 0;
+            margin-block-start: 0;
+            padding-bottom: 4px;
+        }
+
+
+        .category-title {
+            padding-bottom: 8px;
+        }
+
+
+        .code-block {
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+            border-radius: 8px;
+            font-variant-ligatures: none;
+            background-color: rgba(25, 25, 28, .05);
+            word-break: break-all;
+        }
+
+
+        .control {
+            color: #19191c;
+            font-size: 16px;
+            font-weight: 670;
+        }
+
+
+        .def {
+            padding: 16px;
+            background: #e6e6e6;
+        }
+
+
+        .definition-list-description {
+            margin-top: 12px;
+            margin-left: 2px;
+        }
+
+
+        .definition-list-title {
+            font-size: 17px;
+            font-weight: 560;
+            line-height: 24px;
+            color: #19191c;
+            overflow-wrap: break-word;
+        }
+
+
+        .detached {
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-bottom: 8px;
+        }
+
+
+        .emphasis {
+            color: inherit;
+            font-weight: inherit;
+            font-style: italic;
+        }
+
+
+        .filepath {
+            color: #19191c;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: inherit;
+        }
+
+
+        .flex {
+            display: flex;
+        }
+
+
+        .inline-code {
+            border-radius: 4px;
+            display: inline;
+            padding: 2px 1px;
+            font-family: JetBrains Sans, monospace;
+            background: #e6e6e6;
+        }
+
+
+        .list {
+            list-style-type: disc;
+            padding-left: 0;
+            margin-left: 15px;
+        }
+
+
+        .list-decimal {
+            list-style-type: decimal;
+        }
+
+
+        .list-item {
+            margin-top: 6px;
+            margin-bottom: 6px;
+            margin-left: 4px;
+        }
+
+
+        .list-none {
+            list-style-type: none;
+        }
+
+
+        .main-title {
+            padding-bottom: 24px;
+            margin-top: 0;
+            font-size: 40px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+
+
+        .note {
+            background: rgba(77, 187, 95, .2);
+        }
+
+
+        .prism {
+            page-break-inside: avoid;
+        }
+
+        /* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+armasm+arturo+asciidoc+aspnet+asm6502+asmatmel+autohotkey+autoit+avisynth+avro-idl+awk+bash+basic+batch+bbcode+bbj+bicep+birb+bison+bnf+bqn+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cfscript+chaiscript+cil+cilkc+cilkcpp+clojure+cmake+cobol+coffeescript+concurnas+csp+cooklang+coq+crystal+css-extras+csv+cue+cypher+d+dart+dataweave+dax+dhall+diff+django+dns-zone-file+docker+dot+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+false+firestore-security-rules+flow+fortran+ftl+gml+gap+gcode+gdscript+gedcom+gettext+gherkin+git+glsl+gn+linker-script+go+go-module+gradle+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+hoon+http+hpkp+hsts+ichigojam+icon+icu-message-format+idris+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jexl+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keepalived+keyman+kotlin+kumir+kusto+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+log+lolcode+lua+magma+makefile+markdown+markup-templating+mata+matlab+maxscript+mel+mermaid+metafont+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nevod+nginx+nim+nix+nsis+objectivec+ocaml+odin+opencl+openqasm+oz+parigp+parser+pascal+pascaligo+psl+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plant-uml+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+qsharp+q+qml+qore+r+racket+cshtml+jsx+tsx+reason+regex+rego+renpy+rescript+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+squirrel+stan+stata+iecst+stylus+supercollider+swift+systemd+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+tremor+turtle+twig+typescript+typoscript+unrealscript+uorazor+uri+v+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+web-idl+wgsl+wiki+wolfram+wren+xeora+xml-doc+xojo+xquery+yaml+yang+zig&plugins=highlight-keywords */
+        code[class*=language-], pre[class*=language-] {
+            color: #000;
+            background: 0 0;
+            text-shadow: 0 1px #fff;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            text-align: left;
+            white-space: pre-wrap;
+            word-spacing: normal;
+            word-wrap: normal;
+            line-height: 1.5;
+            -moz-tab-size: 4;
+            -o-tab-size: 4;
+            tab-size: 4;
+            -webkit-hyphens: none;
+            -moz-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none
+        }
+
+        code[class*=language-] ::-moz-selection, code[class*=language-]::-moz-selection, pre[class*=language-] ::-moz-selection, pre[class*=language-]::-moz-selection {
+            text-shadow: none;
+            background: #b3d4fc
+        }
+
+        code[class*=language-] ::selection, code[class*=language-]::selection, pre[class*=language-] ::selection, pre[class*=language-]::selection {
+            text-shadow: none;
+            background: #b3d4fc
+        }
+
+        @media print {
+            code[class*=language-], pre[class*=language-] {
+                text-shadow: none
+            }
+        }
+
+        pre[class*=language-] {
+            padding: 16px;
+            margin: 0;
+            overflow: auto
+        }
+
+        :not(pre) > code[class*=language-], pre[class*=language-] {
+            background: #f5f2f0
+        }
+
+        :not(pre) > code[class*=language-] {
+            padding: .1em;
+            border-radius: .3em;
+            white-space: normal
+        }
+
+        .token.cdata, .token.comment, .token.doctype, .token.prolog {
+            color: #708090
+        }
+
+        .token.punctuation {
+            color: #999
+        }
+
+        .token.namespace {
+            opacity: .7
+        }
+
+        .token.boolean, .token.constant, .token.deleted, .token.number, .token.property, .token.symbol, .token.tag {
+            color: #905
+        }
+
+        .token.attr-name, .token.builtin, .token.char, .token.inserted, .token.selector, .token.string {
+            color: #690
+        }
+
+        .language-css .token.string, .style .token.string, .token.entity, .token.operator, .token.url {
+            color: #9a6e3a;
+            background: hsla(0, 0%, 100%, .5)
+        }
+
+        .token.atrule, .token.attr-value, .token.keyword {
+            color: #07a
+        }
+
+        .token.class-name, .token.function {
+            color: #dd4a68
+        }
+
+        .token.important, .token.regex, .token.variable {
+            color: #e90
+        }
+
+        .token.bold, .token.important {
+            font-weight: 700
+        }
+
+        .token.italic {
+            font-style: italic
+        }
+
+        .token.entity {
+            cursor: help
+        }
+
+
+        .procedure-steps {
+            box-sizing: border-box;
+            padding: 8px 8px 2px 8px;
+        }
+
+        .procedure-steps ol {
+            margin-block-end: 0;
+            margin-block-start: 0;
+        }
+
+
+        .prompt {
+            flex-direction: row;
+            letter-spacing: .0015em;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+
+        .prompt-content {
+            padding: 15px;
+            overflow: hidden;
+            flex: 1 1 auto;
+        }
+
+
+        .prompt-content-p p {
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+
+
+        .prompt-icon {
+            flex: 0 0 auto;
+            margin-left: 15px;
+            margin-top: 15px;
+            fill: currentcolor;
+            width: 24px;
+            height: 24px;
+        }
+
+
+        :root {
+            width: 95%;
+            max-width: 95vw;
+            padding: 0 0 0 30px;
+        }
+
+        body {
+            font-family: JetBrains Sans, serif;
+        }
+
+        a {
+            overflow-wrap: anywhere;
+            width: 100vw;
+        }
+
+
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Light.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Light.woff) format("woff");
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Regular.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Regular.woff) format("woff");
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-SemiBold.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-SemiBold.woff) format("woff");
+            font-weight: 600;
+            font-style: normal;
+        }
+
+
+        code {
+            display: inline;
+            word-break: break-word;
+            font-size: 15px;
+            line-height: inherit;
+            font-variant-ligatures: none;
+            font-family: JetBrains Sans, monospace;
+            white-space: pre-line;
+            overflow-wrap: break-word;
+        }
+
+        figcaption {
+            margin-top: 5px;
+        }
+
+        h2 {
+            padding-top: 16px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+
+        h3 {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+
+        h4 {
+            padding-top: 4px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+
+        p {
+            padding: 0;
+            border: 0;
+            line-height: 25px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            padding-bottom: 8px;
+        }
+
+        div {
+            display: block;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            page-break-inside: avoid;
+        }
+
+        th, td {
+            border: 1px solid #c4c4c4;
+            padding: 10px;
+            text-align: left;
+            word-break: break-all;
+        }
+
+        .no-bold {
+            font-weight: normal;
+        }
+
+        .entry {
+            display: grid;
+            grid-template-columns: auto max-content;
+            grid-template-areas: "chapter page";
+            align-items: end;
+            gap: 0 .25rem;
+            line-height: 25px;
+        }
+
+        .toc-link-container {
+            grid-area: chapter;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toc-link {
+            text-decoration: none;
+            color: black;
+        }
+
+        .toc-link-container::after {
+            position: absolute;
+            padding-left: .25ch;
+            content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+            text-align: right;
+        }
+
+        .page {
+            grid-area: page;
+            width: 30px;
+            text-align: right;
+        }
+
+
+        .secondary-title {
+            font-size: 20px;
+            margin-inline-start: 0;
+            margin-block-end: 0;
+            margin-block-start: 0;
+        }
+
+
+        .tab-content {
+            padding: 16px;
+        }
+
+        .tab-content > * {
+            border: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+
+        .tab-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+
+        .tip {
+            background-color: rgba(25, 25, 28, .05);
+        }
+
+
+        .top-bottom-bordered-element {
+            padding-top: 40px;
+            overflow: hidden;
+        }
+
+
+        .topic {
+            page-break-before: always;
+        }
+
+
+        .warning {
+            background: rgba(244, 92, 74, .2);
+        }
+    </style>
+    <title>pdfSourceCD</title></head>
+<body>
+<div>
+    <section class="topic">
+        <div>
+            <article class="article"><h1 class="main-title">Inhaltsverzeichnis</h1>
+                <div class="entry">
+                    <div class="toc-link-container"><a class="toc-link" href="#-512279951">CamusTour Documentation</a></div>
+                    <div class="page">2</div>
+                </div>
+                <div class="entry">
+                    <div class="toc-link-container"><a class="toc-link" href="#-695714730">How-Tos: Einfache &Auml;nderungen</a></div>
+                    <div class="page">5</div>
+                </div>
+                <div class="entry">
+                    <div class="toc-link-container"><a class="toc-link" href="#1078812459">Referenz</a></div>
+                    <div class="page">11</div>
+                </div>
+            </article>
+        </div>
+    </section>
+    <section class="topic">
+        <div>
+            <article class="article"><h1 class="main-title" id="-512279951">CamusTour Documentation</h1>
+                <section><h2 data-toc="installation#starter-topic.topic-installation" id="-512279951#installation">Installation</h2>
+                    <p id="-512279951#-4oxy4_5">Zurzeit wird die CampusTour &uuml;ber GitHub Pages gehostet. Erreichbar ist diese unter folgendem Link: CampusTour (<a
+                            href="https://aldammar.github.io/campusTour/">https://aldammar.github.io/campusTour/</a>)</p>
+                    <p id="-512279951#-4oxy4_6">Wenn man die CampusTour ver&auml;ndert will oder sie unter einem eigenen Link hosten will, dann gibt es verschiedene M&ouml;glichkeiten:</p>
+                    <section><h3 data-toc="github-pages#starter-topic.topic-github-pages" id="-512279951#github-pages">GitHub Pages</h3>
+                        <p id="-512279951#-4oxy4_10">Hier kann man sowohl einen eigenen Link verwenden (oder den bestehenden) als auch die CampusTour verwenden.</p>
+                        <section class="procedure-steps bordered-element detached"><h3 id="-512279951#github-pages-einrichten">GitHub Pages einrichten</h3>
+                            <ol class="list list-decimal">
+                                <li class="list-item" id="-512279951#-4oxy4_12"><p><span class="control" id="-512279951#-4oxy4_18">Repository forken:</span> Entweder direkt auf
+                                    GitHub (<a href="https://github.com/Aldammar/campusTour/fork">https://github.com/Aldammar/campusTour/fork</a>), &uuml;ber die GitHub Desktop App
+                                    oder &uuml;ber die GitHub CLI. Weitere Informationen dazu gibt es hier (<a
+                                            href="https://docs.github.com/de/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo">https://docs.github.com/de/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo</a>).
+                                </p></li>
+                                <li class="list-item" id="-512279951#-4oxy4_13"><p><span class="control" id="-512279951#-4oxy4_21">Repository klonen:</span> Das geforkte Repository
+                                    kann nun geklont werden. Dies muss nicht gemacht werden, wenn die GitHub Desktop App oder die GitHub CLI mit <span class="inline-code"
+                                                                                                                                                       id="-512279951#-4oxy4_22">--clone=true</span>
+                                    verwendet wurde. Zum Klonen kann man entweder die GitHub Desktop App (<a
+                                            href="https://docs.github.com/de/repositories/creating-and-managing-repositories/cloning-a-repository?tool=desktop">https://docs.github.com/de/repositories/creating-and-managing-repositories/cloning-a-repository?tool=desktop</a>),
+                                    die GitHub CLI (<a href="https://docs.github.com/de/repositories/creating-and-managing-repositories/cloning-a-repository?tool=cli">https://docs.github.com/de/repositories/creating-and-managing-repositories/cloning-a-repository?tool=cli</a>)
+                                    oder mit der Git Bash machen. F&uuml;r die Git Bash wird der folgende Befehl ben&ouml;tigt: </p>
+                                    <div class="detached code-block" id="-512279951#-4oxy4_25">
+                                        <pre><code class="language-bash">git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY</code></pre>
+                                    </div>
+                                </li>
+                                <li class="list-item" id="-512279951#-4oxy4_14"><p><span class="control" id="-512279951#-4oxy4_26">&Auml;nderungen vornehmen:</span> Nun k&ouml;nnen
+                                    &Auml;nderungen an der CampusTour vorgenommen werden. Hierf&uuml;r kann man die im How-To (<a href="#-695714730">How-Tos: Einfache &Auml;nderungen</a>)
+                                    beschriebenen Schritte verwenden. Wenn man mehr als die im How-To (<a href="#-695714730">How-Tos: Einfache &Auml;nderungen</a>) beschriebenen
+                                    Sachen &auml;ndern will, dann kann man sich an die Referenz (<a href="#1078812459">Referenz</a>) wenden.</p></li>
+                                <li class="list-item" id="-512279951#-4oxy4_15"><p><span class="control" id="-512279951#-4oxy4_30">&Auml;nderungen hochladen:</span> Nachdem die
+                                    &Auml;nderungen vorgenommen wurden, muss man diese committen und pushen, damit sie auch von GitHub erkannt werden.</p></li>
+                                <li class="list-item" id="-512279951#-4oxy4_16"><p><span class="control" id="-512279951#-4oxy4_31">GitHub Pages aktivieren:</span> In den
+                                    Repository-Einstellungen unter dem Tab <span class="filepath" id="-512279951#-4oxy4_32">Pages</span> kann die GitHub Pages aktiviert werden.
+                                    Hierbei muss man noch ausw&auml;hlen, von welchem Branch die GitHub Pages erstellt werden sollen. Standardm&auml;&szlig;ig ist dies der <span
+                                            class="filepath" id="-512279951#-4oxy4_33">main</span>-Branch im obersten Ordner. Mehr hierzu gibt es auf der GitHub Pages Seite (<a
+                                            href="https://pages.github.com/">https://pages.github.com/</a>).</p></li>
+                                <li class="list-item" id="-512279951#-4oxy4_17"><p><span class="control" id="-512279951#-4oxy4_35">Fertig:</span> Nun sollte die CampusTour unter
+                                    <span class="filepath" id="-512279951#-4oxy4_36">https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/</span> erreichbar sein.</p></li>
+                            </ol>
+                        </section>
+                    </section>
+                    <section><h3 data-toc="eigene-domain#starter-topic.topic-eigene-domain" id="-512279951#eigene-domain">Eigene Domain</h3>
+                        <p id="-512279951#-4oxy4_37">Hier kann man alles so machen, wie bei den GitHub Pages, es ist aber etwas komplizierter, wenn man die Seite einfach nur hosten
+                            will.</p>
+                        <blockquote class="prompt flex bordered-element-rounded note detached">
+                            <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9zM10.5 7.5A1.5 1.5 0 1 0 12 6a1.5 1.5 0 0 0-1.5 1.5zm-.5 3.54v1h1V18h2v-6a.96.96 0 0 0-.96-.96z"></path>
+                            </svg>
+                            <div class="prompt-content prompt-content-p"><p>Man ben&ouml;tigt f&uuml;r diese Methode einen HTTPS-Server. Dieser kann entweder selbst aufgesetzt
+                                werden oder gemietet werden.</p></div>
+                        </blockquote>
+                        <section class="procedure-steps bordered-element detached"><h3 id="-512279951#selber-hosten">Selber hosten</h3>
+                            <ol class="list list-decimal">
+                                <li class="list-item" id="-512279951#-4oxy4_40"><p><span class="control" id="-512279951#-4oxy4_43">Server &uuml;berpr&uuml;fen:</span> Der Server
+                                    muss HTTPS und JavaScript unterst&uuml;tzen. Die meisten Server kommen mit einer JavaScript-Unterst&uuml;tzung, jedoch nicht unbedingt mit einer
+                                    HTTPS-Unterst&uuml;tzung. Sollte SSL nicht eingerichtet sein, finden sich im Internet viele Anleitungen dazu.</p></li>
+                                <li class="list-item" id="-512279951#-4oxy4_41"><p><span class="control" id="-512279951#-4oxy4_44">Repository auf den Server laden:</span> Entweder
+                                    l&auml;dt man den aktuellen Zweig direkt als zip herunter (GitHub (<a
+                                            href="https://github.com/Aldammar/campusTour/archive/refs/heads/master.zip">https://github.com/Aldammar/campusTour/archive/refs/heads/master.zip</a>))
+                                    und entpackt dieses auf dem Server oder man erstellt wie unter GitHub Pages (<a href="#-512279951#github-pages">&quot;GitHub Pages&quot; in
+                                        &quot;CamusTour Documentation&quot;</a>) beschrieben ein Repository und cloned dieses auf den Server.</p></li>
+                                <li class="list-item" id="-512279951#-4oxy4_42"><p><span class="control" id="-512279951#-4oxy4_47">Server konfigurieren:</span> Hierbei muss man
+                                    darauf achten, dass der Pfad zum Ordner des Repositories auf dem <span class="filepath" id="-512279951#-4oxy4_48">root</span>-Pfad des Servers
+                                    liegt. Man kann dann &uuml;ber <span class="filepath" id="-512279951#-4oxy4_49">https://YOUR-DOMAIN/PATH-TO-REPOSITORY-FROM-ROOT</span> auf die
+                                    CampusTour zugreifen. Wenn man mit <span class="filepath"
+                                                                             id="-512279951#-4oxy4_50">                         https://YOUR-DOMAIN/                     </span> auf
+                                    die CampusTour zugreifen will, dann muss man den Pfad zum Repository als <span class="filepath" id="-512279951#-4oxy4_51">root</span>-Pfad des
+                                    Servers setzen. Die genaue Konfiguration kommt auf den Server an.</p></li>
+                            </ol>
+                        </section>
+                    </section>
+                </section>
+                <section><h2 data-toc="verwendung#starter-topic.topic-verwendung" id="-512279951#verwendung">Verwendung</h2>
+                    <p id="-512279951#-4oxy4_52">Um die Webseite zu verwenden, ben&ouml;tigt man Zugriff auf die Kamera und beim ersten Laden Internet. Dann kann man die Webseite
+                        so, wie sie ist, verwenden.</p></section>
+            </article>
+        </div>
+    </section>
+    <section class="topic">
+        <div>
+            <article class="article"><h1 class="main-title" id="-695714730">How-Tos: Einfache &Auml;nderungen</h1>
+                <p> Hier gibt es mehrere Beschreibungen f&uuml;r einfache &Auml;nderungen. </p>
+                <section><h2 data-toc="how-to-change_model#How-to-simple-change.topic-how-to-change_model" id="-695714730#how-to-change_model">How To: Modelle &auml;ndern</h2>
+                    <section><h3 data-toc="voraussetzungen-1#How-to-simple-change.topic-voraussetzungen-1" id="-695714730#voraussetzungen-1">Voraussetzungen</h3>
+                        <p id="-695714730#-l5pkkb_9">Stelle sicher, dass du dein Modell im <span class="emphasis" id="-695714730#-l5pkkb_12">gLTF</span> Format hast! Folgende
+                            Dateien sind notwendig:</p>
+                        <ul class="list" id="-695714730#-l5pkkb_10" start="1">
+                            <li class="list-item" id="-695714730#-l5pkkb_13"><p><span class="filepath" id="-695714730#-l5pkkb_18">model.gltf</span></p></li>
+                            <li class="list-item" id="-695714730#-l5pkkb_14"><p><span class="filepath" id="-695714730#-l5pkkb_19">model.bin</span></p></li>
+                            <li class="list-item" id="-695714730#-l5pkkb_15"><p><span class="filepath" id="-695714730#-l5pkkb_20">model_normal.png</span></p></li>
+                            <li class="list-item" id="-695714730#-l5pkkb_16"><p><span class="filepath" id="-695714730#-l5pkkb_21">model_roughnessMetallic.png</span></p></li>
+                            <li class="list-item" id="-695714730#-l5pkkb_17"><p><span class="filepath" id="-695714730#-l5pkkb_22">model_baseColor.png</span></p></li>
+                        </ul>
+                        <blockquote class="prompt flex bordered-element-rounded tip detached">
+                            <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.946 3.552L21.52 18.4c.424.735.33 1.6-.519 1.6H3.855c-.85 0-1.817-.865-1.392-1.6l8.573-14.848a1.103 1.103 0 0 1 1.91 0zm.545 12.948a1.5 1.5 0 1 0-1.5 1.5 1.5 1.5 0 0 0 1.5-1.5zM13 8h-2v5h2z"></path>
+                            </svg>
+                            <div class="prompt-content prompt-content-p"><p>Du kannst die ganzen Dateien auch geb&uuml;ndelt in einer <span class="filepath"
+                                                                                                                                            id="-695714730#-l5pkkb_23">model.glb</span>
+                                Datei einbinden!</p></div>
+                        </blockquote>
+                    </section>
+                    <section><h3 data-toc="schritte-1#How-to-simple-change.topic-schritte-1" id="-695714730#schritte-1">Schritte</h3>
+                        <div id="-695714730#-l5pkkb_24">
+                            <div class="detached" id="-695714730#change_file_and_id">
+                                <div class="tab-title">
+                                    <div>Datei und Kennzeichnung &auml;ndern</div>
+                                </div>
+                                <div class="bordered-element tab-content">
+                                    <section class="procedure-steps bordered-element detached"><h3 id="-695714730#change_model">&Auml;ndere Modell</h3>
+                                        <ol class="list list-decimal"><p id="-695714730#-l5pkkb_28">Lade das Model von der Webseite herunter oder exportiere es aus dem
+                                            Programm.</p>
+                                            <li class="list-item" id="-695714730#-l5pkkb_29"><p>Kopiere oder verschiebe das Model mit allen Dateien in den Ordner <span
+                                                    class="filepath" id="-695714730#-l5pkkb_36">campusTour/models/</span>.</p></li>
+                                            <li class="list-item" id="-695714730#-l5pkkb_30"><p>Suche in der Datei <span class="filepath" id="-695714730#-l5pkkb_37">ar.html</span>
+                                                nach dem Tag <span class="inline-code" id="-695714730#-l5pkkb_38">&lt;a-assets&gt;</span></p></li>
+                                            <li class="list-item" id="-695714730#-l5pkkb_31"><p>&Auml;ndere den Pfad des Modells und die Kennzeichnung (<span class="inline-code"
+                                                                                                                                                              id="-695714730#-l5pkkb_39">&lt;a-asset-item src=&quot;models/MODELL_NAME.[glb/gltf]&quot;                             id=&quot;EINDEUTIGE_KENNZEICHNUNG_DES_MODELLS&quot;</span>).
+                                            </p></li>
+                                            <li class="list-item" id="-695714730#-l5pkkb_32"><p>Suche nach der alten Kennzeichnung des Modells in der Datei und ersetze diese.</p>
+                                            </li>
+                                            <blockquote class="prompt flex bordered-element-rounded tip detached">
+                                                <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12.946 3.552L21.52 18.4c.424.735.33 1.6-.519 1.6H3.855c-.85 0-1.817-.865-1.392-1.6l8.573-14.848a1.103 1.103 0 0 1 1.91 0zm.545 12.948a1.5 1.5 0 1 0-1.5 1.5 1.5 1.5 0 0 0 1.5-1.5zM13 8h-2v5h2z"></path>
+                                                </svg>
+                                                <div class="prompt-content prompt-content-p"><p>Du kannst f&uuml;r das &Auml;ndern der Kennzeichnung <span class="control"
+                                                                                                                                                           id="-695714730#-l5pkkb_40">refactoring</span>
+                                                    verwenden, wenn das dein Editor anbietet. Dann f&auml;llt der letzte Schritt weg</p></div>
+                                            </blockquote>
+                                            <blockquote class="prompt flex bordered-element-rounded warning detached">
+                                                <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12.946 3.552L21.52 18.4c.424.735.33 1.6-.519 1.6H3.855c-.85 0-1.817-.865-1.392-1.6l8.573-14.848a1.103 1.103 0 0 1 1.91 0zm.545 12.948a1.5 1.5 0 1 0-1.5 1.5 1.5 1.5 0 0 0 1.5-1.5zM13 8h-2v5h2z"></path>
+                                                </svg>
+                                                <div class="prompt-content prompt-content-p"><p>Wenn du nicht alle alten Kennzeichnungen &auml;nderst, dann k&ouml;nnte es sein,
+                                                    dass das Modell nicht an der richtigen Stelle angezeigt wird.</p></div>
+                                            </blockquote>
+                                            <li class="list-item" id="-695714730#-l5pkkb_35"><p>Ver&auml;ndere noch die Skalierung, Position und Drehung des Modells in den
+                                                entsprechenden Markern, bei denen das Modell ge&auml;ndert wurde. </p>
+                                                <div class="detached code-block" id="-695714730#-l5pkkb_41"><pre><code class="language-markup">&lt;a-marker&gt;
+    &lt;a-entity
+            gltf-model=&quot;#MODELL_NAME&quot;
+            scale=&quot;0 0 0.1&quot;
+            position=&quot;0 0 0&quot;
+            rotation=&quot;0 0 0&quot;
+    &gt;&lt;/a-entity&gt;
+&lt;/a-marker&gt;</code></pre>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="detached" id="-695714730#only_change_file">
+                                <div class="tab-title">
+                                    <div>Nur die Datei &auml;ndern</div>
+                                </div>
+                                <div class="bordered-element tab-content">
+                                    <section class="procedure-steps bordered-element detached"><h3 id="-695714730#change_model_file">&Auml;ndere Modell Datei</h3>
+                                        <ol class="list list-decimal"><p id="-695714730#-l5pkkb_43">Lade das Model von der Webseite herunter oder exportiere es aus dem
+                                            Programm.</p>
+                                            <li class="list-item" id="-695714730#-l5pkkb_44"><p>Kopiere oder verschiebe das Model in den Ordner <span class="filepath"
+                                                                                                                                                      id="-695714730#-l5pkkb_48">campusTour/models/</span>.
+                                            </p></li>
+                                            <li class="list-item" id="-695714730#-l5pkkb_45"><p>Suche in der Datei <span class="filepath" id="-695714730#-l5pkkb_49">ar.html</span>
+                                                nach dem Tag <span class="inline-code" id="-695714730#-l5pkkb_50">&lt;a-assets&gt;</span></p></li>
+                                            <li class="list-item" id="-695714730#-l5pkkb_46"><p>&Auml;ndere den Pfad des Modells (<span class="inline-code"
+                                                                                                                                        id="-695714730#-l5pkkb_51">&lt;a-asset-item src=&quot;models/MODELL_NAME.[glb/gltf]&quot;</span>)
+                                            </p></li>
+                                            <li class="list-item" id="-695714730#-l5pkkb_47"><p>Ver&auml;ndere noch die Skalierung, Position und Drehung des Modells in den
+                                                entsprechenden Markern, bei denen das Modell ge&auml;ndert wurde. </p>
+                                                <div class="detached code-block" id="-695714730#-l5pkkb_52"><pre><code class="language-markup">&lt;a-marker&gt;
+    &lt;a-entity
+            gltf-model=&quot;#MODELL_NAME&quot;
+            scale=&quot;0 0 0.1&quot;
+            position=&quot;0 0 0&quot;
+            rotation=&quot;0 0 0&quot;
+    &gt;&lt;/a-entity&gt;
+&lt;/a-marker&gt;</code></pre>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                <section><h2 data-toc="how-to-change_marker#How-to-simple-change.topic-how-to-change_marker" id="-695714730#how-to-change_marker">How To: Marker &auml;ndern</h2>
+                    <section><h3 data-toc="voraussetzungen-2#How-to-simple-change.topic-voraussetzungen-2" id="-695714730#voraussetzungen-2">Voraussetzungen</h3>
+                        <p id="-695714730#-l5pkkb_55">Generiere dir auf der Seite AR.js Marker Training (<a
+                                href="https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html">https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html</a>)
+                            einen Marker mithilfe eines Bildes. Auf folgendes solltest du achten:</p>
+                        <ul class="list" id="-695714730#-l5pkkb_56" start="1">
+                            <li class="list-item" id="-695714730#-l5pkkb_58"><p>Der Marker sollte nicht rotationssymmetrisch sein</p></li>
+                            <li class="list-item" id="-695714730#-l5pkkb_59"><p>Der Marker sollte nicht zu komplex sein</p></li>
+                        </ul>
+                    </section>
+                    <section><h3 data-toc="schritte-2#How-to-simple-change.topic-schritte-2" id="-695714730#schritte-2">Schritte</h3>
+                        <section class="procedure-steps bordered-element detached"><h3 id="-695714730#change_marker">Marker &auml;ndern</h3>
+                            <ol class="list list-decimal"><p id="-695714730#-l5pkkb_61">Lade von dem Marker Generator sowohl den Marker als auch das Bild herunter.</p>
+                                <li class="list-item" id="-695714730#-l5pkkb_62"><p>Kopiere oder verschiebe den Marker in den Ordner <span class="filepath"
+                                                                                                                                           id="-695714730#-l5pkkb_64">campusTour/assets/patterns</span>
+                                    und das Bild in den Ordner <span class="filepath" id="-695714730#-l5pkkb_65">campusTour/assets/images/</span>.</p></li>
+                                <li class="list-item" id="-695714730#-l5pkkb_63"><p>Suche den Marker, den du &auml;ndern willst und setze dort den Pfad auf deinen neuen Marker
+                                    <span class="inline-code"
+                                          id="-695714730#-l5pkkb_66">&lt;a-marker url=&quot;assets/pattern/NAME_DEINES_PATTERNS.patt&quot;&gt;&lt;/a-marker&gt;</span></p></li>
+                            </ol>
+                        </section>
+                    </section>
+                </section>
+                <section><h2 data-toc="how-to-change_audio#How-to-simple-change.topic-how-to-change_audio" id="-695714730#how-to-change_audio">How To: Audio &auml;ndern</h2>
+                    <section><h3 data-toc="voraussetzungen-3#How-to-simple-change.topic-voraussetzungen-3" id="-695714730#voraussetzungen-3">Voraussetzungen</h3>
+                        <p id="-695714730#-l5pkkb_69">Erstelle eine Audiodatei, welche die Alte ersetzen soll. Erstelle dazu eine WebVTT (<a
+                                href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format">https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format</a>)-Datei,
+                            welche die Untertitel dazu beinhaltet.</p>
+                        <blockquote class="prompt flex bordered-element-rounded note detached">
+                            <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9zM10.5 7.5A1.5 1.5 0 1 0 12 6a1.5 1.5 0 0 0-1.5 1.5zm-.5 3.54v1h1V18h2v-6a.96.96 0 0 0-.96-.96z"></path>
+                            </svg>
+                            <div class="prompt-content prompt-content-p"><p>Als Audioformat ist <span class="control" id="-695714730#-l5pkkb_72">MP3</span> zu empfehlen, da es von
+                                einer Mehrzahl an Browsern unterst&uuml;tzt wird.</p></div>
+                        </blockquote>
+                    </section>
+                    <section><h3 data-toc="schritte-3#How-to-simple-change.topic-schritte-3" id="-695714730#schritte-3">Schritte</h3>
+                        <section class="procedure-steps bordered-element detached"><h3 id="-695714730#change_audio">Audio &auml;ndern</h3>
+                            <ol class="list list-decimal">
+                                <li class="list-item" id="-695714730#-l5pkkb_74"><p>Kopiere oder verschiebe die Audio- und Untertiteldatei in den Ordner <span class="filepath"
+                                                                                                                                                               id="-695714730#-l5pkkb_79">campusTour/audios</span>.
+                                </p></li>
+                                <blockquote class="prompt flex bordered-element-rounded tip detached">
+                                    <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.946 3.552L21.52 18.4c.424.735.33 1.6-.519 1.6H3.855c-.85 0-1.817-.865-1.392-1.6l8.573-14.848a1.103 1.103 0 0 1 1.91 0zm.545 12.948a1.5 1.5 0 1 0-1.5 1.5 1.5 1.5 0 0 0 1.5-1.5zM13 8h-2v5h2z"></path>
+                                    </svg>
+                                    <div class="prompt-content prompt-content-p"><p>Wenn du nur ein bestimmtes Audio &auml;ndern willst, dann ist es sinnvoll die Namen deiner neuen
+                                        Dateien zu dem der alten, zu &auml;ndernden Dateien anzupassen und die alten Dateien somit einfach zu ersetzen. Damit werden die folgenden
+                                        Schritte &uuml;berfl&uuml;ssig.</p></div>
+                                </blockquote>
+                                <li class="list-item" id="-695714730#-l5pkkb_76"><p>Suche in der <span class="filepath" id="-695714730#-l5pkkb_80">ar.html</span>-Datei nach dem
+                                    Marker, bei dem du das Audio ersetzen willst.</p></li>
+                                <li class="list-item" id="-695714730#-l5pkkb_77"><p>&Auml;ndere im <span class="inline-code" id="-695714730#-l5pkkb_81">&lt;source/&gt;</span> - und
+                                    im <span class="inline-code" id="-695714730#-l5pkkb_82">&lt;track&gt;</span>-Tag die Pfade zu den Dateien entsprechend ab und passe, wenn n&ouml;tig
+                                    den Typ der <span class="inline-code" id="-695714730#-l5pkkb_83">&lt;source/&gt;</span> an: </p>
+                                    <div class="detached code-block" id="-695714730#-l5pkkb_84"><pre><code class="language-markup">&lt;audio&gt;
+    &lt;source src=&quot;audios/NAME_DER_AUDIODATEI.mp3&quot; type=&quot;audio/mpeg&quot;/&gt;
+    &lt;track src=&quot;audios/NAME_DER_UNTERTITELDATEI.vtt&quot; default kind=&quot;captions&quot; label=&quot;Deutsch&quot; srclang=&quot;de&quot;&gt;
+&lt;/audio&gt;</code></pre>
+                                    </div>
+                                </li>
+                                <blockquote class="prompt flex bordered-element-rounded note detached">
+                                    <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9zM10.5 7.5A1.5 1.5 0 1 0 12 6a1.5 1.5 0 0 0-1.5 1.5zm-.5 3.54v1h1V18h2v-6a.96.96 0 0 0-.96-.96z"></path>
+                                    </svg>
+                                    <div class="prompt-content prompt-content-p"><p>Wenn du ein weiteres Format zum Abspielen bereitstellen willst, dann kannst du auch einfach ein
+                                        weiteren <span class="inline-code" id="-695714730#-l5pkkb_85">&lt;source/&gt;</span>-Tag unter oder &uuml;ber den vorhandenen <span
+                                                class="inline-code" id="-695714730#-l5pkkb_86">&lt;source/&gt;</span>-Tag machen.</p></div>
+                                </blockquote>
+                            </ol>
+                        </section>
+                    </section>
+                </section>
+                <section><h2 data-toc="how-to-add_marker_model#How-to-simple-change.topic-how-to-add_marker_model" id="-695714730#how-to-add_marker_model">How To: Modell und Marker
+                    hinzuf&uuml;gen</h2>
+                    <section><h3 data-toc="voraussetzungen-4#How-to-simple-change.topic-voraussetzungen-4" id="-695714730#voraussetzungen-4">Voraussetzungen</h3>
+                        <p id="-695714730#-l5pkkb_89">Wichtig sind die Voraussetzungen der vorherigen How-Tos (Modell (<a href="#-695714730#voraussetzungen-1">&quot;Voraussetzungen&quot;
+                            in &quot;How-Tos: Einfache &Auml;nderungen&quot;</a>), Marker (<a href="#-695714730#voraussetzungen-2">&quot;Voraussetzungen&quot; in &quot;How-Tos:
+                            Einfache &Auml;nderungen&quot;</a>), Audio (<a href="#-695714730#voraussetzungen-3">&quot;Voraussetzungen&quot; in &quot;How-Tos: Einfache &Auml;nderungen&quot;</a>)).
+                        </p></section>
+                    <section><h3 data-toc="schritte-4#How-to-simple-change.topic-schritte-4" id="-695714730#schritte-4">Schritte</h3>
+                        <section class="procedure-steps bordered-element detached"><h3 id="-695714730#add_marker_model">Modell und Marker hinzuf&uuml;gen</h3>
+                            <ol class="list list-decimal"><p id="-695714730#-l5pkkb_94">Lade das Model von der Webseite herunter oder exportiere es aus dem Programm.</p>
+                                <p id="-695714730#-l5pkkb_95">Lade von dem Marker Generator sowohl den Marker als auch das Bild herunter.</p>
+                                <p id="-695714730#-l5pkkb_96">Erstelle eine Audio-Datei sowie eine Untertiteldatei (WebVTT-Format).</p>
+                                <li class="list-item" id="-695714730#-l5pkkb_97"><p>Kopiere oder verschiebe den Marker in den Ordner <span class="filepath"
+                                                                                                                                           id="-695714730#-l5pkkb_100">campusTour/assets/patterns</span>
+                                    und das Bild in den Ordner <span class="filepath" id="-695714730#-l5pkkb_101">campusTour/assets/images/</span>, das Modell mit allen Dateien in
+                                    den Ordner <span class="filepath" id="-695714730#-l5pkkb_102">campusTour/models/</span> und die Audio- und Untertiteldatei in den Ordner <span
+                                            class="filepath" id="-695714730#-l5pkkb_103">campusTour/audios</span>.</p></li>
+                                <li class="list-item" id="-695714730#-l5pkkb_98"><p>Erstelle in der <span class="inline-code" id="-695714730#-l5pkkb_104">&lt;a-scene&gt;</span> ein
+                                    neuen <span class="inline-code" id="-695714730#-l5pkkb_105">&lt;a-marker&gt;</span>: </p>
+                                    <div class="detached code-block" id="-695714730#-l5pkkb_106"><pre><code class="language-markup">&lt;a-scene&gt;
+    &lt;a-maker
+            preset=&quot;custom&quot;
+            type=&quot;pattern&quot;
+            size=&quot;0.25&quot;
+            emitevents=&quot;true&quot;
+            audiomarker &lt;!-- Ist wichtig, damit der Marker auch Audio abspielen kann, wenn er gefunden wird --&gt;
+    id=&quot;KENNZEICHNUNG_DES_MARKERS&quot; &lt;!-- Nicht mehr unbedingt notwendig --&gt;
+    url=&quot;assets/patterns/NAME_DEINES_PATTERNS.patt&quot;
+    &gt;
+    &lt;a-entity
+            gltf-model=&quot;#MODELL_NAME&quot;
+            scale=&quot;0 0 0.1&quot;
+            position=&quot;0 0 0&quot;
+            rotation=&quot;0 0 0&quot;
+    &gt;&lt;/a-entity&gt;
+    &lt;audio&gt;
+        &lt;source src=&quot;audios/NAME_DER_AUDIODATEI.mp3&quot; type=&quot;audio/mpeg&quot;/&gt;
+        &lt;track src=&quot;audios/NAME_DER_UNTERTITELDATEI.vtt&quot; default kind=&quot;captions&quot; label=&quot;Deutsch&quot; srclang=&quot;de&quot;&gt;
+    &lt;/audio&gt;
+    &lt;/a-maker&gt;
+&lt;/a-scene&gt;</code></pre>
+                                    </div>
+                                </li>
+                                <li class="list-item" id="-695714730#-l5pkkb_99"><p>Ersetze alle Platzhalter (in CAPSLOCK geschrieben) im Code oben mit den entsprechenden
+                                    Werten.</p></li>
+                            </ol>
+                        </section>
+                    </section>
+                </section>
+            </article>
+        </div>
+    </section>
+    <section class="topic">
+        <div>
+            <article class="article"><h1 class="main-title" id="1078812459">Referenz</h1>
+                <section><h2 data-toc="html#Reference.topic-html" id="1078812459#html">HTML</h2>
+                    <section><h3 data-toc="a-scene-a-frame-scene#Reference.topic-a-scene-a-frame-scene" id="1078812459#a-scene-a-frame-scene">&lt;a-scene&gt; (A-Frame Scene)</h3>
+                        <p id="1078812459#fzycta_18"><span class="inline-code" id="1078812459#fzycta_24">&lt;a-scene&gt;</span> ist das Wurzelelement, das alle A-Frame-Elemente
+                            enth&auml;lt. Es ist das Hauptelement, das die gesamte Szene definiert. Es ist &auml;hnlich wie <span class="inline-code" id="1078812459#fzycta_25">&lt;body&gt;</span>
+                            in HTML, aber f&uuml;r AR.</p>
+                        <blockquote class="prompt flex bordered-element-rounded note detached">
+                            <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9zM10.5 7.5A1.5 1.5 0 1 0 12 6a1.5 1.5 0 0 0-1.5 1.5zm-.5 3.54v1h1V18h2v-6a.96.96 0 0 0-.96-.96z"></path>
+                            </svg>
+                            <div class="prompt-content prompt-content-p"><p>In diesem Projekt wird <span class="inline-code" id="1078812459#fzycta_26">&lt;a-scene&gt;</span>
+                                verwendet, um die AR-Szene zu definieren. In diesem Element sind alle AR-Elemente enthalten, wie z.B. <span class="inline-code"
+                                                                                                                                            id="1078812459#fzycta_27">&lt;a-entity&gt;</span>
+                                und <span class="inline-code" id="1078812459#fzycta_28">&lt;a-marker&gt;</span>.</p></div>
+                        </blockquote>
+                        <div class="detached code-block" id="1078812459#fzycta_20"><pre><code class="language-markup">&lt;a-scene&gt;
+    &lt;a-box position=&quot;0 0.5 -5&quot; rotation=&quot;0 45 0&quot; color=&quot;#4CC3D9&quot;&gt;&lt;/a-box&gt;
+&lt;/a-scene&gt;</code></pre>
+                        </div>
+                        <dl date-style="title-top" id="1078812459#fzycta_21">
+                            <div class="def bordered-element detached">
+                                <dt class="definition-list-title" id="1078812459#siehe-auch-a-scene">Siehe auch</dt>
+                                <dd class="definition-list-description"><p>A-Frame (<a
+                                        href="https://aframe.io/docs/0.9.0/introduction/">https://aframe.io/docs/0.9.0/introduction/</a>)</p></dd>
+                            </div>
+                        </dl>
+                        <section><h4 data-toc="a-scene-parameters#Reference.topic-a-scene-parameters" id="1078812459#a-scene-parameters">Parameter</h4>
+                            <ul class="list" id="1078812459#fzycta_31" start="1">
+                                <li class="list-item" id="1078812459#fzycta_32"><p><span class="inline-code" id="1078812459#fzycta_36">embedded</span>: Definiert, ob die Szene in
+                                    einem iframe eingebettet ist.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_33"><p><span class="inline-code" id="1078812459#fzycta_37">vr-mode-ui</span>: Definiert, ob die
+                                    VR-Modus-Schaltfl&auml;che angezeigt wird.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_34"><p><span class="inline-code" id="1078812459#fzycta_38">arjs</span>: Definiert die AR.js
+                                    Einstellungen.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_35"><p><span class="inline-code" id="1078812459#fzycta_39">renderer</span>: Definiert die
+                                    Renderer-Einstellungen.</p></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section><h3 data-toc="a-entity-a-frame-entity#Reference.topic-a-entity-a-frame-entity" id="1078812459#a-entity-a-frame-entity">&lt;a-entity&gt; (A-Frame
+                        Entity)</h3>
+                        <p id="1078812459#fzycta_41"><span class="inline-code" id="1078812459#fzycta_47">&lt;a-entity&gt;</span> ist ein generisches Element, das ein Objekt in der
+                            Szene darstellt. Es kann verwendet werden, um 3D-Objekte, Lichter, Kameras, Sound, Partikel und mehr hinzuzuf&uuml;gen.</p>
+                        <blockquote class="prompt flex bordered-element-rounded note detached">
+                            <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9zM10.5 7.5A1.5 1.5 0 1 0 12 6a1.5 1.5 0 0 0-1.5 1.5zm-.5 3.54v1h1V18h2v-6a.96.96 0 0 0-.96-.96z"></path>
+                            </svg>
+                            <div class="prompt-content prompt-content-p"><p>In diesem Projekt wird <span class="inline-code" id="1078812459#fzycta_48">&lt;a-entity&gt;</span>
+                                verwendet, um 3D-Objekte in der AR-Szene zu platzieren.</p></div>
+                        </blockquote>
+                        <div class="detached code-block" id="1078812459#fzycta_43">
+                            <pre><code class="language-markup">&lt;a-entity geometry=&quot;primitive: box&quot; material=&quot;color: blue&quot; position=&quot;0 1.5 -5&quot;&gt;&lt;/a-entity&gt;</code></pre>
+                        </div>
+                        <dl date-style="title-top" id="1078812459#fzycta_44">
+                            <div class="def bordered-element detached">
+                                <dt class="definition-list-title" id="1078812459#siehe-auch-a-entity">Siehe auch</dt>
+                                <dd class="definition-list-description"><p>A-Frame (<a
+                                        href="https://aframe.io/docs/0.9.0/introduction/">https://aframe.io/docs/0.9.0/introduction/</a>)</p></dd>
+                            </div>
+                        </dl>
+                        <section><h4 data-toc="a-entity-parameters#Reference.topic-a-entity-parameters" id="1078812459#a-entity-parameters">Parameter</h4>
+                            <ul class="list" id="1078812459#fzycta_51" start="1">
+                                <li class="list-item" id="1078812459#fzycta_52"><p><span class="inline-code" id="1078812459#fzycta_57">gltf-model</span>: URL oder Referenz zum
+                                    3D-Modell.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_53"><p><span class="inline-code" id="1078812459#fzycta_58">position</span>: Position des Objekts in der
+                                    Szene.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_54"><p><span class="inline-code" id="1078812459#fzycta_59">rotation</span>: Rotation des Objekts in der
+                                    Szene.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_55"><p><span class="inline-code" id="1078812459#fzycta_60">scale</span>: Skalierung des Objekts in der
+                                    Szene.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_56"><p><span class="inline-code" id="1078812459#fzycta_61">camera</span>: Definiert die Kamera in der
+                                    Scene.</p></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section><h3 data-toc="a-marker-ar-js-marker#Reference.topic-a-marker-ar-js-marker" id="1078812459#a-marker-ar-js-marker">&lt;a-marker&gt; (AR.js Marker)</h3>
+                        <p id="1078812459#fzycta_63"><span class="inline-code" id="1078812459#fzycta_69">&lt;a-marker&gt;</span> ist ein Element, das verwendet wird, um
+                            AR.js-Marker in der Szene zu definieren. Es wird in Kombination mit <span class="inline-code" id="1078812459#fzycta_70">&lt;a-entity&gt;</span>
+                            verwendet, um 3D-Objekte anzuzeigen, wenn der Marker erkannt wird.</p>
+                        <blockquote class="prompt flex bordered-element-rounded note detached">
+                            <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9zM10.5 7.5A1.5 1.5 0 1 0 12 6a1.5 1.5 0 0 0-1.5 1.5zm-.5 3.54v1h1V18h2v-6a.96.96 0 0 0-.96-.96z"></path>
+                            </svg>
+                            <div class="prompt-content prompt-content-p"><p>In diesem Projekt wird <span class="inline-code" id="1078812459#fzycta_71">&lt;a-marker&gt;</span>
+                                verwendet, um AR.js-Marker zu definieren und 3D-Objekte anzuzeigen, wenn der Marker erkannt wird.</p></div>
+                        </blockquote>
+                        <div class="detached code-block" id="1078812459#fzycta_65"><pre><code class="language-markup">&lt;a-marker preset=&quot;hiro&quot;&gt;
+    &lt;a-box position=&quot;0 0.5 0&quot; rotation=&quot;0 45 0&quot; color=&quot;#4CC3D9&quot;&gt;&lt;/a-box&gt;
+&lt;/a-marker&gt;</code></pre>
+                        </div>
+                        <dl date-style="title-top" id="1078812459#fzycta_66">
+                            <div class="def bordered-element detached">
+                                <dt class="definition-list-title" id="1078812459#siehe-auch-a-marker">Siehe auch</dt>
+                                <dd class="definition-list-description"><p>AR.js (<a href="https://ar-js-org.github.io/AR.js-Docs">https://ar-js-org.github.io/AR.js-Docs</a>)</p>
+                                </dd>
+                            </div>
+                        </dl>
+                        <section><h4 data-toc="a-marker-parameters#Reference.topic-a-marker-parameters" id="1078812459#a-marker-parameters">Parameter</h4>
+                            <ul class="list" id="1078812459#fzycta_74" start="1">
+                                <li class="list-item" id="1078812459#fzycta_75"><p><span class="inline-code" id="1078812459#fzycta_81">preset</span>: Voreingestellter Marker (hiro,
+                                    kanji, barcode, custom).</p></li>
+                                <li class="list-item" id="1078812459#fzycta_76"><p><span class="inline-code" id="1078812459#fzycta_82">type</span>: Typ des Markers (pattern,
+                                    barcode, unknown).</p></li>
+                                <li class="list-item" id="1078812459#fzycta_77"><p><span class="inline-code" id="1078812459#fzycta_83">url</span>: URL des benutzerdefinierten
+                                    Markers.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_78"><p><span class="inline-code" id="1078812459#fzycta_84">size</span>: Gr&ouml;&szlig;e des Markers.
+                                </p></li>
+                                <li class="list-item" id="1078812459#fzycta_79"><p><span class="inline-code" id="1078812459#fzycta_85">emitevents</span>: Definiert, ob Ereignisse
+                                    emittiert werden sollen.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_80"><p><span class="inline-code" id="1078812459#fzycta_86">audiomarker</span>: Definiert, dass der
+                                    Marker Audio enth&auml;lt, was beim Erkennen abgespielt werden soll.</p></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section><h3 data-toc="audio#Reference.topic-audio" id="1078812459#audio">&lt;audio&gt;</h3>
+                        <p id="1078812459#fzycta_88"><span class="inline-code" id="1078812459#fzycta_94">&lt;audio&gt;</span> ist ein HTML-Element, das verwendet wird, um Audio in
+                            eine Webseite einzubinden. Hier wird es verwendet, um das Audio f&uuml;r die Modelle zu definieren.</p>
+                        <blockquote class="prompt flex bordered-element-rounded note detached">
+                            <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9zM10.5 7.5A1.5 1.5 0 1 0 12 6a1.5 1.5 0 0 0-1.5 1.5zm-.5 3.54v1h1V18h2v-6a.96.96 0 0 0-.96-.96z"></path>
+                            </svg>
+                            <div class="prompt-content prompt-content-p"><p>In diesem Projekt wird <span class="inline-code" id="1078812459#fzycta_95">&lt;audio&gt;</span>
+                                verwendet, um Audiodateien f&uuml;r die Modelle zu definieren.</p></div>
+                        </blockquote>
+                        <div class="detached code-block" id="1078812459#fzycta_90"><pre><code class="language-markup">&lt;audio&gt;
+    &lt;source src=&quot;audios/first_message.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+    &lt;track src=&quot;audios/first_message.vtt&quot; label=&quot;Deutsch&quot; srclang=&quot;de&quot; kind=&quot;captions&quot;&gt;
+&lt;/audio&gt;</code></pre>
+                        </div>
+                        <dl date-style="title-top" id="1078812459#fzycta_91">
+                            <div class="def bordered-element detached">
+                                <dt class="definition-list-title" id="1078812459#siehe-auch-audio">Siehe auch</dt>
+                                <dd class="definition-list-description"><p><span class="inline-code" id="1078812459#fzycta_99">audio</span> HTML Docs MDN (<a
+                                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio</a>)
+                                    | HTML <span class="inline-code" id="1078812459#fzycta_100">audio</span> W3Schools (<a href="https://www.w3schools.com/tags/tag_audio.asp">https://www.w3schools.com/tags/tag_audio.asp</a>)
+                                </p></dd>
+                            </div>
+                        </dl>
+                        <section><h4 data-toc="audio-parameters#Reference.topic-audio-parameters" id="1078812459#audio-parameters">Parameter</h4>
+                            <ul class="list" id="1078812459#fzycta_101" start="1">
+                                <li class="list-item" id="1078812459#fzycta_102"><p><span class="inline-code" id="1078812459#fzycta_108">src</span>: URL der Audiodatei.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_103"><p><span class="inline-code" id="1078812459#fzycta_109">type</span>: Typ der Audiodatei
+                                    (audio/mpeg, audio/ogg, audio/wav).</p></li>
+                                <li class="list-item" id="1078812459#fzycta_104"><p><span class="inline-code" id="1078812459#fzycta_110">preload</span>: Definiert, ob die
+                                    Audiodatei beim Laden der Seite geladen werden soll.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_105"><p><span class="inline-code" id="1078812459#fzycta_111">autoplay</span>: Definiert, ob die
+                                    Audiodatei automatisch abgespielt werden soll.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_106"><p><span class="inline-code" id="1078812459#fzycta_112">loop</span>: Definiert, ob die Audiodatei
+                                    in einer Schleife wiedergegeben werden soll.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_107"><p><span class="inline-code" id="1078812459#fzycta_113">controls</span>: Definiert, ob die
+                                    Audiodatei-Steuerung angezeigt werden soll.</p></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section><h3 data-toc="track#Reference.topic-track" id="1078812459#track">&lt;track&gt;</h3>
+                        <p id="1078812459#fzycta_115"><span class="inline-code" id="1078812459#fzycta_121">&lt;track&gt;</span> ist ein HTML-Element, das verwendet wird, um
+                            Untertitel oder Untertitelspuren f&uuml;r Audio- oder Video-Elemente zu definieren.</p>
+                        <blockquote class="prompt flex bordered-element-rounded note detached">
+                            <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9zM10.5 7.5A1.5 1.5 0 1 0 12 6a1.5 1.5 0 0 0-1.5 1.5zm-.5 3.54v1h1V18h2v-6a.96.96 0 0 0-.96-.96z"></path>
+                            </svg>
+                            <div class="prompt-content prompt-content-p"><p>In diesem Projekt wird <span class="inline-code" id="1078812459#fzycta_122">&lt;track&gt;</span>
+                                verwendet, um Untertitel f&uuml;r die Audiodateien zu definieren.</p></div>
+                        </blockquote>
+                        <div class="detached code-block" id="1078812459#fzycta_117">
+                            <pre><code class="language-markup">&lt;track src=&quot;audios/first_message.vtt&quot; label=&quot;Deutsch&quot; srclang=&quot;de&quot; kind=&quot;captions&quot;&gt;</code></pre>
+                        </div>
+                        <dl date-style="title-top" id="1078812459#fzycta_118">
+                            <div class="def bordered-element detached">
+                                <dt class="definition-list-title" id="1078812459#siehe-auch-track">Siehe auch</dt>
+                                <dd class="definition-list-description"><p><span class="inline-code" id="1078812459#fzycta_126">track</span> HTML Docs MDN (<a
+                                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track</a>)
+                                    | HTML <span class="inline-code" id="1078812459#fzycta_127">track</span> W3Schools (<a href="https://www.w3schools.com/tags/tag_track.asp">https://www.w3schools.com/tags/tag_track.asp</a>)
+                                </p></dd>
+                            </div>
+                        </dl>
+                        <section><h4 data-toc="track-parameters#Reference.topic-track-parameters" id="1078812459#track-parameters">Parameter</h4>
+                            <ul class="list" id="1078812459#fzycta_128" start="1">
+                                <li class="list-item" id="1078812459#fzycta_129"><p><span class="inline-code" id="1078812459#fzycta_133">src</span>: URL der Untertitelspur.</p>
+                                </li>
+                                <li class="list-item" id="1078812459#fzycta_130"><p><span class="inline-code" id="1078812459#fzycta_134">label</span>: Label der Untertitelspur.</p>
+                                </li>
+                                <li class="list-item" id="1078812459#fzycta_131"><p><span class="inline-code" id="1078812459#fzycta_135">srclang</span>: Sprache der Untertitelspur.
+                                </p></li>
+                                <li class="list-item" id="1078812459#fzycta_132"><p><span class="inline-code" id="1078812459#fzycta_136">kind</span>: Art der Untertitelspur
+                                    (subtitles, captions, descriptions, chapters, metadata).</p></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section><h3 data-toc="div#Reference.topic-div" id="1078812459#div">&lt;div&gt;</h3>
+                        <p id="1078812459#fzycta_138"><span class="inline-code" id="1078812459#fzycta_144">&lt;div&gt;</span> ist ein generisches Container-Element, das verwendet
+                            wird, um andere HTML-Elemente zu gruppieren.</p>
+                        <blockquote class="prompt flex bordered-element-rounded note detached">
+                            <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9zM10.5 7.5A1.5 1.5 0 1 0 12 6a1.5 1.5 0 0 0-1.5 1.5zm-.5 3.54v1h1V18h2v-6a.96.96 0 0 0-.96-.96z"></path>
+                            </svg>
+                            <div class="prompt-content prompt-content-p"><p>In diesem Projekt wird <span class="inline-code" id="1078812459#fzycta_145">&lt;div&gt;</span>
+                                verwendet, um Schaltfl&auml;chen und Eingabefelder zu gruppieren.</p></div>
+                        </blockquote>
+                        <div class="detached code-block" id="1078812459#fzycta_140"><pre><code class="language-markup">&lt;div style=&quot;position: absolute; top: 0; left: 0; right: 0; z-index: 1;&quot;&gt;
+    &lt;button onclick=&quot;toggleFullscreen()&quot;&gt;Fullscreen&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                        <dl date-style="title-top" id="1078812459#fzycta_141">
+                            <div class="def bordered-element detached">
+                                <dt class="definition-list-title" id="1078812459#siehe-auch-div">Siehe auch</dt>
+                                <dd class="definition-list-description"><p><span class="inline-code" id="1078812459#fzycta_149">div</span> HTML Docs MDN (<a
+                                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div</a>) |
+                                    HTML <span class="inline-code" id="1078812459#fzycta_150">div</span> W3Schools (<a href="https://www.w3schools.com/tags/tag_div.asp">https://www.w3schools.com/tags/tag_div.asp</a>)
+                                </p></dd>
+                            </div>
+                        </dl>
+                        <section><h4 data-toc="div-parameters#Reference.topic-div-parameters" id="1078812459#div-parameters">Parameter</h4>
+                            <ul class="list" id="1078812459#fzycta_151" start="1">
+                                <li class="list-item" id="1078812459#fzycta_152"><p><span class="inline-code" id="1078812459#fzycta_154">id</span>: Eindeutige ID des Elements.</p>
+                                </li>
+                                <li class="list-item" id="1078812459#fzycta_153"><p><span class="inline-code" id="1078812459#fzycta_155">style</span>: CSS-Stile f&uuml;r das
+                                    Element.</p></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section><h3 data-toc="button#Reference.topic-button" id="1078812459#button">&lt;button&gt;</h3>
+                        <p id="1078812459#fzycta_157"><span class="inline-code" id="1078812459#fzycta_163">&lt;button&gt;</span> ist ein HTML-Element, das verwendet wird, um eine
+                            Schaltfl&auml;che in eine Webseite einzubinden.</p>
+                        <blockquote class="prompt flex bordered-element-rounded note detached">
+                            <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9zM10.5 7.5A1.5 1.5 0 1 0 12 6a1.5 1.5 0 0 0-1.5 1.5zm-.5 3.54v1h1V18h2v-6a.96.96 0 0 0-.96-.96z"></path>
+                            </svg>
+                            <div class="prompt-content prompt-content-p"><p>In diesem Projekt wird <span class="inline-code" id="1078812459#fzycta_164">&lt;button&gt;</span>
+                                verwendet, um das Popup f&uuml;r das Ende anzuzeigen und zu best&auml;tigen sowie f&uuml;r die erste Navigation zur AR-Szene.</p></div>
+                        </blockquote>
+                        <div class="detached code-block" id="1078812459#fzycta_159">
+                            <pre><code class="language-markup">&lt;button onclick=&quot;toggleFullscreen()&quot;&gt;Fullscreen&lt;/button&gt;</code></pre>
+                        </div>
+                        <dl date-style="title-top" id="1078812459#fzycta_160">
+                            <div class="def bordered-element detached">
+                                <dt class="definition-list-title" id="1078812459#siehe-auch-button">Siehe auch</dt>
+                                <dd class="definition-list-description"><p><span class="inline-code" id="1078812459#fzycta_168">button</span> HTML Docs MDN (<a
+                                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button</a>)
+                                    | HTML <span class="inline-code" id="1078812459#fzycta_169">button</span> W3Schools (<a href="https://www.w3schools.com/tags/tag_button.asp">https://www.w3schools.com/tags/tag_button.asp</a>)
+                                </p></dd>
+                            </div>
+                        </dl>
+                        <section><h4 data-toc="button-parameters#Reference.topic-button-parameters" id="1078812459#button-parameters">Parameter</h4>
+                            <ul class="list" id="1078812459#fzycta_170" start="1">
+                                <li class="list-item" id="1078812459#fzycta_171"><p><span class="inline-code" id="1078812459#fzycta_173">class</span>: CSS-Klasse des Elements.</p>
+                                </li>
+                                <li class="list-item" id="1078812459#fzycta_172"><p><span class="inline-code" id="1078812459#fzycta_174">onclick</span>: JavaScript-Funktion, die
+                                    aufgerufen wird, wenn die Schaltfl&auml;che geklickt wird.</p></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section><h3 data-toc="label#Reference.topic-label" id="1078812459#label">&lt;label&gt;</h3>
+                        <p id="1078812459#fzycta_176"><span class="inline-code" id="1078812459#fzycta_182">&lt;label&gt;</span> ist ein HTML-Element, das verwendet wird, um ein
+                            Label f&uuml;r ein anderes Element zu definieren.</p>
+                        <blockquote class="prompt flex bordered-element-rounded note detached">
+                            <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9zM10.5 7.5A1.5 1.5 0 1 0 12 6a1.5 1.5 0 0 0-1.5 1.5zm-.5 3.54v1h1V18h2v-6a.96.96 0 0 0-.96-.96z"></path>
+                            </svg>
+                            <div class="prompt-content prompt-content-p"><p>In diesem Projekt wird <span class="inline-code" id="1078812459#fzycta_183">&lt;label&gt;</span>
+                                verwendet, um ein Label f&uuml;r ein Eingabefeld zu definieren.</p></div>
+                        </blockquote>
+                        <div class="detached code-block" id="1078812459#fzycta_178"><pre><code class="language-markup">&lt;label for=&quot;name&quot;&gt;Name:&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;</code></pre>
+                        </div>
+                        <dl date-style="title-top" id="1078812459#fzycta_179">
+                            <div class="def bordered-element detached">
+                                <dt class="definition-list-title" id="1078812459#siehe-auch-label">Siehe auch</dt>
+                                <dd class="definition-list-description"><p><span class="inline-code" id="1078812459#fzycta_187">label</span> HTML Docs MDN (<a
+                                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label</a>)
+                                    | HTML <span class="inline-code" id="1078812459#fzycta_188">label</span> W3Schools (<a href="https://www.w3schools.com/tags/tag_label.asp">https://www.w3schools.com/tags/tag_label.asp</a>)
+                                </p></dd>
+                            </div>
+                        </dl>
+                        <section><h4 data-toc="label-parameters#Reference.topic-label-parameters" id="1078812459#label-parameters">Parameter</h4>
+                            <ul class="list" id="1078812459#fzycta_189" start="1">
+                                <li class="list-item" id="1078812459#fzycta_190"><p><span class="inline-code" id="1078812459#fzycta_191">for</span>: ID des zugeh&ouml;rigen Input (<a
+                                        href="#1078812459#input">&quot;&lt;input&gt;&quot; in &quot;Referenz&quot;</a>)-Elements.</p></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section><h3 data-toc="input#Reference.topic-input" id="1078812459#input">&lt;input&gt;</h3>
+                        <p id="1078812459#fzycta_194"><span class="inline-code" id="1078812459#fzycta_200">&lt;input&gt;</span> ist ein HTML-Element, das verwendet wird, um
+                            Benutzereingaben zu erfassen.</p>
+                        <blockquote class="prompt flex bordered-element-rounded note detached">
+                            <svg class="prompt-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9zM10.5 7.5A1.5 1.5 0 1 0 12 6a1.5 1.5 0 0 0-1.5 1.5zm-.5 3.54v1h1V18h2v-6a.96.96 0 0 0-.96-.96z"></path>
+                            </svg>
+                            <div class="prompt-content prompt-content-p"><p>In diesem Projekt wird <span class="inline-code" id="1078812459#fzycta_201">&lt;input&gt;</span>
+                                verwendet, um das Eingabefeld f&uuml;r den finalen Satz zu definieren.</p></div>
+                        </blockquote>
+                        <div class="detached code-block" id="1078812459#fzycta_196">
+                            <pre><code class="language-markup">&lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;</code></pre>
+                        </div>
+                        <dl date-style="title-top" id="1078812459#fzycta_197">
+                            <div class="def bordered-element detached">
+                                <dt class="definition-list-title" id="1078812459#siehe-auch-input">Siehe auch</dt>
+                                <dd class="definition-list-description"><p><span class="inline-code" id="1078812459#fzycta_205">input</span> HTML Docs MDN (<a
+                                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input</a>)
+                                    | HTML <span class="inline-code" id="1078812459#fzycta_206">input</span> W3Schools (<a href="https://www.w3schools.com/tags/tag_input.asp">https://www.w3schools.com/tags/tag_input.asp</a>)
+                                </p></dd>
+                            </div>
+                        </dl>
+                        <section><h4 data-toc="input-parameters#Reference.topic-input-parameters" id="1078812459#input-parameters">Parameter</h4>
+                            <ul class="list" id="1078812459#fzycta_207" start="1">
+                                <li class="list-item" id="1078812459#fzycta_208"><p><span class="inline-code" id="1078812459#fzycta_213">type</span>: Typ des Eingabefelds (text,
+                                    number, email, password, date, file).</p></li>
+                                <li class="list-item" id="1078812459#fzycta_209"><p><span class="inline-code" id="1078812459#fzycta_214">id</span>: Eindeutige ID des Elements.</p>
+                                </li>
+                                <li class="list-item" id="1078812459#fzycta_210"><p><span class="inline-code" id="1078812459#fzycta_215">value</span>: Standardwert des
+                                    Eingabefelds.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_211"><p><span class="inline-code" id="1078812459#fzycta_216">placeholder</span>: Platzhaltertext im
+                                    Eingabefeld.</p></li>
+                                <li class="list-item" id="1078812459#fzycta_212"><p><span class="inline-code" id="1078812459#fzycta_217">required</span>: Definiert, ob das
+                                    Eingabefeld erforderlich ist.</p></li>
+                            </ul>
+                        </section>
+                    </section>
+                </section>
+                <section><h2 data-toc="css#Reference.topic-css" id="1078812459#css">CSS</h2>
+                    <p id="1078812459#fzycta_218">CSS (Cascading Style Sheets) wird verwendet, um das Aussehen und Layout von HTML-Elementen zu definieren. Es erm&ouml;glicht die
+                        Trennung von Inhalt und Design und bietet eine Vielzahl von Stileigenschaften, um Webseiten zu gestalten. Hierbei wird der Syntax von CSS verwendet.</p>
+                    <div class="detached code-block" id="1078812459#fzycta_219"><pre><code class="language-css">body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}</code></pre>
+                    </div>
+                    <p id="1078812459#fzycta_220">Der Syntax besteht aus einem <span id="1078812459#fzycta_222"><i><font style="color:#cc7832">Selektor</font></i></span> und einer
+                        oder mehreren Deklarationen, die durch geschweifte Klammern <span class="inline-code" id="1078812459#fzycta_223">{}</span> eingeschlossen sind. Jede
+                        Deklaration besteht aus einem <span id="1078812459#fzycta_224"><i><font style="color:#9876aa">Eigenschaftsnamen</font></i></span> und einem <span
+                                id="1078812459#fzycta_225"><i><font style="color:#a9b7c6">Wert</font></i></span>, die durch einen Doppelpunkt <span class="inline-code"
+                                                                                                                                                    id="1078812459#fzycta_226">:</span>.
+                    </p>
+                    <section><h3 data-toc="selektoren#Reference.topic-selektoren" id="1078812459#selektoren">Selektoren</h3>
+                        <p id="1078812459#fzycta_227">Es gibt verschiedene Arten von Selektoren in CSS, die verwendet werden k&ouml;nnen, um HTML-Elemente zu stylen. Mit diesen w&auml;hlt
+                            man die HTML-Elemente aus, denen man neue Stileigenschaften zuweisen m&ouml;chte.</p>
+                        <p id="1078812459#fzycta_228"><span class="control" id="1078812459#fzycta_231">Beispiele von Selektoren sind:</span></p>
+                        <div class="detached code-block" id="1078812459#fzycta_229"><pre><code class="language-css">p {
+    color: red;
+}
+
+#header {
+    font-size: 24px;
+}
+
+.button {
+    background-color: blue;
+}
+
+img[src] {
+    border: 1px solid black;
+}
+
+a:hover {
+    color: green;
+}</code></pre>
+                        </div>
+                        <dl date-style="title-top" id="1078812459#fzycta_230">
+                            <div class="def bordered-element detached">
+                                <dt class="definition-list-title" id="1078812459#siehe-auch-css">Siehe auch</dt>
+                                <dd class="definition-list-description"><p>CSS Selektoren MDN (<a
+                                        href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors">https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors</a>)
+                                    | CSS Selektoren W3Schools (<a href="https://www.w3schools.com/css/css_selectors.asp">https://www.w3schools.com/css/css_selectors.asp</a>)</p>
+                                </dd>
+                            </div>
+                        </dl>
+                    </section>
+                </section>
+                <section><h2 data-toc="javascript#Reference.topic-javascript" id="1078812459#javascript">JavaScript</h2>
+                    <p id="1078812459#fzycta_235">JavaScript ist eine Programmiersprache, die verwendet wird, um Webseiten interaktiv zu gestalten. Es erm&ouml;glicht das Hinzuf&uuml;gen
+                        von Funktionen, Ereignissen und Animationen zu HTML-Elementen. Hierbei wird der Syntax von JavaScript verwendet.</p>
+                    <dl date-style="title-top" id="1078812459#fzycta_236">
+                        <div class="def bordered-element detached">
+                            <dt class="definition-list-title" id="1078812459#siehe-auch-js">Siehe auch</dt>
+                            <dd class="definition-list-description"><p>JavaScript MDN (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">https://developer.mozilla.org/en-US/docs/Web/JavaScript</a>)
+                                | JavaScript W3Schools (<a href="https://www.w3schools.com/js/default.asp">https://www.w3schools.com/js/default.asp</a>)</p></dd>
+                        </div>
+                    </dl>
+                    <section><h3 data-toc="pixel-convert#Reference.topic-pixel-convert" id="1078812459#pixel-convert">pxToXx</h3>
+                        <p id="1078812459#fzycta_246">Die Funktionen <span class="inline-code" id="1078812459#fzycta_249">pxToVh(px)</span> und <span class="inline-code"
+                                                                                                                                                      id="1078812459#fzycta_250">pxToVw(px)</span>
+                            sind kleine Hilfsfunktionen, die verwendet werden, um Pixel in viewport height und width Werte umzurechnen. Damit k&ouml;nnen dann einfacher Responsive
+                            Designs erstellt werden.</p>
+                        <div class="detached code-block" id="1078812459#fzycta_247"><pre><code class="language-javascript">function pxToVh(px) {
+    return px / document.documentElement.clientHeight * 100;
+}
+
+function pxToVw(px) {
+    return px / document.documentElement.clientWidth * 100;
+}</code></pre>
+                        </div>
+                    </section>
+                    <section><h3 data-toc="unit-convert#Reference.topic-unit-convert" id="1078812459#unit-convert">valueOfUnitString</h3>
+                        <p id="1078812459#fzycta_252">Diese Funktion extrahiert aus einer Zeichenkette mit einer Einheit (z.B. &quot;10px&quot;, &quot;50%&quot;) den numerischen
+                            Wert.</p>
+                        <div class="detached code-block" id="1078812459#fzycta_253"><pre><code class="language-javascript">function valueOfUnitString(unitString) {
+    const unitStringRegex = /([0-9.]+)([a-z%]+)/i;
+    return parseFloat(unitStringRegex.exec(unitString)[1]);
+}</code></pre>
+                        </div>
+                    </section>
+                    <section><h3 data-toc="check-collision#Reference.topic-check-collision" id="1078812459#check-collision">isColliding</h3>
+                        <p id="1078812459#fzycta_256">Diese Funktion &uuml;berpr&uuml;ft, ob ein Bild sich mit einem schon platziertem Bild &uuml;berschneiden w&uuml;rde, wenn es
+                            an platziert werden w&uuml;rde.</p>
+                        <div class="detached code-block" id="1078812459#fzycta_257"><pre><code class="language-javascript">/**
+ * @param placedImages - Ein Array von Bildern, die schon platziert wurden
+ * @param image - Das Bild, das platziert werden soll
+ * @returns {boolean} - Gibt zurück, ob das Bild sich mit einem schon platzierten Bild überschneiden würde
+ */
+function isColliding(placedImages, image) {
+    return placedImages.some(img =&gt; Math.abs(img.top - image.top) &lt; img.height + image.height &amp;&amp; Math.abs(img.left - image.left) &lt; img.width + image.width);
+}</code></pre>
+                        </div>
+                    </section>
+                    <section><h3 data-toc="popup-functions#Reference.topic-popup-functions" id="1078812459#popup-functions">Popup Funktionen</h3>
+                        <p id="1078812459#fzycta_260">Diese Funktionen sind f&uuml;r das Anzeigen, das Schlie&szlig;en und das Validieren des Popups zust&auml;ndig.</p>
+                        <section><h4 data-toc="show-popup#Reference.topic-show-popup" id="1078812459#show-popup">showPopup</h4>
+                            <p id="1078812459#fzycta_266">Diese Funktion zeigt das Popup an.</p>
+                            <div class="detached code-block" id="1078812459#fzycta_267"><pre><code class="language-javascript">function showPopup() {
+    document.getElementById('popup').style.display = 'flex';
+    document.getElementById('showPopupButton').style.display = 'none';
+    document.addEventListener('click', closePopupOnClickOutside);
+}</code></pre>
+                            </div>
+                        </section>
+                        <section><h4 data-toc="close-popup#Reference.topic-close-popup" id="1078812459#close-popup">closePopup</h4>
+                            <p id="1078812459#fzycta_270">Diese Funktion schlie&szlig;t das Popup.</p>
+                            <div class="detached code-block" id="1078812459#fzycta_271"><pre><code class="language-javascript">function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('showPopupButton').style.display = 'block';
+    document.removeEventListener('click', closePopupOnClickOutside);
+}</code></pre>
+                            </div>
+                        </section>
+                        <section><h4 data-toc="close-popup-on-click-outside#Reference.topic-close-popup-on-click-outside" id="1078812459#close-popup-on-click-outside">
+                            closePopupOnClickOutside</h4>
+                            <p id="1078812459#fzycta_274">Diese Funktion schlie&szlig;t das Popup, wenn der Benutzer au&szlig;erhalb des Popups klickt.</p>
+                            <div class="detached code-block" id="1078812459#fzycta_275"><pre><code class="language-javascript">/**
+ * @param {Event} event - Das click Event.
+ */
+function closePopupOnClickOutside(event) {
+    const popup = document.getElementById('popup');
+    const button = document.getElementById('showPopupButton');
+
+    if (!popup.contains(event.target) &amp;&amp; !button.contains(event.target)) {
+        closePopup();
+    }
+}</code></pre>
+                            </div>
+                        </section>
+                        <section><h4 data-toc="check-sentence#Reference.topic-check-sentence" id="1078812459#check-sentence">checkSentence</h4>
+                            <p id="1078812459#fzycta_278">Die Funktion &uuml;berpr&uuml;ft, ob der eingeben Satz korrekt ist und, wenn der Satz korrekt ist, zeigt das Model an und
+                                l&auml;sst das Audio dazu abspielen.</p>
+                            <div class="detached code-block" id="1078812459#fzycta_279"><pre><code class="language-javascript">function checkSentence() {
+    const inputField = document.getElementById('endSentenceInput');
+    const input = inputField.value;
+    const correctSentence = /^Die Wahrheit liegt im Licht\.?$/i; // Ersetze dies durch den korrekten Satz
+
+    if (correctSentence.test(input)) {
+        closePopup();
+
+        const model = document.querySelector('a-entity#final');
+        const audio = model.querySelector(&quot;audio&quot;);
+
+        model.setAttribute('visible', true);
+
+        audio.play().then(() =&gt; console.info(`Playing ${audio.currentSrc}`)).catch(e =&gt; console.error(e));
+        audio.onended = () =&gt; {
+            model.setAttribute('visible', false);
+        }
+    } else {
+        setTimeout(() =&gt; alert(`Der Satz &quot;${input}&quot; ist falsch. Bitte versuchen Sie es erneut.`), 500);
+    }
+    inputField.value = &quot;&quot;;
+}</code></pre>
+                            </div>
+                        </section>
+                    </section>
+                    <section><h3 data-toc="window-load#Reference.topic-window-load" id="1078812459#window-load">Lade Funktion der Seite</h3>
+                        <p id="1078812459#fzycta_282">Um Code auszuf&uuml;hren, wenn die Seite geladen wird, muss man den <span class="inline-code" id="1078812459#fzycta_284">window.onload</span>
+                            Event Listener verwenden.</p>
+                        <div class="detached code-block" id="1078812459#fzycta_283"><pre><code class="language-javascript">window.onload = function () {
+    getCleanUrl();
+    setupInputFieldListener();
+    setupAudioTracks();
+    placeDecorationImages();
+};</code></pre>
+                        </div>
+                    </section>
+                </section>
+                <div class="top-bottom-bordered-element detached" id="1078812459#fzycta_7"><h4 class="secondary-title">See also</h4>
+                    <div class="category" id="1078812459#fzycta_285"><h4 class="category-title">External documentation</h4>
+                        <ol class="list-none category-link">
+                            <li class="category-item">https://developer.mozilla.org/en-US/docs/Web/CSS (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS">https://developer.mozilla.org/en-US/docs/Web/CSS</a>)
+                            </li>
+                            <li class="category-item">https://developer.mozilla.org/en-US/docs/Web/JavaScript (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">https://developer.mozilla.org/en-US/docs/Web/JavaScript</a>)
+                            </li>
+                            <li class="category-item">https://aframe.io/docs/0.9.0/introduction/ (<a href="https://aframe.io/docs/0.9.0/introduction/">https://aframe.io/docs/0.9.0/introduction/</a>)
+                            </li>
+                            <li class="category-item">https://developer.mozilla.org/en-US/docs/Web/HTML (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML">https://developer.mozilla.org/en-US/docs/Web/HTML</a>)
+                            </li>
+                            <li class="category-item">https://ar-js-org.github.io/AR.js-Docs/ (<a href="https://ar-js-org.github.io/AR.js-Docs/">https://ar-js-org.github.io/AR.js-Docs/</a>)
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+</body>
+</html>
