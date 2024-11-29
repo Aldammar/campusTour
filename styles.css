@@ -8,7 +8,7 @@ body, html {
     align-items: center;
     font-family: Nosifer, sans-serif !important;
     font-size: 24px;
-    background: url("images/halloween_pumpkin_lantern_moon_horror.png") no-repeat center center fixed;
+    background: url("images/Hintergrund1_Horror.png") no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -20,7 +20,27 @@ body, html {
     align-items: center;
 }
 
+
 em {
+    background: linear-gradient(90deg, #ff3333, #660000); /* Dunkles Blutrot und tiefes Rot */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-style: normal;
+    font-family: 'Nosifer', cursive; /* Horror-Schriftart */
+    animation: flicker 4s infinite; /* Flacker-Animation */
+}
+
+/* Animation für flackernden Text */
+@keyframes flicker {
+    0%, 100% { opacity: 1; text-shadow: 0 0 10px #f55252; } /* Helles Rot */
+    50% { opacity: 0.9; text-shadow: 0 0 15px #920000; } /* Dunkleres Rot */
+    
+}
+
+/* Halloween */
+/* em {
     background: linear-gradient(red, orangered);
     background-clip: text;
     -webkit-background-clip: text;
@@ -28,9 +48,26 @@ em {
     color: transparent;
     font-style: normal;
     filter: drop-shadow(0 0 .15em lightyellow);
-}
+} */
+
 
 h1 {
+    background: linear-gradient(90deg, crimson, darkred, black);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    width: fit-content;
+    text-align: center;
+    text-wrap: balance;
+    margin: 3rem;
+    
+   
+    font-family: 'Nosifer', cursive; /* Horror-Schriftart */
+}
+
+/* Halloween */
+/* h1 {
     background: linear-gradient(orange, darkorange);
     background-clip: text;
     -webkit-background-clip: text;
@@ -42,7 +79,7 @@ h1 {
     text-wrap: balance;
     margin: 3rem;
     filter: drop-shadow(0 0 .15em #660000);
-}
+} */
 
 button {
     padding: 1rem 2rem;
