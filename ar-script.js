@@ -7,29 +7,7 @@ window.onload = () => {
 
     setupInputFieldListener();
 
-    if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-        const audio_load_popup = document.createElement("div");
-        audio_load_popup.className = "popup";
-        audio_load_popup.id = "audioLoadPopup";
-        const heading = document.createElement("h1");
-        heading.textContent = "Audios laden";
-        const paragraph = document.createElement("p");
-        paragraph.textContent = "Bitte bestätige, dass du alle Audios laden willst. Ansonsten wird die Seite nicht korrekt funktionieren.";
-        const button = document.createElement("button");
-        button.textContent = "Audios laden";
-        button.onclick = () => {
-            document.getElementById("audioLoadPopup").style.display = "none";
-            loadMedia();
-        };
-        button.className = "confirmButton";
-        audio_load_popup.appendChild(heading);
-        audio_load_popup.appendChild(paragraph);
-        audio_load_popup.appendChild(button);
-        document.body.appendChild(audio_load_popup);
-        audio_load_popup.style.display = "flex";
-    } else {
-        setupAudioTracks();
-    }
+    setupAudioTracks();
 
     placeDecorationImages();
 };
@@ -45,6 +23,32 @@ AFRAME.registerComponent('audiomarker', {
     init: function () {
         const marker = this.el;
         const audio = marker.querySelector("audio");
+        if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+            const playButton = document.createElement("button");
+            playButton.textContent = "Play";
+            playButton.onclick = () => {
+                if (audio.paused) {
+                    audio.play().then(() => {
+                        playButton.textContent = "Pause";
+                        playButton.className = playButton.className.replace("paused", "playing");
+                        console.info(`Playing ${audio.currentSrc}`);
+                    }).catch(e => console.error(e));
+                } else {
+                    audio.pause()
+                    playButton.textContent = "Play";
+                    playButton.className = playButton.className.replace("playing", "paused");
+                    console.info(`Paused ${audio.currentSrc}`);
+                }
+            }
+            marker.addEventListener('markerFound', () => {
+                playButton.style.display = 'block';
+            });
+            marker.addEventListener('markerLost', () => {
+                playButton.style.display = 'none';
+            });
+            playButton.className = "playButton paused";
+            marker.appendChild(playButton);
+        }
 
         marker.addEventListener('markerFound', () => {
             console.info(`Marker ${marker.id} found`);
@@ -58,15 +62,6 @@ AFRAME.registerComponent('audiomarker', {
         });
     }
 })
-
-function loadMedia() {
-    for (const audio in document.querySelectorAll("audio")) {
-        audio.muted = true;
-        audio.play();
-        audio.muted = false;
-    }
-    setupAudioTracks();
-}
 
 /**
  * Function to clean and redirect the URL.
